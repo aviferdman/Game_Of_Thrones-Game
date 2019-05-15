@@ -54,4 +54,8 @@ public abstract class Unit {
 
     public abstract boolean play();
 
+    public boolean IsInRange(int range){
+        return false;
+    }
+
 }
