@@ -19,6 +19,7 @@ public class Warrior extends Player {
         remaining= remaining-1;
     }
 
+
     public boolean cast(){
         if (remaining > 0){
             return false;

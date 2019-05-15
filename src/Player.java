@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public abstract class Player extends  Unit {
     Integer experience;
     Integer level;
@@ -50,4 +52,14 @@ public abstract class Player extends  Unit {
     }
 
     public abstract boolean play();
+
+    public LinkedList<Unit> getEnemies(int range) {
+        LinkedList<Unit> enemies = Board.getUnits;
+        for (Unit Enemy: enemies) {
+            if (!Enemy.IsInRange(range)){
+                enemies.remove(Enemy);
+            }
+        }
+        return enemies;
+    }
 }
