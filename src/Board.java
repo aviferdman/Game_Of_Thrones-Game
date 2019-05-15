@@ -1,11 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.List;
 public class Board {
     int width;
     int length;
     Player player;
-    Unit [] units;
+    List<Unit> units = new LinkedList<>();
     public Board (Player player){
         this.player=player;
         File file =
@@ -76,6 +78,22 @@ public class Board {
                     moster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
+                if(c=='B'){
+                    Trap trap = new Trap ("Bonus Trap", 'B', 1, 1, 1, 250, 5, 6, 2);
+                    trap.setPosition(lineNumber,i);
+                    units.add(trap);
+                }
+                if(c=='Q'){
+                    Trap trap = new Trap ("Queen’s Trap", 'Q', 250, 50, 10, 100, 4, 10, 4);
+                    trap.setPosition(lineNumber,i);
+                    units.add(trap);
+                }
+                if(c=='D'){
+                    Trap trap = new Trap ("Death Trap", 'D', 500, 100, 20, 250, 6, 10, 3);
+                    trap.setPosition(lineNumber,i);
+                    units.add(trap);
+                }
+
             }
             lineNumber=lineNumber+1;
         }
@@ -84,5 +102,8 @@ public class Board {
         for (Unit unit : units) {
             unit.play();
         }
+    }
+    public List<Unit> getUnits(){
+        return this.units;
     }
 }
