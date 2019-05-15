@@ -4,14 +4,59 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.List;
 public class Board {
+
     int width;
     int length;
     Player player;
     List<Unit> units = new LinkedList<>();
+    List<Position> free = new LinkedList<>();
+    List<Position> walls = new LinkedList<>();
+
     public Board (Player player){
         this.player=player;
+        setBoard("C:\\HW3\\level1.txt");
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+    public List<Unit> getUnits(){
+        return this.units;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setUnits(List<Unit> units) {
+        this.units = units;
+    }
+
+    public void Tick (){
+        for (Unit unit : units) {
+            unit.play();
+        }
+    }
+
+    public void setBoard (String path){
         File file =
-                new File("C:\\HW3\\level1.txt");
+                new File(path);
         Scanner sc = null;
         try
         {
@@ -93,17 +138,82 @@ public class Board {
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }
-
+                if(c=='#'){
+                    walls.add(lineNumber,i);
+                }
+                if(c=='.'){
+                    free.add(lineNumber,i);
+                }
             }
             lineNumber=lineNumber+1;
         }
     }
-    public void Tick (){
-        for (Unit unit : units) {
-            unit.play();
+
+    public boolean moveUp(Unit unit){
+        Position toMove =new Position();
+        toMove.setX(unit.getPosition().getX());
+        toMove.setY(unit.getPosition().getY()-1);
+        if(free.contains(toMove)){
+            free.remove(toMove);
+            toMove.setY(toMove.getY()+1);
+            free.add(toMove);
+            units.remove(unit);
+            unit.setPosition(unit.getPosition().getX(),unit.getPosition().getY()-1);
+            return true;
+        }
+        else {
+            return false;
         }
     }
-    public List<Unit> getUnits(){
-        return this.units;
+
+    public boolean moveDown(Unit unit){
+        Position toMove =new Position();
+        toMove.setX(unit.getPosition().getX());
+        toMove.setY(unit.getPosition().getY()+1);
+        if(free.contains(toMove)){
+            free.remove(toMove);
+            toMove.setY(toMove.getY()-1);
+            free.add(toMove);
+            units.remove(unit);
+            unit.setPosition(unit.getPosition().getX(),unit.getPosition().getY()+1);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean moveLeft(Unit unit){
+        Position toMove =new Position();
+        toMove.setX(unit.getPosition().getX()-1);
+        toMove.setY(unit.getPosition().getY());
+        if(free.contains(toMove)){
+            free.remove(toMove);
+            toMove.setX(toMove.getY()+1);
+            free.add(toMove);
+            units.remove(unit);
+            unit.setPosition(unit.getPosition().getX()-1,unit.getPosition().getY());
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean moveRight(Unit unit){
+        Position toMove =new Position();
+        toMove.setX(unit.getPosition().getX()+1);
+        toMove.setY(unit.getPosition().getY());
+        if(free.contains(toMove)){
+            free.remove(toMove);
+            toMove.setX(toMove.getY()-1);
+            free.add(toMove);
+            units.remove(unit);
+            unit.setPosition(unit.getPosition().getX()+1,unit.getPosition().getY());
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
