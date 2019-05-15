@@ -1,4 +1,4 @@
-public class Unit {
+public abstract class Unit {
     String name;
     Health health;
     Integer attackPoints;
@@ -51,5 +51,7 @@ public class Unit {
     public void setPosition(Position position) {
         this.position = position;
     }
+
+    public abstract boolean play();
 
 }
