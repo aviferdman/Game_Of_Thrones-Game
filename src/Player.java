@@ -1,4 +1,4 @@
-public class Player extends  Unit {
+public abstract class Player extends  Unit {
     Integer experience;
     Integer level;
     SpecialAbility specialAbility;
@@ -44,4 +44,6 @@ public class Player extends  Unit {
             defencePoints = defencePoints + (2 * level);
         }
     }
+
+    public abstract boolean play();
 }
