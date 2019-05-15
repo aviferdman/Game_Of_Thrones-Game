@@ -21,4 +21,9 @@ public class Position {
     public void setY(Integer y) {
         this.y = y;
     }
+
+    public void setPosition(int x,int y){
+        setX(x);
+        setY(y);
+    }
 }
