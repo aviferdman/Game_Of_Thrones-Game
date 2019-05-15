@@ -11,7 +11,7 @@ public class Warrior extends Player {
     }
 
     @Override
-    public boolean play() {
+    public boolean play () {
         return false;
     }
 
@@ -23,6 +23,7 @@ public class Warrior extends Player {
         if (remaining > 0){
             return false;
         }
+
         else {
             remaining = cooldown;
             health.currentHealth = Math.min(health.getCurrentHealth()+ 2* getDefencePoints(), health.getHealthPool() );
