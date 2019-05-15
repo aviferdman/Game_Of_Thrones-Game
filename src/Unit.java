@@ -1,9 +1,11 @@
 public abstract class Unit {
-    String name;
-    Health health;
-    Integer attackPoints;
-    Integer defencePoints;
-    Position position;
+
+    private String name;
+    private Health health;
+    private Integer attackPoints;
+    private Integer defencePoints;
+    private Position position;
+
     public Unit(String name, Health health, Integer attackPoints, Integer defencePoints, Position position){
         this.name = name;
         this.health=health;
@@ -41,7 +43,9 @@ public abstract class Unit {
     }
 
     public void setHealth(Health health) {
-        this.health = health;
+        if (health.getCurrentHealth()<= health.getHealthPool()) {
+            this.health = health;
+        }
     }
 
     public void setName(String name) {
@@ -55,8 +59,22 @@ public abstract class Unit {
 
     public abstract boolean play();
 
-    public boolean IsInRange(int range){
-        return false;
+    public boolean IsInRange(Unit enemy,int range) {
+        if (enemy==null) {
+            return false;
+        }
+        int x = position.getX();
+        int y = position.getY();
+
+        int a = enemy.getPosition().getX();
+        int b = enemy.getPosition().getY();
+
+        if ((Math.sqrt((b-y)^2 + (a-x)^2))<range){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }

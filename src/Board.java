@@ -5,12 +5,12 @@ import java.util.Scanner;
 import java.util.List;
 public class Board {
 
-    int width;
-    int length;
-    Player player;
-    List<Unit> units = new LinkedList<>();
-    List<Position> free = new LinkedList<>();
-    List<Position> walls = new LinkedList<>();
+    private int width;
+    private int length;
+    private Player player;
+    LinkedList<Unit> units = new LinkedList<>();
+    private LinkedList<Position> free = new LinkedList<>();
+    private LinkedList<Position> walls = new LinkedList<>();
 
     public Board (Player player){
         this.player=player;
@@ -28,7 +28,8 @@ public class Board {
     public Player getPlayer() {
         return player;
     }
-    public List<Unit> getUnits(){
+
+    public LinkedList<Unit> getUnits(){
         return this.units;
     }
 
@@ -44,7 +45,7 @@ public class Board {
         this.player = player;
     }
 
-    public void setUnits(List<Unit> units) {
+    public void setUnits(LinkedList<Unit> units) {
         this.units = units;
     }
 

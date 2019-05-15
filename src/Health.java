@@ -1,17 +1,19 @@
 public class Health {
-    Integer healthPool;
-    Integer currentHealth;
+
+    private Integer healthPool;
+    private Integer currentHealth;
+
     public Health (Integer healthPool, Integer currentHealth){
         this.healthPool = healthPool;
         this.currentHealth = currentHealth;
     }
 
     public Integer getCurrentHealth() {
-        return currentHealth;
+        return this.currentHealth;
     }
 
     public Integer getHealthPool() {
-        return healthPool;
+        return this.healthPool;
     }
 
     public void setCurrentHealth(Integer currentHealth) {

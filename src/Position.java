@@ -1,6 +1,8 @@
 public class Position {
-    Integer x;
-    Integer y;
+
+    private Integer x;
+    private Integer y;
+
     public Position (){
         this.x =x;
         this.y=y;

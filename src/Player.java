@@ -1,15 +1,46 @@
 import java.util.LinkedList;
 
 public abstract class Player extends  Unit {
-    Integer experience;
-    Integer level;
-    SpecialAbility specialAbility;
+
+    private Integer experience;
+    private Integer level;
+    private SpecialAbility specialAbility;
+    private LinkedList<Unit> enemies;
 
     public Player(Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(name, health, attackPoints, defencePoints, position);
         this.experience = 0;
         this.level = 1;
         this.specialAbility = specialAbility;
+        this.enemies = new LinkedList<>();
+    }
+
+    public void setPosition (int x,int y){
+        setPosition(x,y);
+    }
+
+    public void levelUp() {
+        while (experience > 50 * level) {
+            this.experience = this.experience - (50 * this.level);
+            this.level = this.level + 1;
+            getHealth().setHealthPool(getHealth().getHealthPool() + (10 * this.level));
+            getHealth().setCurrentHealth(getHealth().getHealthPool());
+            setAttackPoints(getAttackPoints() + (5 * this.level));
+            setDefencePoints(getDefencePoints() + (2 * this.level));
+        }
+    }
+
+    public abstract boolean play();
+
+    public LinkedList<Unit> getEnemiesInRange(int range) {
+        Board b = new Board(this);
+        this.enemies = b.getUnits();
+        for (Unit Enemy: enemies) {
+            if (!this.IsInRange(Enemy,range)){
+                enemies.remove(Enemy);
+            }
+        }
+        return enemies;
     }
 
     public Integer getExperience() {
@@ -34,32 +65,5 @@ public abstract class Player extends  Unit {
 
     public void setSpecialAbility(SpecialAbility specialAbility) {
         this.specialAbility = specialAbility;
-    }
-
-    public void setPosition (int x,int y){
-        this.position.setPosition(x,y);
-    }
-
-    public void levelUp() {
-        while (experience > 50 * level) {
-            experience = experience - (50 * level);
-            level = level + 1;
-            health.setHealthPool(getHealth().getHealthPool() + (10 * level));
-            health.setCurrentHealth(health.getHealthPool());
-            attackPoints = attackPoints + (5 * level);
-            defencePoints = defencePoints + (2 * level);
-        }
-    }
-
-    public abstract boolean play();
-
-    public LinkedList<Unit> getEnemies(int range) {
-        LinkedList<Unit> enemies = Board.getUnits;
-        for (Unit Enemy: enemies) {
-            if (!Enemy.IsInRange(range)){
-                enemies.remove(Enemy);
-            }
-        }
-        return enemies;
     }
 }
