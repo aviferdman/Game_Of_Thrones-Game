@@ -36,6 +36,10 @@ public abstract class Player extends  Unit {
         this.specialAbility = specialAbility;
     }
 
+    public void setPosition (int x,int y){
+        this.position.setPosition(x,y);
+    }
+
     public void levelUp() {
         while (experience > 50 * level) {
             experience = experience - (50 * level);
