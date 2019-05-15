@@ -2,8 +2,9 @@ public class Player extends  Unit {
     Integer experience;
     Integer level;
     SpecialAbility specialAbility;
-    public Player (Integer experience, Integer level, SpecialAbility specialAbility,String name, Health health, Integer attackPoints, Integer defencePoints, Position position){
-        super(name,health,attackPoints,defencePoints,position);
+
+    public Player(Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
+        super(name, health, attackPoints, defencePoints, position);
         this.experience = 0;
         this.level = 1;
         this.specialAbility = specialAbility;
@@ -33,8 +34,8 @@ public class Player extends  Unit {
         this.specialAbility = specialAbility;
     }
 
-    public void levelUp(){
-        while (experience>50*level) {
+    public void levelUp() {
+        while (experience > 50 * level) {
             experience = experience - (50 * level);
             level = level + 1;
             health.setHealthPool(getHealth().getHealthPool() + (10 * level));
