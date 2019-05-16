@@ -138,19 +138,19 @@ public class Board {
                 }
                 if(c=='B'){
                     this.health.setCurrentHealth(1);
-                    Unit trap = new Trap ("Bonus Trap", 'B', this.health, 1, 1, 1, 250, 5, 6,2,this.pos);
+                    Unit trap = new Trap ("Bonus Trap", 'B', this.health, 1, 1, 250, 5, 6,2,this.pos);
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }
                 if(c=='Q'){
                     this.health.setCurrentHealth(250);
-                    Unit trap = new Trap ("Queen’s Trap", 'Q', this.health, 50, 10, 1, 100, 4, 10,4,this.pos);
+                    Unit trap = new Trap ("Queen’s Trap", 'Q', this.health, 50, 10, 100, 4, 10,4,this.pos);
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }
                 if(c=='D'){
                     this.health.setCurrentHealth(500);
-                    Unit trap = new Trap ("Death Trap", 'D', this.health, 100, 20, 1, 250, 6, 10,3,this.pos);
+                    Unit trap = new Trap ("Death Trap", 'D', this.health, 100, 20, 250, 6, 10,3,this.pos);
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }

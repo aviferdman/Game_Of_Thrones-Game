@@ -17,8 +17,14 @@ public class Warrior extends Player {
         return false;
     }
 
+    public void levelUp() {
+        this.remaining = 0;
+        this.getHealth().setHealthPool(this.getHealth().getHealthPool() + (5 * this.getLevel()));
+        this.setDefencePoints(this.getDefencePoints() + this.getLevel());
+    }
+
     public void gametick() {
-        remaining = remaining - 1;
+        this.remaining = this.remaining - 1;
     }
 
     public boolean cast() {
