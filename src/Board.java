@@ -8,6 +8,8 @@ public class Board {
     private int width;
     private int length;
     private Player player;
+    private Health health = new Health(0,0);
+    private Position pos = new Position();
     LinkedList<Unit> units = new LinkedList<>();
     private LinkedList<Position> free = new LinkedList<>();
     private LinkedList<Position> walls = new LinkedList<>();
@@ -75,75 +77,90 @@ public class Board {
                     player.setPosition(lineNumber,i);
                 }
                 if(c=='s'){
-                    Unit monster = new Monster ("Lannister Solider" ,'s',80, 8, 3, 3, 25);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(80);
+                    Unit monster = new Monster ("Lannister Solider" ,'s',this.health, 8, 3, 3, 25,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='k'){
-                    Unit monster = new Monster ("Lannister Knight", 'k', 200, 14, 8, 4, 50);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(200);
+                    Unit monster = new Monster ("Lannister Knight", 'k', this.health, 14, 8, 4, 50,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='q'){
-                    Unit monster = new Monster ("Queen’s Guard", 'q', 400, 20, 15, 5, 100);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(400);
+                    Unit monster = new Monster ("Queen’s Guard", 'q', this.health, 20, 15, 5, 100,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='z'){
-                    Unit monster = new Monster ("Wright", 'z', 600, 30, 15, 3, 100);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(600);
+                    Unit monster = new Monster ("Wright", 'z', this.health, 30, 15, 3, 100,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='b'){
-                    Unit monster = new Monster ("Bear-Wright", 'b', 1000, 75, 30, 4, 250);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(1000);
+                    Unit monster = new Monster ("Bear-Wright", 'b', this.health, 75, 30, 4, 250,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='g'){
-                    Unit monster = new Monster ("Giant-Wright", 'g', 1500, 100, 40, 5, 500);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(1500);
+                    Unit monster = new Monster ("Giant-Wright", 'g', this.health, 100, 40, 5, 500,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='w'){
-                    Unit monster = new Monster ("White Walker", 'w', 2000, 150, 50, 6, 1000);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(2000);
+                    Unit monster = new Monster ("White Walker", 'w', this.health, 150, 50, 6, 1000,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='M'){
-                    Unit monster = new Monster ("The Mountain", 'M', 1000, 60, 25, 6, 500);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(1000);
+                    Unit monster = new Monster ("The Mountain", 'M', this.health, 60, 25, 6, 500,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='C'){
-                    Unit monster = new Monster ("Queen Cersei" ,'C', 100, 10, 10, 1, 1000);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(100);
+                    Unit monster = new Monster ("Queen Cersei" ,'C', this.health, 10, 10, 1, 1000,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='K'){
-                    Unit monster = new Monster ("Night’s King", 'K', 5000, 300, 150, 8, 5000);
-                    moster.setPosition(lineNumber,i);
+                    this.health.setCurrentHealth(5000);
+                    Unit monster = new Monster ("Night’s King", 'K', this.health, 300, 150, 8, 5000,this.pos);
+                    monster.setPosition(lineNumber,i);
                     units.add(monster);
                 }
                 if(c=='B'){
-                    Unit trap = new Trap ("Bonus Trap", 'B', 1, 1, 1, 250, 5, 6, 2);
+                    this.health.setCurrentHealth(1);
+                    Unit trap = new Trap ("Bonus Trap", 'B', this.health, 1, 1, 1, 250, 5, 6,2,this.pos);
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }
                 if(c=='Q'){
-                    Unit trap = new Trap ("Queen’s Trap", 'Q', 250, 50, 10, 100, 4, 10, 4);
+                    this.health.setCurrentHealth(250);
+                    Unit trap = new Trap ("Queen’s Trap", 'Q', this.health, 50, 10, 1, 100, 4, 10,4,this.pos);
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }
                 if(c=='D'){
-                    Unit trap = new Trap ("Death Trap", 'D', 500, 100, 20, 250, 6, 10, 3);
+                    this.health.setCurrentHealth(500);
+                    Unit trap = new Trap ("Death Trap", 'D', this.health, 100, 20, 1, 250, 6, 10,3,this.pos);
                     trap.setPosition(lineNumber,i);
                     units.add(trap);
                 }
                 if(c=='#'){
-                    walls.add(lineNumber,i);
+                    this.pos.setPosition(lineNumber,i);
+                    walls.add(this.pos);
                 }
                 if(c=='.'){
-                    free.add(lineNumber,i);
+                    this.pos.setPosition(lineNumber,i);
+                    free.add(this.pos);
                 }
             }
             lineNumber=lineNumber+1;

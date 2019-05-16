@@ -2,11 +2,14 @@ public class Warrior extends Player {
 
     private int cooldown;
     private int remaining;
+    private SpecialAbility Heal;
+    private SpecialAbility specialAbility;
 
     public Warrior(int cooldown, Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(experience, level, specialAbility, name, health, attackPoints, defencePoints, position);
         this.remaining = 0;
         this.cooldown = cooldown;
+        this.specialAbility = Heal;
     }
 
     @Override

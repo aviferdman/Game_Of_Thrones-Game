@@ -1,6 +1,6 @@
 public class Monster extends Enemy {
 
-    public Monster(Integer experienceValue, char tile, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experienceValue, tile, name, health, attackPoints, defencePoints, position);
+    public Monster(String name, char tile, Health health, int attackPoints, int defencePoints, int visionRange, int experienceValue, Position position) {
+        super(name, tile, health, attackPoints, defencePoints, visionRange, experienceValue, position);
     }
 }
