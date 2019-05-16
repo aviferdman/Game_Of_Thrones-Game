@@ -1,4 +1,4 @@
-public class Enemy extends Unit{
+public abstract class Enemy extends Unit{
 
     private Integer experienceValue;
     private char tile;

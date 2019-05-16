@@ -40,15 +40,20 @@ public class Mage extends Player {
 
     public boolean cast() {
         if (this.CurrentMana < this.ManaCost) {
-            System.out.println("error");
+            return false;
         } else {
             this.CurrentMana = this.CurrentMana - this.ManaCost;
             int hits = 0;
-            while (hits < this.HitTimes) {
-
+            LinkedList<Unit> enemies = getEnemiesInRange(this.Range);
+            while (hits < this.HitTimes & !enemies.isEmpty() ) {
+                int enemyIndex = (int)(Math.random() * enemies.toArray().length);
+                Enemy currEnemy = (Enemy) enemies.get(enemyIndex);
+                Health healthAfterAttack = new Health(currEnemy.getHealth().getHealthPool(),this.SpellPower);
+                currEnemy.setHealth(healthAfterAttack);
+                this.HitTimes++;
             }
+            return true;
         }
-        return false;
     }
 
     public int getSpellPower() {
