@@ -201,4 +201,6 @@ public class Board {
             return false;
         }
     }
+
+    public boolean move(Unit unit, String direction){}
 }
