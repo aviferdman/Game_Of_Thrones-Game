@@ -1,12 +1,17 @@
 package Characters;
 
+import Attributes.Health;
+import Attributes.Position;
+import States.Board;
+import States.Combat;
+
 import java.util.LinkedList;
 
 public abstract class Player extends Unit {
 
     private Integer experience;
     private Integer level;
-    private LinkedList<Unit> enemies;
+    private LinkedList<Enemy> enemies;
 
     public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(name, health, attackPoints, defencePoints, position);
@@ -32,9 +37,9 @@ public abstract class Player extends Unit {
 
     public abstract boolean play();
 
-    public LinkedList<Unit> getEnemiesInRange(int range) {
+    public LinkedList<Enemy> getEnemiesInRange(int range) {
         Board b = new Board(this);
-        this.enemies = b.getUnits();
+        this.enemies = b.getEnemies();
         for (Unit Enemy: enemies) {
             if (!this.IsInRange(Enemy,range)){
                 enemies.remove(Enemy);

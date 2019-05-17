@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b88db07f-53ba-4f77-a8da-bcbf5e9a142a" name="Default Changelist" comment="stepped on function">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/States/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/States/Combat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Random/DRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Free.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Free.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attributes/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Random/IRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Mage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/States/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NDRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Random/NDRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attributes/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Random/RandomGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/States/ReadFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Trap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Trap.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,24 +15,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/States/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding>
-                <element signature="method#Tick#0;class#Board#0" />
-                <element signature="method#moveUp#0;class#Board#0" />
-                <element signature="method#moveDown#0;class#Board#0" />
-                <element signature="method#moveLeft#0;class#Board#0" />
-                <element signature="method#moveRight#0;class#Board#0" />
-                <element signature="method#updateDead#0;class#Board#0" />
-                <element signature="method#endGame#0;class#Board#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/States/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
@@ -62,10 +24,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#Player#0;class#Player#0" />
+                <element signature="method#levelUp#0;class#Player#0" />
+                <element signature="method#getEnemiesInRange#0;class#Player#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="9" column="141" selection-start-line="9" selection-start-column="133" selection-end-line="9" selection-end-column="141" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/States/ReadFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="372">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ReadBoard#0;class#ReadFiles#0" />
@@ -105,14 +94,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="18" />
+            <state relative-caret-position="366">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Enemy#0;class#Enemy#0" />
+                <element signature="method#StepedOnMe#0;class#Enemy#0" />
+                <element signature="e#1004#1078#1" />
                 <element signature="method#Dead#0;class#Enemy#0" />
               </folding>
             </state>
@@ -122,29 +113,27 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Characters/Mage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1798">
-              <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+            <state relative-caret-position="899">
+              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Mage#0;class#Mage#0" />
+                <element signature="method#levelUp#0;class#Mage#0" />
+                <element signature="method#cast#0;class#Mage#0" />
+                <element signature="e#1404#1441#1" />
+                <element signature="e#1447#1720#1" />
+                <element signature="e#1603#1685#1" />
+                <element signature="method#hitRandomEnemy#0;class#Mage#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Characters/Trap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="9" column="141" selection-start-line="9" selection-start-column="133" selection-end-line="9" selection-end-column="141" />
+            <state relative-caret-position="372">
+              <caret line="12" column="46" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,11 +182,12 @@
         <option value="$PROJECT_DIR$/src/Characters/Mage.java" />
         <option value="$PROJECT_DIR$/src/Characters/Unit.java" />
         <option value="$PROJECT_DIR$/src/Characters/Wall.java" />
-        <option value="$PROJECT_DIR$/src/Characters/Trap.java" />
         <option value="$PROJECT_DIR$/src/Characters/Monster.java" />
         <option value="$PROJECT_DIR$/src/Combat.java" />
         <option value="$PROJECT_DIR$/src/States/ReadFiles.java" />
         <option value="$PROJECT_DIR$/src/Attributes/Position.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Trap.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Player.java" />
       </list>
     </option>
   </component>
@@ -235,7 +225,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558111991715" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558112273460" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -437,18 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding>
-            <element signature="method#Player#0;class#Player#0" />
-            <element signature="method#levelUp#0;class#Player#0" />
-            <element signature="method#getEnemiesInRange#0;class#Player#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Characters/Free.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13">
@@ -521,38 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="9" column="141" selection-start-line="9" selection-start-column="133" selection-end-line="9" selection-end-column="141" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Mage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1798">
-          <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Enemy#0;class#Enemy#0" />
-            <element signature="method#Dead#0;class#Enemy#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/States/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -583,17 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/States/ReadFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#ReadBoard#0;class#ReadFiles#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Attributes/Health.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -612,10 +547,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/States/ReadFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ReadBoard#0;class#ReadFiles#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Characters/Trap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="46" />
+        <state relative-caret-position="372">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Player#0;class#Player#0" />
+            <element signature="method#levelUp#0;class#Player#0" />
+            <element signature="method#getEnemiesInRange#0;class#Player#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="141" selection-start-line="9" selection-start-column="133" selection-end-line="9" selection-end-column="141" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Mage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Mage#0;class#Mage#0" />
+            <element signature="method#levelUp#0;class#Mage#0" />
+            <element signature="method#cast#0;class#Mage#0" />
+            <element signature="e#1404#1441#1" />
+            <element signature="e#1447#1720#1" />
+            <element signature="e#1603#1685#1" />
+            <element signature="method#hitRandomEnemy#0;class#Mage#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Enemy#0;class#Enemy#0" />
+            <element signature="method#StepedOnMe#0;class#Enemy#0" />
+            <element signature="e#1004#1078#1" />
+            <element signature="method#Dead#0;class#Enemy#0" />
+          </folding>
         </state>
       </provider>
     </entry>

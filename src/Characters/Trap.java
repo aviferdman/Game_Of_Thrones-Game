@@ -1,5 +1,6 @@
 package Characters;
 
+import Attributes.Health;
 import Attributes.Position;
 
 public class Trap extends Enemy {
