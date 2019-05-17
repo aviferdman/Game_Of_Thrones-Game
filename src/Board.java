@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.List;
+
 public class Board {
 
     private int width;
