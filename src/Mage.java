@@ -8,19 +8,17 @@ public class Mage extends Player {
     private int ManaCost;
     private int HitTimes;
     private int Range;
-    private SpecialAbility Blizard;
-    private SpecialAbility specialAbility;
     private LinkedList<Unit> enemies;
 
-    public Mage(int SpellPower, int ManaPool, int ManaCast, int HitTimes, int Range, Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experience, level, specialAbility, name, health, attackPoints, defencePoints, position);
+    public Mage(int SpellPower, int ManaPool, int ManaCast, int HitTimes, int Range, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
+        super(experience, level, name, health, attackPoints, defencePoints, position);
         this.SpellPower = SpellPower;
         this.ManaPool = ManaPool;
         this.CurrentMana = ManaPool / 4;
         this.ManaCost = ManaCast;
         this.HitTimes = HitTimes;
         this.Range = Range;
-        this.specialAbility = Blizard;
+        this.enemies = getEnemiesInRange(this.Range);
     }
 
     @Override
@@ -44,16 +42,23 @@ public class Mage extends Player {
         } else {
             this.CurrentMana = this.CurrentMana - this.ManaCost;
             int hits = 0;
-            LinkedList<Unit> enemies = getEnemiesInRange(this.Range);
             while (hits < this.HitTimes & !enemies.isEmpty() ) {
-                int enemyIndex = (int)(Math.random() * enemies.toArray().length);
-                Enemy currEnemy = (Enemy) enemies.get(enemyIndex);
-                Health healthAfterAttack = new Health(currEnemy.getHealth().getHealthPool(),this.SpellPower);
-                currEnemy.setHealth(healthAfterAttack);
+                hitRandomEnemy();
                 this.HitTimes++;
             }
             return true;
         }
+    }
+
+    public void speacialAbility() {
+        hitRandomEnemy();
+    }
+
+    public void hitRandomEnemy(){
+        int enemyIndex = (int)(Math.random() * enemies.toArray().length);
+        Enemy currEnemy = (Enemy) enemies.get(enemyIndex);
+        Health healthAfterAttack = new Health(currEnemy.getHealth().getHealthPool(),this.SpellPower);
+        currEnemy.setHealth(healthAfterAttack);
     }
 
     public int getSpellPower() {

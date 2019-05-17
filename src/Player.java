@@ -4,14 +4,12 @@ public abstract class Player extends  Unit {
 
     private Integer experience;
     private Integer level;
-    private SpecialAbility specialAbility;
     private LinkedList<Unit> enemies;
 
-    public Player(Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
+    public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(name, health, attackPoints, defencePoints, position);
         this.experience = 0;
         this.level = 1;
-        this.specialAbility = specialAbility;
         this.enemies = new LinkedList<>();
     }
 
@@ -51,9 +49,6 @@ public abstract class Player extends  Unit {
         return level;
     }
 
-    public SpecialAbility getSpecialAbility() {
-        return specialAbility;
-    }
 
     public void setExperience(Integer experience) {
         this.experience = experience;
@@ -63,7 +58,4 @@ public abstract class Player extends  Unit {
         this.level = level;
     }
 
-    public void setSpecialAbility(SpecialAbility specialAbility) {
-        this.specialAbility = specialAbility;
-    }
 }
