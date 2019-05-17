@@ -58,8 +58,12 @@ public abstract class Player extends Unit {
         this.level = level;
     }
 
-    public boolean stepedOn (Unit attacker){
-        Combat.fight(attacker,this);
+    public boolean IstepedOn (Cell cell){
+       cell.stepedOnMe(this);
+       return true;
+    }
+    public boolean StepedOnMe (Unit unit){
+        Combat.fight(unit,this);
         return true;
     }
 

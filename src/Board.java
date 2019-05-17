@@ -23,6 +23,9 @@ public class Board {
         return this.units;
     }
 
+    public Cell[][] getTheBoard() {
+        return theBoard;
+    }
 
     public void setPlayer(Player player) {
         this.player = player;
@@ -38,25 +41,27 @@ public class Board {
         }
     }
 
-    public void setBoard (String path){
-
     public boolean moveUp(Unit unit){
-        return move(unit, "up");
+        int x = unit.getPosition().getX();
+        int y = unit.getPosition().getX();
+        return unit.IstepedOn(getTheBoard()[x][y-1]);
     }
 
     public boolean moveDown(Unit unit){
-        return move(unit, "down");
+        int x = unit.getPosition().getX();
+        int y = unit.getPosition().getX();
+        return unit.IstepedOn(getTheBoard()[x][y+1]);
     }
 
     public boolean moveLeft(Unit unit){
-        return move(unit, "left");
+        int x = unit.getPosition().getX();
+        int y = unit.getPosition().getX();
+        return unit.IstepedOn(getTheBoard()[x-1][y]);
     }
 
     public boolean moveRight(Unit unit){
-        return move(unit, "right");
-    }
-
-    public boolean move(Unit unit, String direction){
-        return true;
+        int x = unit.getPosition().getX();
+        int y = unit.getPosition().getX();
+        return unit.IstepedOn(getTheBoard()[x+1][y]);
     }
 }

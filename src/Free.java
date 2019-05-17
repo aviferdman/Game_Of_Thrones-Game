@@ -11,7 +11,7 @@ public class Free extends Cell{
         this.position = position;
     }
 
-    public boolean stepedOn (Unit unit){
+    public boolean stepedOnMe (Unit unit){
         Position temp = unit.getPosition();
         unit.setPosition(position.getX(),position.getY());
         setPosition(temp);

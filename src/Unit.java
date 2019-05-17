@@ -77,7 +77,9 @@ public abstract class Unit extends Cell{
         }
     }
 
-    public abstract boolean stepedOn (Unit unit);
+    public abstract boolean IstepedOn (Cell cell);
+
+    public abstract boolean stepedOnMe (Unit unit);
 
     public abstract boolean canAttackMonster ();
 

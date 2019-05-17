@@ -1,6 +1,7 @@
 public class Wall extends Cell {
 
     Position position;
+
     public Wall (int x,int y){
         position = new Position(x,y);
     }
@@ -13,7 +14,7 @@ public class Wall extends Cell {
         this.position = position;
     }
 
-    public boolean stepedOn (Unit unit){
+    public boolean stepedOnMe (Unit unit){
         return false;
     }
 }
