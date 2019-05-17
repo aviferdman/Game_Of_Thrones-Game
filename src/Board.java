@@ -3,24 +3,28 @@ import java.util.LinkedList;
 public class Board {
 
     private Player player;
-    LinkedList<Unit> units = new LinkedList<>();
-    private LinkedList<Position> free = new LinkedList<>();
-    private LinkedList<Position> walls = new LinkedList<>();
+    private LinkedList<Enemy> enemies = new LinkedList<>();
+    private LinkedList<Free> free = new LinkedList<>();
+    private LinkedList<Wall> walls = new LinkedList<>();
     private IRandom iRandom;
     private Cell [] [] theBoard;
+    int level;
+    String pathToLevels;
 
     public Board (Player player, String pathToLevels, String pathToD ){
         this.player=player;
         theBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
         this.iRandom = iRandom.getInstance(pathToD);
+        level = 1;
+        pathToLevels = pathToLevels;
     }
 
     public Player getPlayer() {
         return player;
     }
 
-    public LinkedList<Unit> getUnits(){
-        return this.units;
+    public LinkedList<Enemy> getEnemies(){
+        return this.enemies;
     }
 
     public Cell[][] getTheBoard() {
@@ -31,13 +35,19 @@ public class Board {
         this.player = player;
     }
 
-    public void setUnits(LinkedList<Unit> units) {
-        this.units = units;
+    public void setUnits(LinkedList<Enemy> enemies) {
+        this.enemies = enemies;
+    }
+
+    public void setTheBoard(Cell[][] theBoard) {
+        this.theBoard = theBoard;
     }
 
     public void Tick (){
-        for (Unit unit : units) {
-            unit.play();
+        for (int i=0;i<theBoard[0].length; i=i+1){
+            for (int j=0;j<theBoard[0].length; j=j+1){
+                theBoard[i][j].play();
+            }
         }
     }
 
@@ -63,5 +73,31 @@ public class Board {
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
         return unit.IstepedOn(getTheBoard()[x+1][y]);
+    }
+
+    public boolean updateDead(Enemy enemy){
+        enemies.remove(enemy);
+        int x = enemy.getPosition().getX();
+        int y = enemy.getPosition().getY();
+        free.add(new Free(x,y));
+        theBoard[x][y]=new Free(x,y);
+        return true;
+    }
+
+    public boolean updateDead(Player player){
+        endGame();
+        return true;
+    }
+
+    public void boardLevelUp (){
+        if (level<4) {
+            level = level + 1;
+            setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));
+            Tick();
+        }
+    }
+
+    public void endGame (){
+        //need to change the player char to X
     }
 }

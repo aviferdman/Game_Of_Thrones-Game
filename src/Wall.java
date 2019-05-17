@@ -17,4 +17,8 @@ public class Wall extends Cell {
     public boolean stepedOnMe (Unit unit){
         return false;
     }
+
+    public boolean play() {
+        return false;
+    }
 }

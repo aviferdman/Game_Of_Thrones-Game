@@ -2,6 +2,7 @@ public abstract class Enemy extends Unit{
 
     private Integer experienceValue;
     private char tile;
+
     public Enemy (String name,char tile,Health health,int attackPoints,int defencePoints,int experienceValue,Position position){
         super(name,health,attackPoints,defencePoints,position);
         this.experienceValue = experienceValue;
@@ -42,5 +43,10 @@ public abstract class Enemy extends Unit{
 
     public boolean canAttackMonster (){
         return false;
+    }
+
+    public boolean Dead() {
+        Board.updateDead(this);
+        return true;
     }
 }

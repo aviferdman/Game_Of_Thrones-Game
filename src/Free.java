@@ -1,4 +1,5 @@
 public class Free extends Cell{
+
     Position position;
     public Free (int x,int y){
         position = new Position(x,y);
@@ -16,5 +17,9 @@ public class Free extends Cell{
         unit.setPosition(position.getX(),position.getY());
         setPosition(temp);
         return true;
+    }
+
+    public boolean play() {
+        return false;
     }
 }

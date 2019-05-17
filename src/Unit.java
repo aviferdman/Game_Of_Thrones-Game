@@ -83,4 +83,6 @@ public abstract class Unit extends Cell{
 
     public abstract boolean canAttackMonster ();
 
+    public abstract boolean Dead();
+
 }
