@@ -14,10 +14,12 @@ public class Board {
     LinkedList<Unit> units = new LinkedList<>();
     private LinkedList<Position> free = new LinkedList<>();
     private LinkedList<Position> walls = new LinkedList<>();
+    private IRandom iRandom;
 
-    public Board (Player player){
+    public Board (Player player, String pathToLevels, String pathToD ){
         this.player=player;
-        setBoard("C:\\HW3\\level1.txt");
+        setBoard(pathToLevels+"\\level1.txt");
+        this.iRandom = iRandom.getInstance(pathToD);
     }
 
     public int getLength() {

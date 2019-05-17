@@ -8,6 +8,7 @@ public class Main {
 
         Player SelectedPlayer;
         LinkedList<Player> players;
+        Board board = new Board(SelectedPlayer,args[0],args[1]);
 
         players = playersInit();
 
