@@ -2,14 +2,11 @@ public class Warrior extends Player {
 
     private int cooldown;
     private int remaining;
-    private SpecialAbility Heal;
-    private SpecialAbility specialAbility;
 
-    public Warrior(int cooldown, Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experience, level, specialAbility, name, health, attackPoints, defencePoints, position);
+    public Warrior(int cooldown, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
+        super(experience, level, name, health, attackPoints, defencePoints, position);
         this.remaining = 0;
         this.cooldown = cooldown;
-        this.specialAbility = Heal;
     }
 
     @Override
@@ -34,6 +31,17 @@ public class Warrior extends Player {
             remaining = cooldown;
             getHealth().setCurrentHealth(Math.min(getHealth().getCurrentHealth() + 2 * getDefencePoints(), getHealth().getHealthPool()));
             return true;
+        }
+    }
+
+    public void speacialAbility() {
+        if (this.remaining == 0) {
+            if (this.getDefencePoints() * 2 + this.getHealth().getCurrentHealth() > this.getHealth().getHealthPool()) {
+                this.getHealth().setCurrentHealth(this.getHealth().getHealthPool());
+            } else {
+                this.getHealth().setCurrentHealth(this.getHealth().getCurrentHealth() + this.getDefencePoints() * 2);
+            }
+            this.remaining = this.cooldown;
         }
     }
 

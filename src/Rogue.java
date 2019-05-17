@@ -4,11 +4,13 @@ public class Rogue extends Player {
 
     private int cost;
     private int CurrentEnergy;
+    private LinkedList<Unit> enemies;
 
-    public Rogue(int cost, Integer experience, Integer level, SpecialAbility specialAbility, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experience, level, specialAbility, name, health, attackPoints, defencePoints, position);
+    public Rogue(int cost, Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
+        super(experience, level, name, health, attackPoints, defencePoints, position);
         this.cost = cost;
         this.CurrentEnergy = 100;
+        this.enemies = getEnemiesInRange(2);
     }
 
     @Override
@@ -32,12 +34,18 @@ public class Rogue extends Player {
             return false;
         } else {
             CurrentEnergy = CurrentEnergy - cost;
-            LinkedList<Unit> enemies = getEnemiesInRange(2);
             for (Unit enemy : enemies) {
                 Health h = new Health(enemy.getHealth().getHealthPool(), enemy.getHealth().getCurrentHealth() - getAttackPoints());
                 enemy.setHealth(h);
             }
             return true;
+        }
+    }
+
+    public void speacialAbility(){
+        for (Unit enemy : enemies) {
+            Health h = new Health(enemy.getHealth().getHealthPool(), enemy.getHealth().getCurrentHealth() - getAttackPoints());
+            enemy.setHealth(h);
         }
     }
 
