@@ -9,8 +9,6 @@ public class Board {
     private int width;
     private int length;
     private Player player;
-    private Health health = new Health(0,0);
-    private Position pos = new Position();
     LinkedList<Unit> units = new LinkedList<>();
     private LinkedList<Position> free = new LinkedList<>();
     private LinkedList<Position> walls = new LinkedList<>();
@@ -80,81 +78,55 @@ public class Board {
                     player.setPosition(lineNumber,i);
                 }
                 if(c=='s'){
-                    this.health.setCurrentHealth(80);
-                    Unit monster = new Monster ("Lannister Solider" ,'s',this.health, 8, 3, 3, 25,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Lannister Solider" ,'s',new Health(80,80), 8, 3, 3, 25,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='k'){
-                    this.health.setCurrentHealth(200);
-                    Unit monster = new Monster ("Lannister Knight", 'k', this.health, 14, 8, 4, 50,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Lannister Knight", 'k', new Health(200,200), 14, 8, 4, 50,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='q'){
-                    this.health.setCurrentHealth(400);
-                    Unit monster = new Monster ("Queen’s Guard", 'q', this.health, 20, 15, 5, 100,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Queen’s Guard", 'q', new Health(400,400), 20, 15, 5, 100,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='z'){
-                    this.health.setCurrentHealth(600);
-                    Unit monster = new Monster ("Wright", 'z', this.health, 30, 15, 3, 100,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Wright", 'z', new Health(600,600), 30, 15, 3, 100,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='b'){
-                    this.health.setCurrentHealth(1000);
-                    Unit monster = new Monster ("Bear-Wright", 'b', this.health, 75, 30, 4, 250,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Bear-Wright", 'b', new Health(1000,1000), 75, 30, 4, 250,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='g'){
-                    this.health.setCurrentHealth(1500);
-                    Unit monster = new Monster ("Giant-Wright", 'g', this.health, 100, 40, 5, 500,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Giant-Wright", 'g', new Health(1500,1500), 100, 40, 5, 500,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='w'){
-                    this.health.setCurrentHealth(2000);
-                    Unit monster = new Monster ("White Walker", 'w', this.health, 150, 50, 6, 1000,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("White Walker", 'w', new Health(2000,2000), 150, 50, 6, 1000,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='M'){
-                    this.health.setCurrentHealth(1000);
-                    Unit monster = new Monster ("The Mountain", 'M', this.health, 60, 25, 6, 500,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("The Mountain", 'M', new Health(1000,1000), 60, 25, 6, 500,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='C'){
-                    this.health.setCurrentHealth(100);
-                    Unit monster = new Monster ("Queen Cersei" ,'C', this.health, 10, 10, 1, 1000,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Queen Cersei" ,'C', new Health(100,100), 10, 10, 1, 1000,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='K'){
-                    this.health.setCurrentHealth(5000);
-                    Unit monster = new Monster ("Night’s King", 'K', this.health, 300, 150, 8, 5000,this.pos);
-                    monster.setPosition(lineNumber,i);
+                    Unit monster = new Monster ("Night’s King", 'K', new Health(5000,5000), 300, 150, 8, 5000,new Position(lineNumber,i));
                     units.add(monster);
                 }
                 if(c=='B'){
-                    this.health.setCurrentHealth(1);
-                    Unit trap = new Trap ("Bonus Trap", 'B', this.health, 1, 1, 250, 5, 6,2,this.pos);
-                    trap.setPosition(lineNumber,i);
+                    Unit trap = new Trap ("Bonus Trap", 'B', new Health(1,1), 1, 1, 250, 5, 6,2,new Position(lineNumber,i));
                     units.add(trap);
                 }
                 if(c=='Q'){
-                    this.health.setCurrentHealth(250);
-                    Unit trap = new Trap ("Queen’s Trap", 'Q', this.health, 50, 10, 100, 4, 10,4,this.pos);
-                    trap.setPosition(lineNumber,i);
+                    Unit trap = new Trap ("Queen’s Trap", 'Q', new Health(250,250), 50, 10, 100, 4, 10,4,new Position(lineNumber,i));
                     units.add(trap);
                 }
                 if(c=='D'){
-                    this.health.setCurrentHealth(500);
-                    Unit trap = new Trap ("Death Trap", 'D', this.health, 100, 20, 250, 6, 10,3,this.pos);
-                    trap.setPosition(lineNumber,i);
+                    Unit trap = new Trap ("Death Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3,new Position(lineNumber,i));
                     units.add(trap);
                 }
                 if(c=='#'){
@@ -171,9 +143,7 @@ public class Board {
     }
 
     public boolean moveUp(Unit unit){
-        Position toMove =new Position();
-        toMove.setX(unit.getPosition().getX());
-        toMove.setY(unit.getPosition().getY()-1);
+        Position toMove =new Position(unit.getPosition().getX(),unit.getPosition().getY()-1);
         if(free.contains(toMove)){
             free.remove(toMove);
             toMove.setY(toMove.getY()+1);
@@ -188,9 +158,7 @@ public class Board {
     }
 
     public boolean moveDown(Unit unit){
-        Position toMove =new Position();
-        toMove.setX(unit.getPosition().getX());
-        toMove.setY(unit.getPosition().getY()+1);
+        Position toMove =new Position(unit.getPosition().getX(),unit.getPosition().getY()+1);
         if(free.contains(toMove)){
             free.remove(toMove);
             toMove.setY(toMove.getY()-1);
@@ -205,9 +173,7 @@ public class Board {
     }
 
     public boolean moveLeft(Unit unit){
-        Position toMove =new Position();
-        toMove.setX(unit.getPosition().getX()-1);
-        toMove.setY(unit.getPosition().getY());
+        Position toMove =new Position(unit.getPosition().getX()-1,unit.getPosition().getY());
         if(free.contains(toMove)){
             free.remove(toMove);
             toMove.setX(toMove.getY()+1);
@@ -222,9 +188,7 @@ public class Board {
     }
 
     public boolean moveRight(Unit unit){
-        Position toMove =new Position();
-        toMove.setX(unit.getPosition().getX()+1);
-        toMove.setY(unit.getPosition().getY());
+        Position toMove =new Position(unit.getPosition().getX()+1,unit.getPosition().getY());
         if(free.contains(toMove)){
             free.remove(toMove);
             toMove.setX(toMove.getY()-1);

@@ -3,7 +3,7 @@ public class Position {
     private Integer x;
     private Integer y;
 
-    public Position (){
+    public Position (int x, int y){
         this.x =x;
         this.y=y;
     }
@@ -29,3 +29,4 @@ public class Position {
         setY(y);
     }
 }
+
