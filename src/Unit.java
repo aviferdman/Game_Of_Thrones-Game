@@ -1,4 +1,4 @@
-public abstract class Unit {
+public abstract class Unit extends Cell{
 
     private String name;
     private Health health;
@@ -76,5 +76,9 @@ public abstract class Unit {
             return false;
         }
     }
+
+    public abstract boolean stepedOn (Unit unit);
+
+    public abstract boolean canAttackMonster ();
 
 }

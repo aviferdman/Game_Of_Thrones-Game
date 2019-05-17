@@ -1,5 +1,5 @@
 public class Combat {
-    public void combat(Unit attacker,Unit defencer){
 
+    public static void fight (Unit attacker, Unit defenגer){
     }
 }

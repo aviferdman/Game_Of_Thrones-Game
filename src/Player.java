@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public abstract class Player extends  Unit {
+public abstract class Player extends Unit {
 
     private Integer experience;
     private Integer level;
@@ -56,6 +56,15 @@ public abstract class Player extends  Unit {
 
     public void setLevel(Integer level) {
         this.level = level;
+    }
+
+    public boolean stepedOn (Unit attacker){
+        Combat.fight(attacker,this);
+        return true;
+    }
+
+    public boolean canAttackMonster (){
+        return true;
     }
 
 }

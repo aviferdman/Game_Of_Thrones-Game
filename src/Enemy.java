@@ -25,4 +25,18 @@ public abstract class Enemy extends Unit{
     public void setTile(char tile) {
         this.tile = tile;
     }
+
+    public boolean stepedOn (Unit attacker){
+        if (attacker.canAttackMonster()){
+            Combat.fight(attacker,this);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean canAttackMonster (){
+        return false;
+    }
 }
