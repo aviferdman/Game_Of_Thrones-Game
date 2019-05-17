@@ -1,3 +1,8 @@
+package Characters;
+
+import Attributes.Health;
+import Attributes.Position;
+
 public abstract class Unit extends Cell{
 
     private String name;

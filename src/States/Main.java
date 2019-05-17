@@ -1,6 +1,10 @@
+package States;
+
+import Characters.Player;
+import States.Board;
+
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.Collection;
 
 public class Main {
 

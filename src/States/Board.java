@@ -1,3 +1,8 @@
+package States;
+
+import Characters.*;
+import Random.IRandom;
+
 import java.util.LinkedList;
 
 public class Board {

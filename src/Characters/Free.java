@@ -1,3 +1,5 @@
+package Characters;
+
 public class Free extends Cell{
 
     Position position;

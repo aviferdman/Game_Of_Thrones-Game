@@ -1,4 +1,5 @@
-import javafx.geometry.Pos;
+package Characters;
+import Attributes.Position;
 
 public abstract class Cell {
 

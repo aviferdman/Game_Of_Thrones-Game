@@ -1,3 +1,5 @@
+package Attributes;
+
 public class Health {
 
     private Integer healthPool;

@@ -1,3 +1,9 @@
+package States;
+
+import Characters.*;
+import Attributes.Health;
+import Attributes.Position;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
@@ -30,7 +36,7 @@ public class ReadFiles {
                     player.setPosition(lineNumber,i);
                 }
                 if(c=='s'){
-                    Enemy enemy = new Monster ("Lannister Solider" ,'s',new Health(80,80), 8, 3, 3, 25,new Position(lineNumber,i));
+                    Enemy enemy = new Monster("Lannister Solider" ,'s',new Health(80,80), 8, 3, 3, 25,new Position(lineNumber,i));
                     enemies.add(enemy);
                 }
                 if(c=='k'){
@@ -70,15 +76,15 @@ public class ReadFiles {
                     enemies.add(enemy);
                 }
                 if(c=='B'){
-                    Enemy enemy = new Trap ("Bonus Trap", 'B', new Health(1,1), 1, 1, 250, 5, 6,2,new Position(lineNumber,i));
+                    Enemy enemy = new Trap ("Bonus Characters.Trap", 'B', new Health(1,1), 1, 1, 250, 5, 6,2,new Position(lineNumber,i));
                     enemies.add(enemy);
                 }
                 if(c=='Q'){
-                    Enemy enemy = new Trap ("Queen’s Trap", 'Q', new Health(250,250), 50, 10, 100, 4, 10,4,new Position(lineNumber,i));
+                    Enemy enemy = new Trap ("Queen’s Characters.Trap", 'Q', new Health(250,250), 50, 10, 100, 4, 10,4,new Position(lineNumber,i));
                     enemies.add(enemy);
                 }
                 if(c=='D'){
-                    Enemy enemy = new Trap ("Death Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3,new Position(lineNumber,i));
+                    Enemy enemy = new Trap ("Death Characters.Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3,new Position(lineNumber,i));
                     enemies.add(enemy);
                 }
                 if(c=='#'){

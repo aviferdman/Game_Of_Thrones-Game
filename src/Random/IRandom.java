@@ -1,3 +1,5 @@
+package Random;
+
 public class IRandom implements RandomGenerator {
 
     private static IRandom instance = null;

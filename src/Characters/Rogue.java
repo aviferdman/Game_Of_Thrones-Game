@@ -1,3 +1,5 @@
+package Characters;
+
 import java.util.LinkedList;
 
 public class Rogue extends Player {

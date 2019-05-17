@@ -1,3 +1,5 @@
+package Characters;
+
 public class Warrior extends Player {
 
     private int cooldown;

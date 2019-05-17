@@ -1,3 +1,5 @@
+package Random;
+
 import java.util.Random;
 public class NDRandom extends IRandom {
     @Override

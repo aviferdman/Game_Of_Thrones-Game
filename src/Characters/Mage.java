@@ -1,3 +1,7 @@
+package Characters;
+
+import Attributes.Health;
+
 import java.util.LinkedList;
 
 public class Mage extends Player {

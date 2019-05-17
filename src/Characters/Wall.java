@@ -1,3 +1,7 @@
+package Characters;
+
+import Attributes.Position;
+
 public class Wall extends Cell {
 
     Position position;

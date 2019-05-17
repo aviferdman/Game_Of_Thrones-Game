@@ -1,3 +1,8 @@
+package Characters;
+
+import Attributes.Health;
+import Attributes.Position;
+
 public class Monster extends Enemy {
 
     private int visionRange;

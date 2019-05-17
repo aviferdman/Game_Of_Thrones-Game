@@ -1,3 +1,5 @@
+package Attributes;
+
 public class Position {
 
     private Integer x;
