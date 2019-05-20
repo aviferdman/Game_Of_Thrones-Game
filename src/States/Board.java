@@ -86,6 +86,9 @@ public class Board {
         int y = enemy.getPosition().getY();
         free.add(new Free(x,y));
         theBoard[x][y]=new Free(x,y);
+        if (enemies.isEmpty()){
+            boardLevelUp();
+        }
         return true;
     }
 
