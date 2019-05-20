@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class DRandom extends IRandom{
+public class DRandom implements RandomGenerator{
 
     String nextInt;
     Scanner sc;
@@ -19,15 +19,17 @@ public class DRandom extends IRandom{
             e.printStackTrace();
         }
         if (sc.hasNextLine()) {
-            String nextInt = sc.nextLine();
+            nextInt = sc.nextLine();
         }
     }
 
     public int nextInt ( int n ) {
         int output=-1;
-        if (nextInt!=null&sc!=null){
+        if (nextInt!=null){
             output = Integer.parseInt(nextInt);
-            String nextInt = sc.nextLine();
+            if(sc.hasNextLine()){
+                nextInt = sc.nextLine();
+            }
         }
         return output;
     }

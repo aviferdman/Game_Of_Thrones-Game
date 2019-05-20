@@ -1,19 +1,22 @@
 package Random;
 
-public class IRandom implements RandomGenerator {
+import States.Main;
 
-    private static IRandom instance = null;
+public class IRandom implements RandomGenerator {
+    private static final String RANDOM_NUMBERS_PATH = "random_numbers.txt";
+    private static final String USER_UNPUT_PATH = "user_input.txt";
+    private static RandomGenerator instance = null;
 
     private IRandom() { }
 
-    public static IRandom getInstance(String pathToD){
+    public static RandomGenerator getInstance(){
 
         if (instance == null) {
-            if(pathToD==null){
-                instance = new NDRandom();
+            if(Main.determinitic){
+                instance = new DRandom(RANDOM_NUMBERS_PATH);
             }
             else{
-                instance = new DRandom(string WhereTheFuckThisTextFile);
+                instance = new NDRandom();
             }
         }
         return instance;

@@ -1,11 +1,16 @@
 package Random;
 
 import java.util.Random;
-public class NDRandom extends IRandom {
+
+public class NDRandom implements RandomGenerator {
+    private Random rand;
+
+    public NDRandom(){
+        rand = new Random(123);
+    }
+
     @Override
     public int nextInt ( int n ) {
-        Random rand = new Random();
-        int output = rand.nextInt(n+1);
-        return output;
+        return rand.nextInt(n);
     }
 }

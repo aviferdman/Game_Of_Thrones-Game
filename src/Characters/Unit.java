@@ -2,9 +2,13 @@ package Characters;
 
 import Attributes.Health;
 import Attributes.Position;
+import observer.IObservable;
+import observer.IObserver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Unit extends Cell{
-
     private String name;
     private Health health;
     private Integer attackPoints;
@@ -89,5 +93,4 @@ public abstract class Unit extends Cell{
     public abstract boolean canAttackMonster ();
 
     public abstract boolean Dead();
-
 }

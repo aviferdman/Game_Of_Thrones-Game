@@ -2,26 +2,32 @@ package States;
 
 import Characters.*;
 import Random.IRandom;
+import Random.RandomGenerator;
+import observer.IObservable;
+import observer.IObserver;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
-public class Board {
-
+public class Board implements IObservable {
+    private List<IObserver> observers;
     private Player player;
     private LinkedList<Enemy> enemies = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
-    private IRandom iRandom;
+    private RandomGenerator iRandom;
     private Cell [] [] theBoard;
     int level;
     String pathToLevels;
 
-    public Board (Player player, String pathToLevels, String pathToD ){
+    public Board (Player player, String pathToLevels){
         this.player=player;
         theBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
-        this.iRandom = iRandom.getInstance(pathToD);
+        this.iRandom = IRandom.getInstance();
         level = 1;
         pathToLevels = pathToLevels;
+        observers = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -84,8 +90,9 @@ public class Board {
         enemies.remove(enemy);
         int x = enemy.getPosition().getX();
         int y = enemy.getPosition().getY();
-        free.add(new Free(x,y));
-        theBoard[x][y]=new Free(x,y);
+        Free f = new Free(x, y);
+        free.add(f);
+        theBoard[x][y]= f;
         if (enemies.isEmpty()){
             boardLevelUp();
         }
@@ -101,11 +108,40 @@ public class Board {
         if (level<4) {
             level = level + 1;
             setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));
-            Tick();
         }
     }
 
+    /*public void mainLoop(){
+        while(true){
+            notifyState()
+            Tick();
+            if(gameOver()){
+                ...
+            }
+        }
+    }*/
+
     public void endGame (){
         //need to change the player char to X
+    }
+
+    @Override
+    public void register(IObserver o) {
+        observers.add(o);
+        for (Cell[] cells : theBoard) {
+            for (Cell cell : cells) {
+                cell.register(o);
+            }
+        }
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+        observers.forEach(o -> o.onEvent(message));
+    }
+
+    public void notifState(){
+        notifyObservers(this.toString());
+        notifyObservers(player.toString());
     }
 }
