@@ -112,4 +112,26 @@ public class ReadFiles {
         return (theBoard);
     }
 
+    public static Player createPlayer(int choosenPlayer) {
+        if (choosenPlayer == 1) {
+            Player JonSnow = new Warrior(6, 0, 1, "Jon Snow", new Health(300, 300), 30, 4, null);
+            return JonSnow;
+        } else if (choosenPlayer == 2) {
+            Player TheHound = new Warrior(4, 0, 1, "The Hound", new Health(400, 400), 20, 6, null);
+            return TheHound;
+        } else if (choosenPlayer == 3) {
+            Player Melisandre = new Mage(40, 300, 30, 5, 6, 0, 1, "Melisandre", new Health(160, 160), 10, 1, null);
+            return Melisandre;
+        } else if (choosenPlayer == 4) {
+            Player ThorosOfMyr = new Mage(15, 150, 50, 3, 3, 0, 1, "Thoros of Myr", new Health(250, 250), 25, 3, null);
+            return ThorosOfMyr;
+        } else if (choosenPlayer == 5) {
+            Player AryaStark = new Rogue(20, 0, 1, "Arya Stark", new Health(150, 150), 40, 2, null);
+            return AryaStark;
+        } else {
+            Player Bronn = new Rogue(60, 0, 1, "Bronn", new Health(250, 250), 35, 3, null);
+            return Bronn;
+        }
+    }
+
 }
