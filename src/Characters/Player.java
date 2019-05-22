@@ -87,6 +87,7 @@ public abstract class Player extends Unit {
        cell.stepedOnMe(this);
        return true;
     }
+
     public boolean StepedOnMe (Unit unit){
         Combat.fight(unit,this);
         return true;

@@ -56,11 +56,7 @@ public class Board implements IObservable {
     }
 
     public void Tick (){
-        for (int i=0;i<theBoard[0].length; i=i+1){
-            for (int j=0;j<theBoard[0].length; j=j+1){
-                theBoard[i][j].play();
-            }
-        }
+
     }
 
     public boolean moveUp(Unit unit){
