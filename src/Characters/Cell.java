@@ -16,7 +16,7 @@ public abstract class Cell implements IObservable {
     public abstract boolean stepedOnMe (Unit unit);
     public abstract Position getPosition();
     public abstract void setPosition(Position position);
-    public abstract boolean play();
+    public abstract void play();
 
     public void register(IObserver o){
         observers.add(o);

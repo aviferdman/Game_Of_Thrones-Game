@@ -17,4 +17,14 @@ public class Trap extends Enemy {
         this.visibilityTime = visibility;
         this.ticksCount = 0;
     }
+
+    @Override
+    public boolean stepedOnMe(Unit unit) {
+        return false;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+
+    }
 }

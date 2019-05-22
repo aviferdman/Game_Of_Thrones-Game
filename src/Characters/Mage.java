@@ -1,6 +1,7 @@
 package Characters;
 
 import Attributes.Health;
+import Attributes.Position;
 
 import java.util.LinkedList;
 
@@ -12,7 +13,7 @@ public class Mage extends Player {
     private int ManaCost;
     private int HitTimes;
     private int Range;
-    private LinkedList<Unit> enemies;
+    private LinkedList<Enemy> enemies;
 
     public Mage(int SpellPower, int ManaPool, int ManaCast, int HitTimes, int Range, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(experience, level, name, health, attackPoints, defencePoints, position);
@@ -26,10 +27,24 @@ public class Mage extends Player {
     }
 
     @Override
-    public boolean play() {
+    public void play() {
+
+    }
+
+    @Override
+    public boolean stepedOnMe(Unit unit) {
         return false;
     }
 
+    @Override
+    public void setPosition(Position position) {
+
+    }
+
+    @Override
+    public boolean Dead() {
+        return false;
+    }
     public void levelUp() {
         this.ManaPool = this.ManaPool + (25 * this.getLevel());
         this.CurrentMana = Math.min((this.CurrentMana + (4 / this.ManaPool)), (this.ManaPool));
@@ -60,7 +75,7 @@ public class Mage extends Player {
 
     public void hitRandomEnemy(){
         int enemyIndex = (int)(Math.random() * enemies.toArray().length);
-        Enemy currEnemy = (Enemy) enemies.get(enemyIndex);
+        Enemy currEnemy = enemies.get(enemyIndex);
         Health healthAfterAttack = new Health(currEnemy.getHealth().getHealthPool(),this.SpellPower);
         currEnemy.setHealth(healthAfterAttack);
     }

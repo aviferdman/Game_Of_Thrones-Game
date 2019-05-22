@@ -35,7 +35,7 @@ public abstract class Player extends Unit {
         }
     }
 
-    public abstract boolean play();
+    public abstract void play();
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
         Board b = new Board(this);

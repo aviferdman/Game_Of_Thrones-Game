@@ -1,5 +1,8 @@
 package Characters;
 
+import Attributes.Health;
+import Attributes.Position;
+
 public class Warrior extends Player {
 
     private int cooldown;
@@ -12,7 +15,22 @@ public class Warrior extends Player {
     }
 
     @Override
-    public boolean play() {
+    public void play() {
+
+    }
+
+    @Override
+    public boolean stepedOnMe(Unit unit) {
+        return false;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+
+    }
+
+    @Override
+    public boolean Dead() {
         return false;
     }
 
@@ -45,6 +63,11 @@ public class Warrior extends Player {
             }
             this.remaining = this.cooldown;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "temp";
     }
 
     public int getCooldown() {

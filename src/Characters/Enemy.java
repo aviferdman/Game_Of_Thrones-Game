@@ -1,6 +1,8 @@
 package Characters;
 import Attributes.Health;
 import Attributes.Position;
+import States.Board;
+import States.Combat;
 
 public abstract class Enemy extends Unit {
 
@@ -13,7 +15,9 @@ public abstract class Enemy extends Unit {
         this.tile=tile;
     }
 
-    public boolean play(){return false;}
+    public void play(){
+
+    }
 
     public Integer getExperienceValue() {
         return experienceValue;
