@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b88db07f-53ba-4f77-a8da-bcbf5e9a142a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/States/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/States/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/States/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/States/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/States/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="61" column="17" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="17" />
+            <state relative-caret-position="280">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#moveUp#0;class#Board#0" />
@@ -36,7 +35,7 @@
                 <element signature="method#gameOver#0;class#Board#0" />
                 <element signature="method#register#0;class#Board#0" />
                 <element signature="e#3563#3622#1" />
-                <element signature="e#4642#4643#0" expanded="true" />
+                <element signature="e#4628#4629#0" expanded="true" />
                 <element signature="method#notifState#0;class#Board#0" />
                 <element signature="method#toString#0;class#Board#0" />
               </folding>
@@ -68,11 +67,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/States/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="433">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#IstepedOn#0;class#Enemy#0" />
@@ -139,11 +141,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="57" column="4" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#play#0;class#Monster#0" />
@@ -154,7 +156,7 @@
                 <element signature="e#1595#1596#0" expanded="true" />
                 <element signature="e#1646#1647#0" expanded="true" />
                 <element signature="method#stepedOnMe#0;class#Monster#0" />
-                <element signature="e#1939#1940#0" expanded="true" />
+                <element signature="e#1931#1932#0" expanded="true" />
                 <element signature="method#chasePlayer#0;class#Monster#0" />
               </folding>
             </state>
@@ -229,7 +231,6 @@
         <option value="$PROJECT_DIR$/src/States/Combat.java" />
         <option value="$PROJECT_DIR$/src/DeadPlayer.java" />
         <option value="$PROJECT_DIR$/src/Characters/DeadPlayer.java" />
-        <option value="$PROJECT_DIR$/src/States/Main.java" />
         <option value="$PROJECT_DIR$/src/Characters/Trap.java" />
         <option value="$PROJECT_DIR$/src/Characters/Wall.java" />
         <option value="$PROJECT_DIR$/src/Characters/Free.java" />
@@ -239,9 +240,10 @@
         <option value="$PROJECT_DIR$/src/Characters/Rogue.java" />
         <option value="$PROJECT_DIR$/src/Characters/Warrior.java" />
         <option value="$PROJECT_DIR$/src/Characters/Cell.java" />
-        <option value="$PROJECT_DIR$/src/States/Board.java" />
         <option value="$PROJECT_DIR$/src/Characters/Enemy.java" />
         <option value="$PROJECT_DIR$/src/Characters/Monster.java" />
+        <option value="$PROJECT_DIR$/src/States/Main.java" />
+        <option value="$PROJECT_DIR$/src/States/Board.java" />
       </list>
     </option>
   </component>
@@ -296,10 +298,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558514149627" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558514500673" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
@@ -419,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558512306057</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="stepped on function">
+      <created>1558514165484</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1558514165484</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -427,7 +436,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.1672043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -562,13 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/States/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -716,10 +717,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#IstepedOn#0;class#Enemy#0" />
+            <element signature="method#StepedOnMe#0;class#Enemy#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#play#0;class#Monster#0" />
+            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1444#1445#0" expanded="true" />
+            <element signature="e#1490#1491#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="e#1595#1596#0" expanded="true" />
+            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="method#stepedOnMe#0;class#Monster#0" />
+            <element signature="e#1931#1932#0" expanded="true" />
+            <element signature="method#chasePlayer#0;class#Monster#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/States/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="61" column="17" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="17" />
+        <state relative-caret-position="280">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#moveUp#0;class#Board#0" />
@@ -734,41 +767,19 @@
             <element signature="method#gameOver#0;class#Board#0" />
             <element signature="method#register#0;class#Board#0" />
             <element signature="e#3563#3622#1" />
-            <element signature="e#4642#4643#0" expanded="true" />
+            <element signature="e#4628#4629#0" expanded="true" />
             <element signature="method#notifState#0;class#Board#0" />
             <element signature="method#toString#0;class#Board#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
+    <entry file="file://$PROJECT_DIR$/src/States/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="384">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#IstepedOn#0;class#Enemy#0" />
-            <element signature="method#StepedOnMe#0;class#Enemy#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="57" column="4" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#play#0;class#Monster#0" />
-            <element signature="e#1410#1411#0" expanded="true" />
-            <element signature="e#1444#1445#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
-            <element signature="e#1595#1596#0" expanded="true" />
-            <element signature="e#1646#1647#0" expanded="true" />
-            <element signature="method#stepedOnMe#0;class#Monster#0" />
-            <element signature="e#1939#1940#0" expanded="true" />
-            <element signature="method#chasePlayer#0;class#Monster#0" />
           </folding>
         </state>
       </provider>

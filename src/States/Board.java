@@ -57,7 +57,7 @@ public class Board implements IObservable {
     }
 
     public void Tick (){
-        player.play(char movement);
+        player.play('s');
         for (Enemy enemy: enemies) {
             enemy.play();
         }
