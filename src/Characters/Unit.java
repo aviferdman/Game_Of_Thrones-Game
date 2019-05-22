@@ -25,6 +25,9 @@ public abstract class Unit extends Cell{
         this.isDead = false;
     }
 
+    public abstract void setExperience(int experience);
+    public abstract int getexerienceValue();
+
     public boolean getIsDead(){
         return this.isDead;
     }

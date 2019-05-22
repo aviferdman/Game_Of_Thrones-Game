@@ -11,4 +11,19 @@ public class Monster extends Enemy {
         super(name, tile, health, attackPoints, defencePoints, experienceValue, position);
         this.visionRange = visionRange;
     }
+
+    @Override
+    public void setExperience(int experience) {
+
+    }
+
+    @Override
+    public boolean stepedOnMe(Unit unit) {
+        return false;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+
+    }
 }

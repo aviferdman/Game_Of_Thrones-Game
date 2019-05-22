@@ -58,6 +58,10 @@ public abstract class Player extends Unit {
         return board.getEnemiesInRange(range);
     }
 
+    public int getexerienceValue(){
+        return -1;
+    }
+
     public abstract void speacialAbility();
 
     public Integer getExperience() {
@@ -68,9 +72,11 @@ public abstract class Player extends Unit {
         return level;
     }
 
-
-    public void setExperience(Integer experience) {
-        this.experience = experience;
+    public void setExperience(int experience) {
+        this.experience += experience;
+        if(experience > 50){
+            levelUp();
+        }
     }
 
     public void setLevel(Integer level) {
@@ -90,4 +96,13 @@ public abstract class Player extends Unit {
         return true;
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+
+        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
+                getLevel() + "        " + getExperience() + "/50" + "        ";
+
+        return output;
+    }
 }

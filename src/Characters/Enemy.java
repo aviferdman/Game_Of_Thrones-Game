@@ -19,8 +19,12 @@ public abstract class Enemy extends Unit {
 
     }
 
-    public Integer getExperienceValue() {
+    public int getExperienceValue() {
         return experienceValue;
+    }
+
+    public int getexerienceValue(){
+        return this.experienceValue;
     }
 
     public void setExperienceValue(Integer experienceValue) {
