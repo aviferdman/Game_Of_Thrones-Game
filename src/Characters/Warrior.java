@@ -13,7 +13,6 @@ public class Warrior extends Player {
         this.remaining = 0;
         this.cooldown = cooldown;
     }
-
     @Override
     public void play() {
 

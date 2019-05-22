@@ -26,6 +26,7 @@ public class Mage extends Player {
         this.enemies = getEnemiesInRange(this.Range);
     }
 
+
     @Override
     public void play() {
 

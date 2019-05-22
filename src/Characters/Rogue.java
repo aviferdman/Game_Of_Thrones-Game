@@ -20,7 +20,6 @@ public class Rogue extends Player {
         this.CurrentEnergy = 100;
         this.enemies = getEnemiesInRange(2);
     }
-
     @Override
     public void play() {
 

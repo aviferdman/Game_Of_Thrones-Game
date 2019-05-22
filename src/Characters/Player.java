@@ -36,7 +36,19 @@ public abstract class Player extends Unit {
         }
     }
 
-    public abstract void play();
+    public void play(char movevement){
+        if(movevement == 'w'){
+            board.moveUp(this);
+        } else if(movevement == 's'){
+            board.moveDown(this);
+        } else if(movevement == 'a'){
+            board.moveLeft(this);
+        } else if(movevement == 'd'){
+            board.moveRight(this);
+        } else if(movevement == 'e'){
+            this.speacialAbility();
+        }
+    }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
         Board b = new Board(this);
@@ -48,6 +60,8 @@ public abstract class Player extends Unit {
         }
         return enemies;
     }
+
+    public abstract void speacialAbility();
 
     public Integer getExperience() {
         return experience;

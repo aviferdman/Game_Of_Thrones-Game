@@ -14,6 +14,7 @@ public abstract class Unit extends Cell{
     private Integer attackPoints;
     private Integer defencePoints;
     private Position position;
+    private boolean isDead;
 
     public Unit(String name, Health health, Integer attackPoints, Integer defencePoints, Position position){
         this.name = name;
@@ -21,6 +22,15 @@ public abstract class Unit extends Cell{
         this.attackPoints = attackPoints;
         this.defencePoints = defencePoints;
         this.position = position;
+        this.isDead = false;
+    }
+
+    public boolean getIsDead(){
+        return this.isDead;
+    }
+
+    public void setIsDead(boolean newStatus{
+        this.isDead = newStatus;
     }
 
     public String getName() {
