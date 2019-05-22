@@ -26,6 +26,11 @@ public class Rogue extends Player {
     }
 
     @Override
+    public String myChar() {
+        return null;
+    }
+
+    @Override
     public boolean stepedOnMe(Unit unit) {
         return false;
     }

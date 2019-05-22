@@ -22,7 +22,12 @@ public class Wall extends Cell {
         return false;
     }
 
-    public boolean play() {
-        return false;
+    public void play() {
+
+    }
+
+    @Override
+    public String myChar() {
+        return null;
     }
 }

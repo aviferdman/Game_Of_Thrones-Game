@@ -1,4 +1,6 @@
 package Characters;
+import Attributes.Position;
+
 
 public class Free extends Cell{
 
@@ -21,7 +23,11 @@ public class Free extends Cell{
         return true;
     }
 
-    public boolean play() {
-        return false;
+    public void play() {
+    }
+
+    @Override
+    public String myChar() {
+        return null;
     }
 }

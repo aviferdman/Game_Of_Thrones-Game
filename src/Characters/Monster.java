@@ -23,7 +23,17 @@ public class Monster extends Enemy {
     }
 
     @Override
+    public boolean Dead() {
+        return false;
+    }
+
+    @Override
     public void setPosition(Position position) {
 
+    }
+
+    @Override
+    public String myChar() {
+        return null;
     }
 }

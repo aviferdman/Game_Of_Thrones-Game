@@ -19,12 +19,27 @@ public class Trap extends Enemy {
     }
 
     @Override
+    public void setExperience(int experience) {
+
+    }
+
+    @Override
     public boolean stepedOnMe(Unit unit) {
+        return false;
+    }
+
+    @Override
+    public boolean Dead() {
         return false;
     }
 
     @Override
     public void setPosition(Position position) {
 
+    }
+
+    @Override
+    public String myChar() {
+        return null;
     }
 }
