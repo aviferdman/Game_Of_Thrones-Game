@@ -12,6 +12,7 @@ public abstract class Player extends Unit {
     private Integer experience;
     private Integer level;
     private LinkedList<Enemy> enemies;
+    private Board board;
 
     public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(name, health, attackPoints, defencePoints, position);

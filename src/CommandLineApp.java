@@ -2,6 +2,7 @@ import States.Board;
 import observer.IObserver;
 
 public class CommandLineApp implements IObserver {
+
     Board board;
 
     public CommandLineApp(Board board){
