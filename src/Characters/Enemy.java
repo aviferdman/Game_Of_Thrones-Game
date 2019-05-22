@@ -39,6 +39,7 @@ public abstract class Enemy extends Unit {
         cell.stepedOnMe(this);
         return true;
     }
+
     public boolean StepedOnMe (Unit unit){
         if (unit.canAttackMonster()) {
             Combat.fight(unit, this);
@@ -53,8 +54,4 @@ public abstract class Enemy extends Unit {
         return false;
     }
 
-    public boolean Dead() {
-        Board.updateDead(this);
-        return true;
-    }
 }

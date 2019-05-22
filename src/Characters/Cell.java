@@ -18,6 +18,8 @@ public abstract class Cell implements IObservable {
     public abstract void setPosition(Position position);
     public abstract void play();
 
+    public abstract String myChar();
+
     public void register(IObserver o){
         observers.add(o);
     }

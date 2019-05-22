@@ -25,6 +25,10 @@ public abstract class Player extends Unit {
         setPosition(x,y);
     }
 
+    public void setBoard (Board board){
+        this.board= board;
+    }
+
     public void levelUp() {
         while (experience > 50 * level) {
             this.experience = this.experience - (50 * this.level);
@@ -51,14 +55,7 @@ public abstract class Player extends Unit {
     }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
-        Board b = new Board(this);
-        this.enemies = b.getEnemies();
-        for (Unit Enemy: enemies) {
-            if (!this.IsInRange(Enemy,range)){
-                enemies.remove(Enemy);
-            }
-        }
-        return enemies;
+        return board.getEnemiesInRange(range);
     }
 
     public abstract void speacialAbility();

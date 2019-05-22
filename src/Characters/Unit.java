@@ -29,7 +29,7 @@ public abstract class Unit extends Cell{
         return this.isDead;
     }
 
-    public void setIsDead(boolean newStatus{
+    public void setIsDead(boolean newStatus){
         this.isDead = newStatus;
     }
 

@@ -28,6 +28,7 @@ public class Board implements IObservable {
         level = 1;
         pathToLevels = pathToLevels;
         observers = new ArrayList<>();
+        this.player.setBoard(this);
     }
 
     public Player getPlayer() {
@@ -104,6 +105,16 @@ public class Board implements IObservable {
         return true;
     }
 
+    public LinkedList<Enemy> getEnemiesInRange(int range) {
+        LinkedList<Enemy> returnEnemies = new LinkedList<>();
+        for (Enemy enemy :getEnemies() ) {
+            if(player.IsInRange(enemy,range)){
+                returnEnemies.add(enemy);
+            }
+        }
+        return returnEnemies;
+    }
+
     public void boardLevelUp (){
         if (level<4) {
             level = level + 1;
@@ -111,18 +122,29 @@ public class Board implements IObservable {
         }
     }
 
-    /*public void mainLoop(){
-        while(true){
-            notifyState()
+    public void mainLoop() {
+        while (true) {
+            notifyState();
             Tick();
-            if(gameOver()){
-                ...
+            if (gameOver()) {
+                notifyState();
+                break;
             }
         }
-    }*/
+    }
 
     public void endGame (){
         //need to change the player char to X
+    }
+
+    public boolean gameOver (){
+        if (player.getIsDead()){
+            DeadPlayer deadPlayer = new DeadPlayer();
+            deadPlayer.setPosition(player.getPosition());
+            theBoard[player.getPosition().getX()][player.getPosition().getY()]=deadPlayer;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -140,8 +162,21 @@ public class Board implements IObservable {
         observers.forEach(o -> o.onEvent(message));
     }
 
-    public void notifState(){
+    public void notifyState(){
         notifyObservers(this.toString());
         notifyObservers(player.toString());
     }
+
+    @Override
+    public String toString(){
+        String output ="";
+        for (int i=0;i<theBoard[0].length;i=i+1){
+            for (int j=0;j<theBoard.length;j=j+1){
+                output = output + theBoard[i][j].myChar();
+            }
+            output = output +"\n";
+        }
+        return output;
+    }
+
 }

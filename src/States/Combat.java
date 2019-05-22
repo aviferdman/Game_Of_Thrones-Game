@@ -15,6 +15,5 @@ public class Combat {
                 defender.Dead();
             }
         }
-
     }
 }
