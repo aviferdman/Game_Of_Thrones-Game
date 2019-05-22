@@ -29,6 +29,7 @@ public class Board implements IObservable {
         pathToLevels = pathToLevels;
         observers = new ArrayList<>();
         this.player.setBoard(this);
+        updateEnemiesRangeFromPlayer();
     }
 
     public Player getPlayer() {
@@ -56,7 +57,11 @@ public class Board implements IObservable {
     }
 
     public void Tick (){
-
+        player.play(char movement);
+        for (Enemy enemy: enemies) {
+            enemy.play();
+        }
+        updateEnemiesRangeFromPlayer();
     }
 
     public boolean moveUp(Unit unit){
@@ -115,6 +120,17 @@ public class Board implements IObservable {
         if (level<4) {
             level = level + 1;
             setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));
+        }
+    }
+
+    public void updateEnemiesRangeFromPlayer(){
+        for (Enemy enemy: enemies) {
+            if(player.IsInRange(enemy,enemy.getVisionRange())){
+                enemy.setIsPlayerInRange(true);
+            }
+            else {
+                enemy.setIsPlayerInRange(false);
+            }
         }
     }
 

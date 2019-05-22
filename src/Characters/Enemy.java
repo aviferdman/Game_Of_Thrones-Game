@@ -31,9 +31,13 @@ public abstract class Enemy extends Unit {
         this.experienceValue = experienceValue;
     }
 
+    public abstract void setIsPlayerInRange (boolean isPlayerInRange);
+
     public char getTile() {
         return tile;
     }
+
+    public abstract int getVisionRange();
 
     public void setTile(char tile) {
         this.tile = tile;
@@ -58,4 +62,5 @@ public abstract class Enemy extends Unit {
         return false;
     }
 
+    public abstract void play();
 }
