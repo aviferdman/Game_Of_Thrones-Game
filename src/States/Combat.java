@@ -1,5 +1,6 @@
 package States;
 
+
 import Attributes.Health;
 import Characters.Unit;
 import Random.IRandom;
@@ -18,9 +19,10 @@ public class Combat {
             defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);
             if(defender.getHealth().getCurrentHealth() <= 0){
                 defender.setIsDead(true);
-                int experience = defender.getexerienceValue();
+                defender.updateDead();
+                int experience = defender.getExperience();
                 if(experience > 0) {
-                    attacker.setExperience(defender.getexerienceValue());
+                    attacker.setExperience(experience+attacker.getExperience());
                 }
             }
         }

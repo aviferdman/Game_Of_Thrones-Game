@@ -26,7 +26,6 @@ public abstract class Unit extends Cell{
     }
 
     public abstract void setExperience(int experience);
-    public abstract int getexerienceValue();
 
     public boolean getIsDead(){
         return this.isDead;
@@ -56,6 +55,15 @@ public abstract class Unit extends Cell{
         return position;
     }
 
+    public abstract int getExperience ();
+
+    public abstract void updateDead();
+
+    public void setPosition(int x,int y) {
+        this.position.setX(x);
+        this.position.setY(y);
+    }
+
     public void setAttackPoints(Integer attackPoints) {
         this.attackPoints = attackPoints;
     }
@@ -69,16 +77,6 @@ public abstract class Unit extends Cell{
             this.health = health;
         }
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPosition(int x,int y) {
-        this.position.setX(x);
-        this.position.setY(y);
-    }
-
 
     public boolean IsInRange(Unit enemy,int range) {
         if (enemy==null) {

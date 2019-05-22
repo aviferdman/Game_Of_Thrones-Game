@@ -62,6 +62,9 @@ public class Board implements IObservable {
             enemy.play();
         }
         updateEnemiesRangeFromPlayer();
+        if (enemies.isEmpty()){
+            boardLevelUp();
+        }
     }
 
     public boolean moveUp(Unit unit){
@@ -86,24 +89,6 @@ public class Board implements IObservable {
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
         return unit.IstepedOn(getTheBoard()[x+1][y]);
-    }
-
-    public boolean updateDead(Enemy enemy){
-        enemies.remove(enemy);
-        int x = enemy.getPosition().getX();
-        int y = enemy.getPosition().getY();
-        Free f = new Free(x, y);
-        free.add(f);
-        theBoard[x][y]= f;
-        if (enemies.isEmpty()){
-            boardLevelUp();
-        }
-        return true;
-    }
-
-    public boolean updateDead(Player player){
-        endGame();
-        return true;
     }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
@@ -145,18 +130,8 @@ public class Board implements IObservable {
         }
     }
 
-    public void endGame (){
-        //need to change the player char to X
-    }
-
     public boolean gameOver (){
-        if (player.getIsDead()){
-            DeadPlayer deadPlayer = new DeadPlayer();
-            deadPlayer.setPosition(player.getPosition());
-            theBoard[player.getPosition().getX()][player.getPosition().getY()]=deadPlayer;
-            return true;
-        }
-        return false;
+        return player.getIsDead();
     }
 
     @Override

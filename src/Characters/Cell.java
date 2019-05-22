@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Cell implements IObservable {
+
     private List<IObserver> observers;
 
     protected Cell(){
@@ -14,9 +15,10 @@ public abstract class Cell implements IObservable {
     }
 
     public abstract boolean stepedOnMe (Unit unit);
-    public abstract Position getPosition();
-    public abstract void setPosition(int x,int y);
 
+    public abstract Position getPosition();
+
+    public abstract void setPosition(int x,int y);
 
     public abstract String myChar();
 

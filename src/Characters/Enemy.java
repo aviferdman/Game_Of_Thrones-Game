@@ -19,15 +19,11 @@ public abstract class Enemy extends Unit {
     }
 
 
-    public int getExperienceValue() {
+    public int getExperience() {
         return experienceValue;
     }
 
-    public int getexerienceValue(){
-        return this.experienceValue;
-    }
-
-    public void setExperienceValue(Integer experienceValue) {
+    public void setExperience(int experienceValue) {
         this.experienceValue = experienceValue;
     }
 
@@ -42,6 +38,8 @@ public abstract class Enemy extends Unit {
     public void setTile(char tile) {
         this.tile = tile;
     }
+
+    public abstract void updateDead ();
 
     public boolean IstepedOn (Cell cell){
         cell.stepedOnMe(this);

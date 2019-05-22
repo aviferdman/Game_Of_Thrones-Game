@@ -32,7 +32,7 @@ public abstract class Player extends Unit {
     public void levelUp() {
         while (experience > 50 * level) {
             this.experience = this.experience - (50 * this.level);
-            this.level = this.level + 1;
+            setLevel(this.level + 1);
             getHealth().setHealthPool(getHealth().getHealthPool() + (10 * this.level));
             getHealth().setCurrentHealth(getHealth().getHealthPool());
             setAttackPoints(getAttackPoints() + (5 * this.level));
@@ -58,15 +58,11 @@ public abstract class Player extends Unit {
         return board.getEnemiesInRange(range);
     }
 
-    public int getexerienceValue(){
-        return -1;
+    public int getExperience(){
+        return experience;
     }
 
     public abstract void speacialAbility();
-
-    public Integer getExperience() {
-        return experience;
-    }
 
     public Integer getLevel() {
         return level;
@@ -83,6 +79,10 @@ public abstract class Player extends Unit {
         this.level = level;
     }
 
+    public void updateDead (){
+        //need to complete what happens when player is dead
+    }
+
     public boolean IstepedOn (Cell cell){
        cell.stepedOnMe(this);
        return true;
@@ -91,6 +91,15 @@ public abstract class Player extends Unit {
     public boolean StepedOnMe (Unit unit){
         Combat.fight(unit,this);
         return true;
+    }
+
+    public String myChar (){
+        if(getIsDead()){
+            return "@";
+        }
+        else {
+            return "X";
+        }
     }
 
     public boolean canAttackMonster (){

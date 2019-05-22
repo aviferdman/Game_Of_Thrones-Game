@@ -1,4 +1,7 @@
 package Characters;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import Attributes.Health;
 import Attributes.Position;
@@ -19,11 +22,6 @@ public class Monster extends Enemy {
     }
 
     @Override
-    public void setExperience(int experience) {
-
-    }
-
-    @Override
     public void setIsPlayerInRange(boolean isPlayerInRange) {
         this.isPlayerInRange = isPlayerInRange;
     }
@@ -31,6 +29,10 @@ public class Monster extends Enemy {
     @Override
     public int getVisionRange() {
         return this.visionRange;
+    }
+
+    public void updateDead(){
+        board.getEnemies().remove(this);
     }
 
     public void play(){

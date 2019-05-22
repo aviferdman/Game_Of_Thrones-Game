@@ -26,9 +26,5 @@ public class Position {
         this.y = y;
     }
 
-    public void setPosition(int x,int y){
-        setX(x);
-        setY(y);
-    }
 }
 
