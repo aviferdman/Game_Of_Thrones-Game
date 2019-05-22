@@ -79,7 +79,6 @@ public abstract class Unit extends Cell{
         this.position.setY(y);
     }
 
-    public abstract void play();
 
     public boolean IsInRange(Unit enemy,int range) {
         if (enemy==null) {

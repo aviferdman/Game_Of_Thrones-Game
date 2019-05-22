@@ -1,6 +1,8 @@
 package Characters;
 import Attributes.Health;
 import Attributes.Position;
+import Random.IRandom;
+import Random.RandomGenerator;
 import States.Board;
 import States.Combat;
 
@@ -9,15 +11,13 @@ public abstract class Enemy extends Unit {
     private Integer experienceValue;
     private char tile;
 
+
     public Enemy (String name, char tile, Health health, int attackPoints, int defencePoints, int experienceValue, Position position){
         super(name,health,attackPoints,defencePoints,position);
         this.experienceValue = experienceValue;
         this.tile=tile;
     }
 
-    public void play(){
-
-    }
 
     public int getExperienceValue() {
         return experienceValue;

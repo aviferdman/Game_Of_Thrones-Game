@@ -28,6 +28,6 @@ public class Free extends Cell{
 
     @Override
     public String myChar() {
-        return null;
+        return ".";
     }
 }

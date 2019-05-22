@@ -28,11 +28,6 @@ public class Mage extends Player {
 
 
     @Override
-    public void play() {
-
-    }
-
-    @Override
     public String myChar() {
         return null;
     }
