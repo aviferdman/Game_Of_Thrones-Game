@@ -31,10 +31,6 @@ public class Rogue extends Player {
         return false;
     }
 
-    @Override
-    public void setPosition(Position position) {
-
-    }
 
     @Override
     public boolean Dead() {

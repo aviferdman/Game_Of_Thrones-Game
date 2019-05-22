@@ -12,6 +12,11 @@ public class Free extends Cell{
         return position;
     }
 
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
+
     public void setPosition(Position position) {
         this.position = position;
     }

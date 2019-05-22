@@ -42,4 +42,19 @@ public class Trap extends Enemy {
     public String myChar() {
         return null;
     }
+
+    @Override
+    public void setIsPlayerInRange(boolean isPlayerInRange) {
+
+    }
+
+    @Override
+    public int getVisionRange() {
+        return 0;
+    }
+
+    @Override
+    public void play() {
+
+    }
 }

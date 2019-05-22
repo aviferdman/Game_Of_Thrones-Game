@@ -37,10 +37,7 @@ public class Mage extends Player {
         return false;
     }
 
-    @Override
-    public void setPosition(Position position) {
 
-    }
 
     @Override
     public boolean Dead() {

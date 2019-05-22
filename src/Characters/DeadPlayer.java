@@ -17,8 +17,9 @@ public class DeadPlayer extends Cell {
     }
 
     @Override
-    public void setPosition(Position position) {
-        this.position=position;
+    public void setPosition(int x, int y) {
+        this.position.setX(x);
+        this.position.setY(x);
     }
 
     @Override

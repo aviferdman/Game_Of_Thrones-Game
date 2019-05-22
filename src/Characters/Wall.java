@@ -14,6 +14,11 @@ public class Wall extends Cell {
         return position;
     }
 
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
+
     public void setPosition(Position position) {
         this.position = position;
     }
