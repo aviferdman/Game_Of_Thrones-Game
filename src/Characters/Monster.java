@@ -62,12 +62,10 @@ public class Monster extends Enemy {
         this.isPlayerInRange= playerInRange;
     }
 
-    @Override
-    public boolean stepedOnMe(Unit unit) {
-        if(unit.canAttackMonster()){
-            Combat.fight(unit,this);
-        }
-        return true;
+    public void updateDead (){
+        board.getEnemies().remove(this);
+        Free free = new Free(getPosition().getX(),getPosition().getY());
+        board.getFrees().add(free);
     }
 
     @Override

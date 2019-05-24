@@ -44,16 +44,11 @@ public class Trap extends Enemy {
 
     @Override
     public void setIsPlayerInRange(boolean isPlayerInRange) {
-
     }
 
     @Override
     public int getVisionRange() {
         return -1;
-    }
-
-    @Override
-    public void updateDead() {
     }
 
     @Override
@@ -86,6 +81,12 @@ public class Trap extends Enemy {
         int postionX = freePositions.get(index).getPosition().getX();
         int postionY = freePositions.get(index).getPosition().getY();
         this.setPosition(postionX,postionY);
+    }
+
+    public void updateDead (){
+        currBoard.getEnemies().remove(this);
+        Free free = new Free(getPosition().getX(),getPosition().getY());
+        currBoard.getFrees().add(free);
     }
 
     public void setCurrBoard(Board currBoard){

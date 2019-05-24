@@ -40,6 +40,10 @@ public class Board implements IObservable {
         return this.enemies;
     }
 
+    public LinkedList<Free> getFrees(){
+        return this.free;
+    }
+
     public Cell[][] getTheBoard() {
         return theBoard;
     }
