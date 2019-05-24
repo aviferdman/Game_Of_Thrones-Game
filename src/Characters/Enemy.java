@@ -46,6 +46,8 @@ public abstract class Enemy extends Unit {
         return true;
     }
 
+    public abstract void setBoard (Board board);
+
     public abstract void updateDead ();
 
     public boolean canAttackMonster (){

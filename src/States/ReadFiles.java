@@ -10,9 +10,10 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ReadFiles {
-    public static Cell[][] ReadBoard (String path, Player player){
+    public static DemiBoard ReadBoard (String path, Player player){
         int width=0;
         int length=0;
+        DemiBoard demiBoard = new DemiBoard();
         LinkedList<Free> frees = new LinkedList<>();
         LinkedList<Wall> walls = new LinkedList<>();
         LinkedList<Enemy> enemies = new LinkedList<>();
@@ -109,7 +110,12 @@ public class ReadFiles {
         for (Wall wall : walls){
             theBoard [wall.getPosition().getX()] [wall.getPosition().getY()] = wall;
         }
-        return (theBoard);
+        demiBoard.setEnemies(enemies);
+        demiBoard.setFree(frees);
+        demiBoard.setWalls(walls);
+        demiBoard.setTheBoard(theBoard);
+
+        return demiBoard;
     }
 
     public static Player createPlayer(int choosenPlayer) {

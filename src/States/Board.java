@@ -16,17 +16,16 @@ public class Board implements IObservable {
     private LinkedList<Enemy> enemies = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
-    private RandomGenerator iRandom;
     private Cell [] [] theBoard;
     int level;
     String pathToLevels;
 
     public Board (Player player, String pathToLevels){
         this.player=player;
-        theBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
-        this.iRandom = IRandom.getInstance();
-        level = 1;
-        pathToLevels = pathToLevels;
+        DemiBoard demiBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
+       setTheBoard(demiBoard);
+        this.level = 1;
+        this.pathToLevels = pathToLevels;
         observers = new ArrayList<>();
         this.player.setBoard(this);
         updateEnemiesRangeFromPlayer();
@@ -56,8 +55,14 @@ public class Board implements IObservable {
         this.enemies = enemies;
     }
 
-    public void setTheBoard(Cell[][] theBoard) {
-        this.theBoard = theBoard;
+    public void setTheBoard(DemiBoard demiBoard) {
+        this.enemies =demiBoard.getEnemies();
+        this.free=demiBoard.getFree();
+        this.walls=demiBoard.getWalls();
+        this.theBoard =demiBoard.getTheBoard();
+        for (Enemy enemy:enemies) {
+            enemy.setBoard(this);
+        }
     }
 
     public void Tick (){
