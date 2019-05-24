@@ -27,7 +27,7 @@ public class Board implements IObservable {
         this.level = 1;
         this.pathToLevels = pathToLevels;
         observers = new ArrayList<>();
-        this.player.setBoard(this);
+        this.player.setCurrBoard(this);
         updateEnemiesRangeFromPlayer();
     }
 
@@ -61,7 +61,7 @@ public class Board implements IObservable {
         this.walls=demiBoard.getWalls();
         this.theBoard =demiBoard.getTheBoard();
         for (Enemy enemy:enemies) {
-            enemy.setBoard(this);
+            enemy.setCurrBoard(this);
         }
     }
 
