@@ -39,22 +39,14 @@ public abstract class Enemy extends Unit {
         this.tile = tile;
     }
 
-    public abstract void updateDead ();
-
-    public boolean IstepedOn (Cell cell){
-        cell.stepedOnMe(this);
+    public boolean stepOn (Unit unit){
+        if (unit.canAttackMonster()){
+            Combat.fight(unit,this);
+        }
         return true;
     }
 
-    public boolean StepedOnMe (Unit unit){
-        if (unit.canAttackMonster()) {
-            Combat.fight(unit, this);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+    public abstract void updateDead ();
 
     public boolean canAttackMonster (){
         return false;

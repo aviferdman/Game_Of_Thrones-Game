@@ -70,25 +70,25 @@ public class Board implements IObservable {
     public boolean moveUp(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return unit.IstepedOn(getTheBoard()[x][y-1]);
+        return getTheBoard()[x][y-1].stepOn(unit);
     }
 
     public boolean moveDown(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return unit.IstepedOn(getTheBoard()[x][y+1]);
+        return getTheBoard()[x][y+1].stepOn(unit);
     }
 
     public boolean moveLeft(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return unit.IstepedOn(getTheBoard()[x-1][y]);
+        return getTheBoard()[x-1][y].stepOn(unit);
     }
 
     public boolean moveRight(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return unit.IstepedOn(getTheBoard()[x+1][y]);
+        return getTheBoard()[x+1][y].stepOn(unit);
     }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
@@ -99,6 +99,16 @@ public class Board implements IObservable {
             }
         }
         return returnEnemies;
+    }
+
+    public LinkedList<Cell> freeLocations (int range, Unit unit){
+        LinkedList <Cell> output = new LinkedList<>();
+        for (Free freeLocation: free ) {
+            if (unit.IsInRange(freeLocation,range)){
+                output.add(freeLocation);
+            }
+        }
+        return output;
     }
 
     public void boardLevelUp (){

@@ -83,12 +83,7 @@ public abstract class Player extends Unit {
         //need to complete what happens when player is dead
     }
 
-    public boolean IstepedOn (Cell cell){
-       cell.stepedOnMe(this);
-       return true;
-    }
-
-    public boolean StepedOnMe (Unit unit){
+    public boolean stepOn (Unit unit){
         Combat.fight(unit,this);
         return true;
     }

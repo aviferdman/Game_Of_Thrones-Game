@@ -1,5 +1,6 @@
 package Characters;
 import Attributes.Position;
+import javafx.geometry.Pos;
 
 
 public class Free extends Cell{
@@ -17,18 +18,16 @@ public class Free extends Cell{
 
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public boolean stepedOnMe (Unit unit){
-        Position temp = unit.getPosition();
-        unit.setPosition(position.getX(),position.getY());
-        setPosition(temp);
-        return true;
-    }
-
     public void play() {
+    }
+
+    public boolean stepOn (Unit unit){
+        Position myPos = getPosition();
+        Position unitPos = unit.getPosition();
+        Position temp = myPos;
+        setPosition(unitPos.getX(),unitPos.getY());
+        unit.setPosition(temp.getX(),temp.getY());
+        return true;
     }
 
     @Override

@@ -14,8 +14,6 @@ public abstract class Cell implements IObservable {
         observers = new ArrayList<>();
     }
 
-    public abstract boolean stepedOnMe (Unit unit);
-
     public abstract Position getPosition();
 
     public abstract void setPosition(int x,int y);
@@ -29,4 +27,6 @@ public abstract class Cell implements IObservable {
     public void notifyObservers(String message){
         observers.forEach(o -> o.onEvent(message));
     }
+
+    public abstract boolean stepOn (Unit unit);
 }

@@ -35,4 +35,6 @@ public class Wall extends Cell {
     public String myChar() {
         return null;
     }
+
+    public boolean stepOn (Unit unit){return true;}
 }
