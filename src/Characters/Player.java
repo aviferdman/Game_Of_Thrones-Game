@@ -97,13 +97,4 @@ public abstract class Player extends Unit {
         return true;
     }
 
-    @Override
-    public String toString() {
-        String output = "";
-
-        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
-                getLevel() + "        " + getExperience() + "/50" + "        ";
-
-        return output;
-    }
 }

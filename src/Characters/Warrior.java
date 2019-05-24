@@ -54,7 +54,13 @@ public class Warrior extends Player {
 
     @Override
     public String toString() {
-        return "temp";
+        String output = "";
+
+        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
+                getLevel() + "        " + getExperience() + "/50" + "        " + getCooldown() + "\n"
+        + "Remaining : " + getRemaining();
+
+        return output;
     }
 
     public int getCooldown() {

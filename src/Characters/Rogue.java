@@ -57,6 +57,16 @@ public class Rogue extends Player {
         }
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+
+        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
+                getLevel() + "        " + getExperience() + "/50" + "        " + getCurrentEnergy() + "/100" ;
+        return output;
+    }
+
+
     public int getCost() {
         return cost;
     }

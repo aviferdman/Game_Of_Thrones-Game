@@ -67,6 +67,16 @@ public class Mage extends Player {
         currEnemy.setHealth(healthAfterAttack);
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+
+        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
+                getLevel() + "        " + getExperience() + "/50" + "        "  + getSpellPower() + "        " + getCurrentMana()  ;
+
+        return output;
+    }
+
     public int getSpellPower() {
         return SpellPower;
     }
