@@ -67,6 +67,7 @@ public class Board implements IObservable {
 
     public void Tick (){
         player.play('s');
+        player.afterPlay();
         for (Enemy enemy: enemies) {
             enemy.play();
         }
@@ -76,25 +77,25 @@ public class Board implements IObservable {
         }
     }
 
-    public boolean moveUp(Unit unit){
+    public String moveUp(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
         return getTheBoard()[x][y-1].stepOn(unit);
     }
 
-    public boolean moveDown(Unit unit){
+    public String moveDown(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
         return getTheBoard()[x][y+1].stepOn(unit);
     }
 
-    public boolean moveLeft(Unit unit){
+    public String moveLeft(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
         return getTheBoard()[x-1][y].stepOn(unit);
     }
 
-    public boolean moveRight(Unit unit){
+    public String moveRight(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
         return getTheBoard()[x+1][y].stepOn(unit);
