@@ -32,5 +32,5 @@ public class Wall extends Cell {
         return "#";
     }
 
-    public boolean stepOn (Unit unit){return true;}
+    public String stepOn (Unit unit){return "";}
 }

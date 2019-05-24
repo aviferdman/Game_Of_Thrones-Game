@@ -28,5 +28,5 @@ public abstract class Cell implements IObservable {
         observers.forEach(o -> o.onEvent(message));
     }
 
-    public abstract boolean stepOn (Unit unit);
+    public abstract String stepOn (Unit unit);
 }
