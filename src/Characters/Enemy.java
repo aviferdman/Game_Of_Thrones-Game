@@ -33,6 +33,15 @@ public abstract class Enemy extends Unit {
         return tile;
     }
 
+    @Override
+    public String toString() {
+        String output="";
+
+        output+= this.getName() + "        " + "Health: " +this.getHealth().getCurrentHealth() + "        " + "Attack damage: " +this.getAttackPoints() + "        " + "Defense: " +this.getDefencePoints();
+
+        return output;
+    }
+
     public abstract int getVisionRange();
 
     public void setTile(char tile) {

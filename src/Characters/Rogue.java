@@ -61,8 +61,8 @@ public class Rogue extends Player {
     public String toString() {
         String output = "";
 
-        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
-                getLevel() + "        " + getExperience() + "/50" + "        " + getCurrentEnergy() + "/100" ;
+        output = getName() + "        " + " Health: " +getHealth().getCurrentHealth() + "        " + " Attack damage: " +getAttackPoints() + "        " + " Defence: " +getDefencePoints() + "\n" +
+                " Level: " +getLevel() + "        " + getExperience() + "/50" + "        " + " Energy: " +getCurrentEnergy() + "/100" ;
         return output;
     }
 

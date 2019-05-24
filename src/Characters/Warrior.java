@@ -56,8 +56,8 @@ public class Warrior extends Player {
     public String toString() {
         String output = "";
 
-        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
-                getLevel() + "        " + getExperience() + "/50" + "        " + getCooldown() + "\n"
+        output = getName() + "        " + " Health: " +getHealth().getCurrentHealth() + "        " +" Attack damage: " + getAttackPoints() + "        " + " Defense: " +getDefencePoints() + "\n" +
+                " Level: " +getLevel() + "        " + " Experience: " +getExperience() + "/50" + "        " + " Ability cooldown: " +getCooldown() + "\n"
         + "Remaining : " + getRemaining();
 
         return output;

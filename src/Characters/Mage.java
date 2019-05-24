@@ -71,8 +71,8 @@ public class Mage extends Player {
     public String toString() {
         String output = "";
 
-        output = getName() + "        " + getHealth().getCurrentHealth() + "        " + getAttackPoints() + "        " + getDefencePoints() + "\n" +
-                getLevel() + "        " + getExperience() + "/50" + "        "  + getSpellPower() + "        " + getCurrentMana()  ;
+        output = getName() + "        " + " Health: " + getHealth().getCurrentHealth() + "        " + " Attack damage: " +getAttackPoints() + "        " + " Defense: " +getDefencePoints() + "\n" +
+                " Level: " +getLevel() + "        " + " Experience: " + getExperience() + "/50" + "        "  + " SpellPower: " + getSpellPower() + "        " + " Mana : " +getCurrentMana() + "/" + getManaPool();  ;
 
         return output;
     }

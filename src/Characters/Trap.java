@@ -74,6 +74,7 @@ public class Trap extends Enemy {
 
     }
 
+
     public void trapRelocation(){
         LinkedList<Cell> freePositions = currBoard.freeLocations(this.realocationRange,this);
         RandomGenerator random = IRandom.getInstance();
