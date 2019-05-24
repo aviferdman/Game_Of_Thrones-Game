@@ -1,13 +1,11 @@
 package States;
 
-import Characters.Cell;
-import Characters.Enemy;
-import Characters.Free;
-import Characters.Wall;
+import Characters.*;
 
 import java.util.LinkedList;
 
 public class DemiBoard {
+
     private LinkedList<Enemy> enemies = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
