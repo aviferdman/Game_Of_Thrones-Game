@@ -26,4 +26,8 @@ public class IRandom implements RandomGenerator {
     public int nextInt ( int n ) {
         return instance.nextInt(n);
     }
+
+    public char nextChar () {
+        return instance.nextChar();
+    }
 }

@@ -34,4 +34,15 @@ public class DRandom implements RandomGenerator{
         return output;
     }
 
+    @Override
+    public char nextChar() {
+        char output = 'q';
+        if (nextInt!=null){
+            output = nextInt.charAt(0);
+            if(sc.hasNextLine()){
+                nextInt = sc.nextLine();
+            }
+        }
+        return output;
+    }
 }
