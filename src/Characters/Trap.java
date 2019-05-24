@@ -45,7 +45,11 @@ public class Trap extends Enemy {
 
     @Override
     public String myChar() {
-        return null;
+        if(isVisible){
+            return "" + this.getTile();
+        } else {
+            return ".";
+        }
     }
 
     @Override
@@ -55,12 +59,11 @@ public class Trap extends Enemy {
 
     @Override
     public int getVisionRange() {
-        return 0;
+        return -1;
     }
 
     @Override
     public void updateDead() {
-
     }
 
     @Override
