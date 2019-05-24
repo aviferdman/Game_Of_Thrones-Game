@@ -12,8 +12,8 @@ public abstract class Enemy extends Unit {
     private char tile;
 
 
-    public Enemy (String name, char tile, Health health, int attackPoints, int defencePoints, int experienceValue, Position position){
-        super(name,health,attackPoints,defencePoints,position);
+    public Enemy (String name, char tile, Health health, int attackPoints, int defencePoints, int experienceValue){
+        super(name,health,attackPoints,defencePoints);
         this.experienceValue = experienceValue;
         this.tile=tile;
     }

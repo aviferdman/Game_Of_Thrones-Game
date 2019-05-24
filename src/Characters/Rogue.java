@@ -14,8 +14,8 @@ public class Rogue extends Player {
     private int CurrentEnergy;
     private LinkedList<Enemy> enemies;
 
-    public Rogue(int cost, Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experience, level, name, health, attackPoints, defencePoints, position);
+    public Rogue(int cost, Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints) {
+        super(experience, level, name, health, attackPoints, defencePoints);
         this.cost = cost;
         this.CurrentEnergy = 100;
         this.enemies = getEnemiesInRange(2);

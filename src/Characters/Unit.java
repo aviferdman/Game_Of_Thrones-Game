@@ -18,12 +18,11 @@ public abstract class Unit extends Cell{
     private boolean isDead;
     private Board currBoard;
 
-    public Unit(String name, Health health, Integer attackPoints, Integer defencePoints, Position position){
+    public Unit(String name, Health health, Integer attackPoints, Integer defencePoints){
         this.name = name;
         this.health=health;
         this.attackPoints = attackPoints;
         this.defencePoints = defencePoints;
-        this.position = position;
         this.isDead = false;
     }
 
@@ -63,6 +62,10 @@ public abstract class Unit extends Cell{
 
     public Position getPosition() {
         return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public abstract int getExperience ();

@@ -19,8 +19,8 @@ public class Trap extends Enemy {
     private Board currBoard;
 
 
-    public Trap(String name, char tile, Health health, int attackPoints, int defencePoints, int experienceValue, int range, int respwan, int visibility , Position position) {
-        super(name, tile, health, attackPoints, defencePoints, experienceValue, position);
+    public Trap(String name, char tile, Health health, int attackPoints, int defencePoints, int experienceValue, int range, int respwan, int visibility) {
+        super(name, tile, health, attackPoints, defencePoints, experienceValue);
         this.realocationRange = range;
         this.relocationTime = respwan;
         this.visibilityTime = visibility;

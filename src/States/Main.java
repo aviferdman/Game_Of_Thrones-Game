@@ -21,7 +21,5 @@ public class Main {
 
         Board mainBoard = new Board(player,args[0]);
         mainBoard.mainLoop();
-
     }
-
 }

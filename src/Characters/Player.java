@@ -13,8 +13,8 @@ public abstract class Player extends Unit {
     private Integer level;
     private LinkedList<Enemy> enemies;
 
-    public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(name, health, attackPoints, defencePoints, position);
+    public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints) {
+        super(name, health, attackPoints, defencePoints);
         this.experience = 0;
         this.level = 1;
         this.enemies = new LinkedList<>();

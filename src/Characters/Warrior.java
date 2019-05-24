@@ -8,8 +8,8 @@ public class Warrior extends Player {
     private int cooldown;
     private int remaining;
 
-    public Warrior(int cooldown, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experience, level, name, health, attackPoints, defencePoints, position);
+    public Warrior(int cooldown, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints) {
+        super(experience, level, name, health, attackPoints, defencePoints);
         this.remaining = 0;
         this.cooldown = cooldown;
     }

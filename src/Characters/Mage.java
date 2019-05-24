@@ -15,8 +15,8 @@ public class Mage extends Player {
     private int Range;
     private LinkedList<Enemy> enemies;
 
-    public Mage(int SpellPower, int ManaPool, int ManaCast, int HitTimes, int Range, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
-        super(experience, level, name, health, attackPoints, defencePoints, position);
+    public Mage(int SpellPower, int ManaPool, int ManaCast, int HitTimes, int Range, Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints) {
+        super(experience, level, name, health, attackPoints, defencePoints);
         this.SpellPower = SpellPower;
         this.ManaPool = ManaPool;
         this.CurrentMana = ManaPool / 4;
