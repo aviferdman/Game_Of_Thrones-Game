@@ -25,11 +25,6 @@ public class Warrior extends Player {
     }
 
 
-    @Override
-    public boolean Dead() {
-        return false;
-    }
-
     public void levelUp() {
         this.remaining = 0;
         this.getHealth().setHealthPool(this.getHealth().getHealthPool() + (5 * this.getLevel()));

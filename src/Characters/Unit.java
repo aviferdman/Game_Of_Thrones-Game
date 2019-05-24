@@ -78,15 +78,15 @@ public abstract class Unit extends Cell{
         }
     }
 
-    public boolean IsInRange(Unit enemy,int range) {
-        if (enemy==null) {
+    public boolean IsInRange(Cell cell,int range) {
+        if (cell==null) {
             return false;
         }
         int x = position.getX();
         int y = position.getY();
 
-        int a = enemy.getPosition().getX();
-        int b = enemy.getPosition().getY();
+        int a = cell.getPosition().getX();
+        int b = cell.getPosition().getY();
 
         if ((Math.sqrt((b-y)^2 + (a-x)^2))<range){
             return true;

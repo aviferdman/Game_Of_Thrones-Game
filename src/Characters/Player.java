@@ -69,8 +69,8 @@ public abstract class Player extends Unit {
     }
 
     public void setExperience(int experience) {
-        this.experience += experience;
-        if(experience > 50){
+        this.experience = experience;
+        if(experience > 50*this.level){
             levelUp();
         }
     }
