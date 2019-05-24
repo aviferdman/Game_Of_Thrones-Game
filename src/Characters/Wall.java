@@ -28,9 +28,8 @@ public class Wall extends Cell {
 
     }
 
-    @Override
     public String myChar() {
-        return null;
+        return "#";
     }
 
     public boolean stepOn (Unit unit){return true;}

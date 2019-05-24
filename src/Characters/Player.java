@@ -21,7 +21,8 @@ public abstract class Player extends Unit {
     }
 
     public void setPosition (int x,int y){
-        setPosition(x,y);
+        getPosition().setX(x);
+        getPosition().setY(y);
     }
 
 
@@ -85,7 +86,7 @@ public abstract class Player extends Unit {
     }
 
     public String myChar (){
-        if(getIsDead()){
+        if(!getIsDead()){
             return "@";
         }
         else {

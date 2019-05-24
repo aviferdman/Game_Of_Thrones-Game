@@ -115,13 +115,13 @@ public class ReadFiles {
         length=(lineNumber);
         Cell [] [] theBoard = new Cell[width][length];
         for (Enemy enemy : enemies) {
-            theBoard [enemy.getPosition().getX()] [enemy.getPosition().getY()] = enemy;
+            theBoard [enemy.getPosition().getY()] [enemy.getPosition().getX()] = enemy;
         }
         for (Free free : frees){
-            theBoard [free.getPosition().getX()] [free.getPosition().getY()] = free;
+            theBoard [free.getPosition().getY()] [free.getPosition().getX()] = free;
         }
         for (Wall wall : walls){
-            theBoard [wall.getPosition().getX()] [wall.getPosition().getY()] = wall;
+            theBoard [wall.getPosition().getY()] [wall.getPosition().getX()] = wall;
         }
         demiBoard.setEnemies(enemies);
         demiBoard.setFree(frees);

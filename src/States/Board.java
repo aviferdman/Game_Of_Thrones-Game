@@ -23,7 +23,7 @@ public class Board implements IObservable {
     public Board (Player player, String pathToLevels){
         this.player=player;
         DemiBoard demiBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
-       setTheBoard(demiBoard);
+        setTheBoard(demiBoard);
         this.level = 1;
         this.pathToLevels = pathToLevels;
         observers = new ArrayList<>();
@@ -178,7 +178,7 @@ public class Board implements IObservable {
         String output ="";
         for (int i=0;i<theBoard[0].length;i=i+1){
             for (int j=0;j<theBoard.length;j=j+1){
-                output = output + theBoard[i][j].myChar();
+                output = output + theBoard[j][i].myChar();
             }
             output = output +"\n";
         }

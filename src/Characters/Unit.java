@@ -14,7 +14,7 @@ public abstract class Unit extends Cell{
     private Health health;
     private Integer attackPoints;
     private Integer defencePoints;
-    private Position position;
+    private Position position = new Position(-1,-1);
     private boolean isDead;
     private Board currBoard;
 

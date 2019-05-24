@@ -16,7 +16,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("select player");
-        int choosenPlayer = scanner.nextInt();
+        int choosenPlayer = 2;
         player = ReadFiles.createPlayer(choosenPlayer);
 
         Board mainBoard = new Board(player,args[0]);
