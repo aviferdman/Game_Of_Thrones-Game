@@ -19,6 +19,11 @@ public class Warrior extends Player {
         return null;
     }
 
+    @Override
+    public void afterPlay() {
+        cast();
+        gametick();
+    }
 
 
     public void levelUp() {

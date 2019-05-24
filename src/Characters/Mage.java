@@ -77,6 +77,12 @@ public class Mage extends Player {
         return output;
     }
 
+    @Override
+    public void afterPlay() {
+        cast();
+        gametick();
+    }
+
     public int getSpellPower() {
         return SpellPower;
     }

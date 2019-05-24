@@ -51,6 +51,8 @@ public abstract class Player extends Unit {
         }
     }
 
+    public abstract void afterPlay();
+
     public LinkedList<Enemy> getEnemiesInRange(int range) {
         return getCurrBoard().getEnemiesInRange(range);
     }

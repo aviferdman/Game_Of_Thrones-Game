@@ -33,6 +33,12 @@ public class Rogue extends Player {
         setAttackPoints(getAttackPoints() + 3 * (getLevel() + 1));
     }
 
+    @Override
+    public void afterPlay() {
+        cast();
+        gametick();
+    }
+
     public void gametick() {
         this.CurrentEnergy = Math.min(CurrentEnergy + 10, 100);
     }
