@@ -35,9 +35,11 @@ public class Trap extends Enemy {
 
     }
 
-    @Override
     public boolean stepedOnMe(Unit unit) {
-        return false;
+        if(unit.canAttackMonster()){
+            Combat.fight(unit,this);
+        }
+        return true;
     }
 
 
