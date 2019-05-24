@@ -31,10 +31,6 @@ public class Monster extends Enemy {
         return this.visionRange;
     }
 
-    public void updateDead(){
-        board.getEnemies().remove(this);
-    }
-
     public void play(){
         if(isPlayerInRange){
             chasePlayer(board.getPlayer().getPosition());

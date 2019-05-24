@@ -28,20 +28,10 @@ public class Trap extends Enemy {
         this.ticksCount = 0;
     }
 
-
-
     @Override
     public void setExperience(int experience) {
 
     }
-
-    public boolean stepedOnMe(Unit unit) {
-        if(unit.canAttackMonster()){
-            Combat.fight(unit,this);
-        }
-        return true;
-    }
-
 
     @Override
     public String myChar() {
