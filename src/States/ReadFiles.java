@@ -120,6 +120,7 @@ public class ReadFiles {
         }
         length=(lineNumber);
         Cell [] [] theBoard = new Cell[width][length];
+        theBoard[player.getPosition().getY()][player.getPosition().getX()]=player;
         for (Enemy enemy : enemies) {
             theBoard [enemy.getPosition().getY()] [enemy.getPosition().getX()] = enemy;
         }

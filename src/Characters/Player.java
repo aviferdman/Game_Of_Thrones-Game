@@ -25,7 +25,6 @@ public abstract class Player extends Unit {
         getPosition().setY(y);
     }
 
-
     public void levelUp() {
         while (experience > 50 * level) {
             this.experience = this.experience - (50 * this.level);
