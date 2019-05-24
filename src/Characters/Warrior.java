@@ -19,10 +19,6 @@ public class Warrior extends Player {
         return null;
     }
 
-    @Override
-    public boolean stepedOnMe(Unit unit) {
-        return false;
-    }
 
 
     public void levelUp() {

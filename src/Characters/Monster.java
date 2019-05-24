@@ -14,7 +14,6 @@ public class Monster extends Enemy {
 
     private int visionRange;
     private boolean isPlayerInRange;
-    private Board board;
 
     public Monster(String name, char tile, Health health, int attackPoints, int defencePoints, int visionRange, int experienceValue, Position position) {
         super(name, tile, health, attackPoints, defencePoints, experienceValue, position);
@@ -33,26 +32,23 @@ public class Monster extends Enemy {
 
     public void play(){
         if(isPlayerInRange){
-            chasePlayer(board.getPlayer().getPosition());
+            chasePlayer(getCurrBoard().getPlayer().getPosition());
         }
         else {
             RandomGenerator rg = IRandom.getInstance();
             int move = rg.nextInt(4);
             if (move == 1) {
-                board.moveUp(this);
+                getCurrBoard().moveUp(this);
             } else if (move == 2) {
-                board.moveLeft(this);
+                getCurrBoard().moveLeft(this);
             } else if (move == 3) {
-                board.moveRight(this);
+                getCurrBoard().moveRight(this);
             } else {
-                board.moveDown(this);
+                getCurrBoard().moveDown(this);
             }
         }
     }
 
-    public void setBoard(Board board){
-        this.board = board;
-    }
 
     public boolean getIsPlayerInRange(){
         return this.isPlayerInRange;
@@ -63,9 +59,9 @@ public class Monster extends Enemy {
     }
 
     public void updateDead (){
-        board.getEnemies().remove(this);
+        getCurrBoard().getEnemies().remove(this);
         Free free = new Free(getPosition().getX(),getPosition().getY());
-        board.getFrees().add(free);
+        getCurrBoard().getFrees().add(free);
     }
 
     @Override
@@ -76,18 +72,18 @@ public class Monster extends Enemy {
     public void chasePlayer(Position position){
         if(getPosition().getX()!=position.getX()){
             if(getPosition().getX()>position.getX()){
-                board.moveLeft(this);
+                getCurrBoard().moveLeft(this);
             }
             else {
-                board.moveRight(this);
+                getCurrBoard().moveRight(this);
             }
         }
         else {
             if(getPosition().getY()>position.getY()){
-                board.moveUp(this);
+                getCurrBoard().moveUp(this);
             }
             else {
-                board.moveDown(this);
+                getCurrBoard().moveDown(this);
             }
         }
     }

@@ -12,7 +12,6 @@ public abstract class Player extends Unit {
     private Integer experience;
     private Integer level;
     private LinkedList<Enemy> enemies;
-    private Board board;
 
     public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints, Position position) {
         super(name, health, attackPoints, defencePoints, position);
@@ -25,9 +24,6 @@ public abstract class Player extends Unit {
         setPosition(x,y);
     }
 
-    public void setBoard (Board board){
-        this.board= board;
-    }
 
     public void levelUp() {
         while (experience > 50 * level) {
@@ -42,20 +38,20 @@ public abstract class Player extends Unit {
 
     public void play(char movevement){
         if(movevement == 'w'){
-            board.moveUp(this);
+            getCurrBoard().moveUp(this);
         } else if(movevement == 's'){
-            board.moveDown(this);
+            getCurrBoard().moveDown(this);
         } else if(movevement == 'a'){
-            board.moveLeft(this);
+            getCurrBoard().moveLeft(this);
         } else if(movevement == 'd'){
-            board.moveRight(this);
+            getCurrBoard().moveRight(this);
         } else if(movevement == 'e'){
             this.speacialAbility();
         }
     }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
-        return board.getEnemiesInRange(range);
+        return getCurrBoard().getEnemiesInRange(range);
     }
 
     public int getExperience(){

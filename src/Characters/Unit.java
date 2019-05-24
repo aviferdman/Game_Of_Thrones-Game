@@ -2,6 +2,7 @@ package Characters;
 
 import Attributes.Health;
 import Attributes.Position;
+import States.Board;
 import observer.IObservable;
 import observer.IObserver;
 
@@ -15,6 +16,7 @@ public abstract class Unit extends Cell{
     private Integer defencePoints;
     private Position position;
     private boolean isDead;
+    private Board currBoard;
 
     public Unit(String name, Health health, Integer attackPoints, Integer defencePoints, Position position){
         this.name = name;
@@ -23,6 +25,14 @@ public abstract class Unit extends Cell{
         this.defencePoints = defencePoints;
         this.position = position;
         this.isDead = false;
+    }
+
+    public void setCurrBoard(Board currBoard){
+        this.currBoard = currBoard;
+    }
+
+    public Board getCurrBoard(){
+        return this.currBoard;
     }
 
     public abstract void setExperience(int experience);

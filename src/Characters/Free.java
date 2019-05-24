@@ -1,6 +1,5 @@
 package Characters;
 import Attributes.Position;
-import javafx.geometry.Pos;
 
 
 public class Free extends Cell{

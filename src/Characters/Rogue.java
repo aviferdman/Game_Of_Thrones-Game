@@ -27,17 +27,6 @@ public class Rogue extends Player {
     }
 
     @Override
-    public boolean stepedOnMe(Unit unit) {
-        return false;
-    }
-
-
-    @Override
-    public boolean Dead() {
-        return false;
-    }
-
-    @Override
     public void levelUp() {
         super.levelUp();
         this.CurrentEnergy = 100;

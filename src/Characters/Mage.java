@@ -32,17 +32,6 @@ public class Mage extends Player {
         return null;
     }
 
-    @Override
-    public boolean stepedOnMe(Unit unit) {
-        return false;
-    }
-
-
-
-    @Override
-    public boolean Dead() {
-        return false;
-    }
     public void levelUp() {
         this.ManaPool = this.ManaPool + (25 * this.getLevel());
         this.CurrentMana = Math.min((this.CurrentMana + (4 / this.ManaPool)), (this.ManaPool));

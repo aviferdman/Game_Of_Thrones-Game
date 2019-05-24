@@ -23,9 +23,6 @@ public class Wall extends Cell {
         this.position = position;
     }
 
-    public boolean stepedOnMe (Unit unit){
-        return false;
-    }
 
     public void play() {
 
