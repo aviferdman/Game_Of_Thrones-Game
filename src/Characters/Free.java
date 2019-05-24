@@ -20,13 +20,13 @@ public class Free extends Cell{
     public void play() {
     }
 
-    public boolean stepOn (Unit unit){
+    public String stepOn (Unit unit){
         Position myPos = getPosition();
         Position unitPos = unit.getPosition();
         Position temp = myPos;
         setPosition(unitPos.getX(),unitPos.getY());
         unit.setPosition(temp.getX(),temp.getY());
-        return true;
+        return "";
     }
 
     @Override

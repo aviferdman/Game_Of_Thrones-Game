@@ -80,9 +80,11 @@ public abstract class Player extends Unit {
         setIsDead(true);
     }
 
-    public boolean stepOn (Unit unit){
+    public String stepOn (Unit unit){
+        String s="";
         Combat.fight(unit,this);
-        return true;
+        s=s+""+unit.getName()+""+"engaged in battle with"+this.getName();
+        return s;
     }
 
     public String myChar (){

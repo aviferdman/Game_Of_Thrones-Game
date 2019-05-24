@@ -39,11 +39,13 @@ public abstract class Enemy extends Unit {
         this.tile = tile;
     }
 
-    public boolean stepOn (Unit unit){
+    public String stepOn (Unit unit){
+        String s = "";
         if (unit.canAttackMonster()){
             Combat.fight(unit,this);
+            s=s+""+unit.getName()+""+"engaged in battle with"+this.getName();
         }
-        return true;
+        return s;
     }
 
 
