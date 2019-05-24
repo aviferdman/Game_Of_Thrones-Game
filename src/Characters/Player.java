@@ -76,7 +76,7 @@ public abstract class Player extends Unit {
     }
 
     public void updateDead (){
-        //need to complete what happens when player is dead
+        setIsDead(true);
     }
 
     public boolean stepOn (Unit unit){
