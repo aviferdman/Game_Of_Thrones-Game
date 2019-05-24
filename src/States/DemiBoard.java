@@ -1,6 +1,8 @@
 package States;
 
 import Characters.*;
+import Characters.GameCells.Free;
+import Characters.GameCells.Wall;
 
 import java.util.LinkedList;
 

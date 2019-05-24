@@ -1,8 +1,10 @@
-package Characters;
+package Characters.GameCells;
 import Attributes.Position;
+import Characters.Cell;
+import Characters.Unit;
 
 
-public class Free extends Cell{
+public class Free extends Cell {
 
     Position position;
     public Free (int x,int y){

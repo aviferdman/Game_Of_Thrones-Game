@@ -1,7 +1,9 @@
-package Characters;
+package Characters.GamePlayers;
 
 import Attributes.Health;
 import Attributes.Position;
+import Characters.Enemy;
+import Characters.Player;
 
 import java.util.LinkedList;
 

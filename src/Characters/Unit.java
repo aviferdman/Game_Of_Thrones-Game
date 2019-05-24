@@ -3,11 +3,6 @@ package Characters;
 import Attributes.Health;
 import Attributes.Position;
 import States.Board;
-import observer.IObservable;
-import observer.IObserver;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Unit extends Cell{
     private String name;

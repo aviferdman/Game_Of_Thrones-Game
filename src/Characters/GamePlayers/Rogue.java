@@ -1,4 +1,4 @@
-package Characters;
+package Characters.GamePlayers;
 
 import Attributes.Health;
 import Attributes.Position;
@@ -6,6 +6,9 @@ import Attributes.Position;
 import java.util.LinkedList;
 import Attributes.Health;
 import Attributes.Position;
+import Characters.Enemy;
+import Characters.Player;
+import Characters.Unit;
 
 
 public class Rogue extends Player {

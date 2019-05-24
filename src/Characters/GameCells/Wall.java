@@ -1,6 +1,8 @@
-package Characters;
+package Characters.GameCells;
 
 import Attributes.Position;
+import Characters.Cell;
+import Characters.Unit;
 
 public class Wall extends Cell {
 

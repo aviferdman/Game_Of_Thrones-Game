@@ -2,7 +2,13 @@ package States;
 
 import Characters.*;
 import Attributes.Health;
-import Attributes.Position;
+import Characters.GameCells.Free;
+import Characters.GameCells.Wall;
+import Characters.GameEnemies.Monster;
+import Characters.GameEnemies.Trap;
+import Characters.GamePlayers.Mage;
+import Characters.GamePlayers.Rogue;
+import Characters.GamePlayers.Warrior;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,47 +48,47 @@ public class ReadFiles {
                     enemies.add(enemy);
                 }
                 if(c=='k'){
-                    Enemy enemy = new Monster ("Lannister Knight", 'k', new Health(200,200), 14, 8, 4, 50);
+                    Enemy enemy = new Monster("Lannister Knight", 'k', new Health(200,200), 14, 8, 4, 50);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='q'){
-                    Enemy enemy = new Monster ("Queen’s Guard", 'q', new Health(400,400), 20, 15, 5, 100);
+                    Enemy enemy = new Monster("Queen’s Guard", 'q', new Health(400,400), 20, 15, 5, 100);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='z'){
-                    Enemy enemy = new Monster ("Wright", 'z', new Health(600,600), 30, 15, 3, 100);
+                    Enemy enemy = new Monster("Wright", 'z', new Health(600,600), 30, 15, 3, 100);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='b'){
-                    Enemy enemy = new Monster ("Bear-Wright", 'b', new Health(1000,1000), 75, 30, 4, 250);
+                    Enemy enemy = new Monster("Bear-Wright", 'b', new Health(1000,1000), 75, 30, 4, 250);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='g'){
-                    Enemy enemy = new Monster ("Giant-Wright", 'g', new Health(1500,1500), 100, 40, 5, 500);
+                    Enemy enemy = new Monster("Giant-Wright", 'g', new Health(1500,1500), 100, 40, 5, 500);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='w'){
-                    Enemy enemy = new Monster ("White Walker", 'w', new Health(2000,2000), 150, 50, 6, 1000);
+                    Enemy enemy = new Monster("White Walker", 'w', new Health(2000,2000), 150, 50, 6, 1000);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='M'){
-                    Enemy enemy = new Monster ("The Mountain", 'M', new Health(1000,1000), 60, 25, 6, 500);
+                    Enemy enemy = new Monster("The Mountain", 'M', new Health(1000,1000), 60, 25, 6, 500);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='C'){
-                    Enemy enemy = new Monster ("Queen Cersei" ,'C', new Health(100,100), 10, 10, 1, 1000);
+                    Enemy enemy = new Monster("Queen Cersei" ,'C', new Health(100,100), 10, 10, 1, 1000);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='K'){
-                    Enemy enemy = new Monster ("Night’s King", 'K', new Health(5000,5000), 300, 150, 8, 5000);
+                    Enemy enemy = new Monster("Night’s King", 'K', new Health(5000,5000), 300, 150, 8, 5000);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
@@ -97,7 +103,7 @@ public class ReadFiles {
                     enemies.add(enemy);
                 }
                 if(c=='D'){
-                    Enemy enemy = new Trap ("Death Characters.Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3);
+                    Enemy enemy = new Trap("Death Characters.Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }

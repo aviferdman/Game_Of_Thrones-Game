@@ -1,14 +1,11 @@
-package Characters;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+package Characters.GameEnemies;
 
 import Attributes.Health;
 import Attributes.Position;
+import Characters.Enemy;
+import Characters.GameCells.Free;
 import Random.IRandom;
 import Random.RandomGenerator;
-import States.Board;
-import States.Combat;
 
 public class Monster extends Enemy {
 

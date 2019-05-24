@@ -1,8 +1,8 @@
 package States;
 
 import Characters.*;
-import Random.IRandom;
-import Random.RandomGenerator;
+import Characters.GameCells.Free;
+import Characters.GameCells.Wall;
 import observer.IObservable;
 import observer.IObserver;
 

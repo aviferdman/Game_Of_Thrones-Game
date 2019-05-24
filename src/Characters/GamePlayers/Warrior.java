@@ -1,7 +1,8 @@
-package Characters;
+package Characters.GamePlayers;
 
 import Attributes.Health;
 import Attributes.Position;
+import Characters.Player;
 
 public class Warrior extends Player {
 

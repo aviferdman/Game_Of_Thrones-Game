@@ -1,7 +1,10 @@
-package Characters;
+package Characters.GameEnemies;
 
 import Attributes.Health;
-import Attributes.Position;
+import Characters.Cell;
+import Characters.Enemy;
+import Characters.GameCells.Free;
+import Characters.Player;
 import Random.IRandom;
 import Random.RandomGenerator;
 import States.Board;
