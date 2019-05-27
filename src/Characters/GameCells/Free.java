@@ -19,6 +19,7 @@ public class Free extends Cell {
 
     }
 
+
     public void play() {
     }
 

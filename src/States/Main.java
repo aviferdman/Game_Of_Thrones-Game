@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         args = new String[2];
-        args[0]="C:\\Users\\ASUS\\HW3";
+        args[0]="/Users/andreypalman/HW3";
         determinitic = args[1]!=null;
         Player player=null;
 

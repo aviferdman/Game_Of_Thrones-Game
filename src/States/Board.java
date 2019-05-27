@@ -157,6 +157,7 @@ public class Board implements IObservable {
     @Override
     public void register(IObserver o) {
         observers.add(o);
+        Combat.register(o);
         for (Cell[] cells : theBoard) {
             for (Cell cell : cells) {
                 cell.register(o);

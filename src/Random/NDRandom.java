@@ -1,12 +1,15 @@
 package Random;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class NDRandom implements RandomGenerator {
     private Random rand;
+    private Scanner sc;
 
     public NDRandom() {
         rand = new Random(123);
+        sc = new Scanner(System.in);
     }
 
     @Override
@@ -16,7 +19,8 @@ public class NDRandom implements RandomGenerator {
 
     @Override
     public char nextChar() {
-        int random = rand.nextInt(6);
+        return sc.next().charAt(0);
+        /*int random = rand.nextInt(6);
         if (random == 1) {
             return 'w';
         } else if (random == 2) {
@@ -29,6 +33,6 @@ public class NDRandom implements RandomGenerator {
             return 'e';
         } else {
             return 'q';
-        }
+        }*/
     }
 }

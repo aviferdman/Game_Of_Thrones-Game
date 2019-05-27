@@ -5,22 +5,24 @@ import Attributes.Health;
 import Characters.Unit;
 import Random.IRandom;
 import Random.RandomGenerator;
+import observer.IObservable;
+import observer.IObserver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Combat {
-
-    public static String fight (Unit attacker, Unit defender){
-
-        String output= "";
-
+    private static List<IObserver> observers = new ArrayList<>();
+    public static void fight (Unit attacker, Unit defender){
         RandomGenerator random = IRandom.getInstance();
 
         int attackPoints = random.nextInt(attacker.getAttackPoints());
-        output+= attacker.getName() + " rolled " + attackPoints + " attack points" + "\n";
+        notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points" + "\n");
         int defencePoints = random.nextInt(defender.getDefencePoints());
-        output+= defender.getName() + " rolled " + defencePoints + " defense points" + "\n";
+        notifyObservers(defender.getName() + " rolled " + defencePoints + " defense points" + "\n");
 
         if(attackPoints - defencePoints > 0){
-            output+= attacker.getName() + " hit " + defender.getName() + " for " +attackPoints + " damage";
+            notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +attackPoints + " damage");
             defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);
             if(defender.getHealth().getCurrentHealth() <= 0){
                 defender.setIsDead(true);
@@ -31,6 +33,13 @@ public class Combat {
                 }
             }
         }
-        return output;
+    }
+
+    public static void register(IObserver o) {
+        observers.add(o);
+    }
+
+    public static void notifyObservers(String message) {
+        observers.forEach(o -> o.onEvent(message));
     }
 }

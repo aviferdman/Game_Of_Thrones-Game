@@ -4,7 +4,7 @@ import States.Main;
 
 public class IRandom implements RandomGenerator {
     private static final String RANDOM_NUMBERS_PATH = "random_numbers.txt";
-    private static final String USER_UNPUT_PATH = "user_input.txt";
+    private static final String USER_INPUT_PATH = "user_input.txt";
     private static RandomGenerator instance = null;
 
     private IRandom() { }
@@ -13,7 +13,7 @@ public class IRandom implements RandomGenerator {
 
         if (instance == null) {
             if(Main.determinitic){
-                instance = new DRandom(RANDOM_NUMBERS_PATH);
+                instance = new DRandom(RANDOM_NUMBERS_PATH, USER_INPUT_PATH);
             }
             else{
                 instance = new NDRandom();
