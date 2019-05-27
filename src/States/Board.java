@@ -193,5 +193,4 @@ public class Board implements IObservable {
         }
         return output;
     }
-
 }

@@ -4,11 +4,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class DRandom implements RandomGenerator{
     Iterator<Integer> generatedNumbers;
     Iterator<Character> generatedUserInput;
+
+    public DRandom(List<Integer> generatedNumbers, List<Character> generatedUserInput){
+        this.generatedNumbers = generatedNumbers.iterator();
+        this.generatedUserInput = generatedUserInput.iterator();
+    }
 
     public DRandom (String randomNumbersPath, String userInputPath){
         try {

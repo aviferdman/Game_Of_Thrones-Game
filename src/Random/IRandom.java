@@ -22,6 +22,9 @@ public class IRandom implements RandomGenerator {
         return instance;
     }
 
+    public static void setInstance(RandomGenerator newInstance){
+        instance = newInstance;
+    }
 
     public int nextInt ( int n ) {
         return instance.nextInt(n);
