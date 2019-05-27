@@ -9,6 +9,7 @@ import observer.IObserver;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Board implements IObservable {
     private List<IObserver> observers;
@@ -66,7 +67,10 @@ public class Board implements IObservable {
     }
 
     public void Tick (){
-        player.play('s');
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        char c = s.charAt(0);
+        player.play(c);
         player.afterPlay();
         for (Enemy enemy: enemies) {
             enemy.play();
@@ -142,6 +146,9 @@ public class Board implements IObservable {
     public void mainLoop() {
         while (true) {
             notifyState();
+            System.out.println(toString());
+            System.out.println(player.toString());
+            System.out.println("the position of the player is: "+player.getPosition().getX()+","+player.getPosition().getY());
             Tick();
             if (gameOver()) {
                 notifyState();
