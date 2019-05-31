@@ -16,8 +16,10 @@ public abstract class Cell implements IObservable {
 
     public abstract Position getPosition();
 
-    public abstract void setPosition(int x,int y);
-
+    public void setPosition(int x,int y){
+        getPosition().setX(x);
+        getPosition().setY(y);
+    }
     public abstract String myChar();
 
     public void register(IObserver o){

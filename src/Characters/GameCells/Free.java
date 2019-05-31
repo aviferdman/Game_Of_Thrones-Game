@@ -9,12 +9,15 @@ public class Free extends Cell {
     public Free (int x,int y){
         position = new Position(x,y);
     }
+
     public Position getPosition() {
         return position;
     }
 
     @Override
     public void setPosition(int x, int y) {
+        getPosition().setX(x);
+        getPosition().setY(y);
     }
 
     public void play() {
@@ -23,7 +26,7 @@ public class Free extends Cell {
     public void stepOn (Unit unit){
         Position myPos = getPosition();
         Position unitPos = unit.getPosition();
-        Position temp = myPos;
+        Position temp = new Position(myPos.getX(),myPos.getY());
         setPosition(unitPos.getX(),unitPos.getY());
         unit.setPosition(temp.getX(),temp.getY());
     }
