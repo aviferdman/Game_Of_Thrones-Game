@@ -3,12 +3,14 @@ package States;
 import Characters.*;
 import Characters.GameCells.Free;
 import Characters.GameCells.Wall;
+import Characters.GameEnemies.Monster;
 
 import java.util.LinkedList;
 
 public class DemiBoard {
 
     private LinkedList<Enemy> enemies = new LinkedList<>();
+    private LinkedList<Monster> monsters = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
     private Player player;
@@ -22,8 +24,13 @@ public class DemiBoard {
     public Player getPlayer (){
         return player;
     }
+
     public LinkedList<Enemy> getEnemies() {
         return enemies;
+    }
+
+    public LinkedList<Monster> getMonsters() {
+        return monsters;
     }
 
     public LinkedList<Free> getFree() {
@@ -40,6 +47,10 @@ public class DemiBoard {
 
     public void setEnemies(LinkedList<Enemy> enemies) {
         this.enemies = enemies;
+    }
+
+    public void setMonsters(LinkedList<Monster> monsters){
+        this.monsters = monsters;
     }
 
     public void setFree(LinkedList<Free> free) {

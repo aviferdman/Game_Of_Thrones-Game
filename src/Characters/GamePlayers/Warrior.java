@@ -17,27 +17,28 @@ public class Warrior extends Player {
 
     @Override
     public void afterPlay() {
-        cast();
         gametick();
     }
 
     public void levelUp() {
+        super.levelUp();
         this.remaining = 0;
         this.getHealth().setHealthPool(this.getHealth().getHealthPool() + (5 * this.getLevel()));
         this.setDefencePoints(this.getDefencePoints() + this.getLevel());
     }
 
     public void gametick() {
-        this.remaining = this.remaining - 1;
+        if(this.remaining > 0) {
+            this.remaining = this.remaining - 1;
+        }
     }
 
-    public boolean cast() {
-        if (remaining > 0) {
-            return false;
+    public void cast() {
+        if (this.remaining > 0) {
+
         } else {
-            remaining = cooldown;
+            this.remaining = this.cooldown;
             getHealth().setCurrentHealth(Math.min(getHealth().getCurrentHealth() + 2 * getDefencePoints(), getHealth().getHealthPool()));
-            return true;
         }
     }
 

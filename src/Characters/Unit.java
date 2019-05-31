@@ -2,6 +2,7 @@ package Characters;
 
 import Attributes.Health;
 import Attributes.Position;
+import Characters.GameEnemies.Monster;
 import States.Board;
 
 public abstract class Unit extends Cell{
@@ -96,12 +97,20 @@ public abstract class Unit extends Cell{
         int a = cell.getPosition().getX();
         int b = cell.getPosition().getY();
 
-        if ((Math.sqrt((b-y)^2 + (a-x)^2))<range){
+        if ((Math.sqrt(Math.pow((b-y),2) + Math.pow((a-x),2)))<range){
             return true;
         }
         else {
             return false;
         }
+    }
+
+    public int range(Enemy enemy,Player player){
+        int Px = player.getPosition().getX();
+        int Py = player.getPosition().getY();
+        int Qx = enemy.getPosition().getY();
+        int Qy = enemy.getPosition().getY();
+        return (int)(Math.sqrt(Math.pow((Px-Qx),2) + Math.pow((Py-Qy),2)));
     }
 
     public abstract boolean canAttackMonster ();

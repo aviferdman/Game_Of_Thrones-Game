@@ -30,13 +30,15 @@ public class Main {
         // int chosenPlayer = Integer.parseInt(String.valueOf(IRandom.getInstance().nextChar()));
         //int chosenPlayer = 1;
         choosePlayer();
-        player = players.get(sc.nextInt());
-       // player = players.get(1);
+        player = players.get(sc.nextInt()-1);
+        System.out.println("You have selected:" + "\n" + player);
+        System.out.println("use w/s/a/d to move." +"\n" + "Use 'e' for special ability or 'q' to pass");
         Board mainBoard = new Board(player, args[0]);
         mainBoard.mainLoop();
     }
 
     private static void choosePlayer() {
+        System.out.println("Choose player: ");
         players = new ArrayList<Player>();
         players.add(new Warrior(6, 0, 1, "Jon Snow", new Health(300, 300), 30, 4));
         players.add(new Warrior(4, 0, 1, "The Hound", new Health(400, 400), 20, 6));
@@ -49,7 +51,6 @@ public class Main {
             System.out.println(counter +"." + player.toString());
             counter++;
         }
-        System.out.println("Choose player: ");
     }
 
 }

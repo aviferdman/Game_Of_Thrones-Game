@@ -3,6 +3,7 @@ package States;
 import Characters.*;
 import Characters.GameCells.Free;
 import Characters.GameCells.Wall;
+import Characters.GameEnemies.Monster;
 import Random.IRandom;
 import observer.IObservable;
 import observer.IObserver;
@@ -17,6 +18,7 @@ public class Board implements IObservable {
     private List<IObserver> observers;
     private Player player;
     private LinkedList<Enemy> enemies = new LinkedList<>();
+    private LinkedList<Monster> monsters = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
     private Cell [] [] theBoard;
@@ -41,12 +43,24 @@ public class Board implements IObservable {
         this.CLA = new CommandLineApp(this);
         while (true) {
             notifyState();
-            notifyObservers("the position of the player is: "+player.getPosition().getX()+","+player.getPosition().getY());
             Tick();
             if (gameOver()) {
                 notifyState();
                 break;
             }
+        }
+    }
+
+    private void Tick (){
+        char c=IRandom.getInstance().nextChar();
+        player.play(c);
+        player.afterPlay();
+        for (Enemy enemy: enemies) {
+            enemy.play();
+        }
+        updateEnemiesRangeFromPlayer();
+        if (enemies.isEmpty()){
+            boardLevelUp();
         }
     }
 
@@ -56,6 +70,10 @@ public class Board implements IObservable {
 
     public LinkedList<Enemy> getEnemies(){
         return this.enemies;
+    }
+
+    public LinkedList<Monster> getMonsters(){
+        return this.monsters;
     }
 
     public LinkedList<Free> getFrees(){
@@ -76,19 +94,6 @@ public class Board implements IObservable {
 
     public void setUnits(LinkedList<Enemy> enemies) {
         this.enemies = enemies;
-    }
-
-    public void Tick (){
-        char c=IRandom.getInstance().nextChar();
-        player.play(c);
-        player.afterPlay();
-        for (Enemy enemy: enemies) {
-            enemy.play();
-        }
-        updateEnemiesRangeFromPlayer();
-        if (enemies.isEmpty()){
-            boardLevelUp();
-        }
     }
 
     public void moveUp(Unit unit){
@@ -149,6 +154,7 @@ public class Board implements IObservable {
     public void setTheBoard(DemiBoard demiBoard) {
         this.player=demiBoard.getPlayer();
         this.enemies =demiBoard.getEnemies();
+        this.monsters=demiBoard.getMonsters();
         this.free=demiBoard.getFree();
         this.walls=demiBoard.getWalls();
         this.theBoard =demiBoard.getTheBoard();
@@ -195,14 +201,14 @@ public class Board implements IObservable {
 
     @Override
     public String toString(){
-        String output ="";
+        StringBuilder output = new StringBuilder();
         for (int i=0;i<theBoard[0].length;i=i+1){
-            for (int j=0;j<theBoard.length;j=j+1){
-                Cell c = theBoard[j][i];
-                output = output + theBoard[j][i].myChar();
+            for (Cell[] cells : theBoard) {
+                Cell c = cells[i];
+                output.append(cells[i].myChar());
             }
-            output = output +"\n";
+            output.append("\n");
         }
-        return output;
+        return output.toString();
     }
 }

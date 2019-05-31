@@ -4,6 +4,7 @@ import Attributes.Health;
 import Attributes.Position;
 import Characters.Enemy;
 import Characters.Player;
+import States.Combat;
 
 import java.util.LinkedList;
 
@@ -28,39 +29,42 @@ public class Mage extends Player {
     }
 
     public void levelUp() {
+        super.levelUp();
         this.ManaPool = this.ManaPool + (25 * this.getLevel());
         this.CurrentMana = Math.min((this.CurrentMana + (4 / this.ManaPool)), (this.ManaPool));
         this.SpellPower = this.SpellPower + (10 * this.getLevel());
     }
 
     public void gametick() {
-        this.enemies = getEnemiesInRange(this.Range);
         this.CurrentMana = Math.min((this.ManaPool), (this.CurrentMana + 1));
     }
 
-    public boolean cast() {
+    public void cast() {
+        this.enemies = getEnemiesInRange(this.Range);
         if (this.CurrentMana < this.ManaCost) {
-            return false;
+
         } else {
             this.CurrentMana = this.CurrentMana - this.ManaCost;
             int hits = 0;
             while (hits < this.HitTimes & !enemies.isEmpty() ) {
                 hitRandomEnemy();
-                this.HitTimes++;
+                hits++;
             }
-            return true;
         }
     }
 
     public void speacialAbility() {
-        hitRandomEnemy();
+        this.enemies = getEnemiesInRange(this.Range);
+        Enemy randomE = enemies.get(getRandomEnemyIndexInRange());
+        randomE.setHealth(new Health(randomE.getHealth().getHealthPool(),randomE.getHealth().getCurrentHealth()-this.getSpellPower()));
+    }
+
+    public int getRandomEnemyIndexInRange(){
+        return (int)(Math.random() * enemies.toArray().length);
     }
 
     public void hitRandomEnemy(){
-        int enemyIndex = (int)(Math.random() * enemies.toArray().length);
-        Enemy currEnemy = enemies.get(enemyIndex);
-        Health healthAfterAttack = new Health(currEnemy.getHealth().getHealthPool(),this.SpellPower);
-        currEnemy.setHealth(healthAfterAttack);
+        Combat.fight(this,enemies.get(getRandomEnemyIndexInRange()),this.getSpellPower());
     }
 
     @Override

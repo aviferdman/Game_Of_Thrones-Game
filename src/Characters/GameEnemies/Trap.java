@@ -57,17 +57,10 @@ public class Trap extends Enemy {
     @Override
     public void play() {
         Player player = this.currBoard.getPlayer();
-        if(this.ticksCount >= this.visibilityTime){
-            setVisible(false);
-        } else {
-            setVisible(true);
-        }
+
         if(this.ticksCount == this.relocationTime){
-            trapRelocation();
-            if(this.IsInRange(player,this.realocationRange)){
-                Combat.fight(this,player);
-            }
             this.ticksCount = 0;
+            trapRelocation();
         } else {
             this.ticksCount++;
             if(this.IsInRange(player,this.realocationRange)){
@@ -75,6 +68,11 @@ public class Trap extends Enemy {
             }
         }
 
+        if(this.ticksCount < this.visibilityTime){
+            setVisible(true);
+        } else {
+            setVisible(false);
+        }
     }
 
     public void trapRelocation(){

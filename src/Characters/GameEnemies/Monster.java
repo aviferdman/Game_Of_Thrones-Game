@@ -4,8 +4,10 @@ import Attributes.Health;
 import Attributes.Position;
 import Characters.Enemy;
 import Characters.GameCells.Free;
+import Characters.Player;
 import Random.IRandom;
 import Random.RandomGenerator;
+import States.Combat;
 
 public class Monster extends Enemy {
 
@@ -28,7 +30,10 @@ public class Monster extends Enemy {
     }
 
     public void play(){
-        if(isPlayerInRange){
+        if(range(this,getCurrBoard().getPlayer())<this.getVisionRange()){
+            if(isAside(getCurrBoard().getPlayer().getPosition())){
+                Combat.fight(this,getCurrBoard().getPlayer());
+            }
             chasePlayer(getCurrBoard().getPlayer().getPosition());
         }
         else {
@@ -46,6 +51,38 @@ public class Monster extends Enemy {
         }
     }
 
+    public boolean isAside(Position playerPosition){
+        int monsterPositionX = this.getPosition().getX();
+        int monsterPositionY = this.getPosition().getY();
+        int playerPositionX = playerPosition.getX();
+        int playerPositionY = playerPosition.getY();
+        if(monsterPositionX + 1 == playerPositionX & monsterPositionY == playerPositionY){
+            return true;
+        } else if(monsterPositionX - 1 == playerPositionX & monsterPositionY == playerPositionY){
+            return true;
+        } else if(monsterPositionY + 1 == playerPositionY & monsterPositionX == playerPositionX){
+            return true;
+        } else return monsterPositionY - 1 == playerPositionY & monsterPositionX == playerPositionX;
+    }
+
+    public void chasePlayer(Position playerPosition){
+        int dx = this.getPosition().getX() - playerPosition.getX();
+        int dy = this.getPosition().getY() - playerPosition.getY();
+        if(Math.abs(dx)>Math.abs(dy)){
+            if(dx>0) {
+                getCurrBoard().moveLeft(this);
+            } else {
+                getCurrBoard().moveRight(this);
+            }
+        } else {
+            if(dy>0){
+                getCurrBoard().moveUp(this);
+            } else {
+                getCurrBoard().moveDown(this);
+            }
+        }
+    }
+
     public boolean getIsPlayerInRange(){
         return this.isPlayerInRange;
     }
@@ -56,6 +93,7 @@ public class Monster extends Enemy {
 
     public void updateDead (){
         getCurrBoard().getEnemies().remove(this);
+        getCurrBoard().getMonsters().remove(this);
         Free free = new Free(getPosition().getX(),getPosition().getY());
         getCurrBoard().getFrees().add(free);
         getCurrBoard().setCell(free,getPosition().getY(),getPosition().getX());
@@ -66,22 +104,4 @@ public class Monster extends Enemy {
         return ""+getTile();
     }
 
-    public void chasePlayer(Position position){
-        if(getPosition().getX()!=position.getX()){
-            if(getPosition().getX()>position.getX()){
-                getCurrBoard().moveUp(this);
-            }
-            else {
-                getCurrBoard().moveDown(this);
-            }
-        }
-        else {
-            if(getPosition().getY()>position.getY()){
-                getCurrBoard().moveLeft(this);
-            }
-            else {
-                getCurrBoard().moveRight(this);
-            }
-        }
-    }
 }

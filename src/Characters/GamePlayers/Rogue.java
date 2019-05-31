@@ -9,18 +9,21 @@ import Attributes.Position;
 import Characters.Enemy;
 import Characters.Player;
 import Characters.Unit;
+import States.Combat;
 
 
 public class Rogue extends Player {
 
     private int cost;
     private int CurrentEnergy;
+    private int range;
     private LinkedList<Enemy> enemies;
 
     public Rogue(int cost, Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints) {
         super(experience, level, name, health, attackPoints, defencePoints);
         this.cost = cost;
         this.CurrentEnergy = 100;
+        this.range = 2;
     }
 
     @Override
@@ -32,32 +35,27 @@ public class Rogue extends Player {
 
     @Override
     public void afterPlay() {
-        cast();
         gametick();
     }
 
     public void gametick() {
-        this.enemies = getEnemiesInRange(2);
         this.CurrentEnergy = Math.min(CurrentEnergy + 10, 100);
     }
 
-    public boolean cast() {
+    public void cast() {
+        this.enemies = getEnemiesInRange(this.range);
         if (CurrentEnergy < cost) {
-            return false;
         } else {
             CurrentEnergy = CurrentEnergy - cost;
             for (Unit enemy : enemies) {
-                Health h = new Health(enemy.getHealth().getHealthPool(), enemy.getHealth().getCurrentHealth() - getAttackPoints());
-                enemy.setHealth(h);
+                Combat.fight(this,enemy,this.getAttackPoints());
             }
-            return true;
         }
     }
 
     public void speacialAbility(){
         for (Unit enemy : enemies) {
-            Health h = new Health(enemy.getHealth().getHealthPool(), enemy.getHealth().getCurrentHealth() - getAttackPoints());
-            enemy.setHealth(h);
+            enemy.setHealth(new Health(enemy.getHealth().getHealthPool(), enemy.getHealth().getCurrentHealth() - getAttackPoints()));
         }
     }
 
@@ -66,7 +64,7 @@ public class Rogue extends Player {
         String output = "";
 
         output = getName() + "        " + " Health: " +getHealth().getCurrentHealth() + "        " + " Attack damage: " +getAttackPoints() + "        " + " Defence: " +getDefencePoints() + "\n" +
-                "Level: " +getLevel() + "        " + getExperience() +"/"+ 50*this.getLevel() + "        " + " Energy: " +getCurrentEnergy() + "/100" ;
+                "Level: " +getLevel() + "        " + " Experience: " + getExperience() +"/"+ 50*this.getLevel() + "        " + " Energy: " +getCurrentEnergy() + "/100" ;
         return output;
     }
 

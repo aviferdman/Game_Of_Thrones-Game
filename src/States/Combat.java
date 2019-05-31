@@ -13,16 +13,21 @@ import java.util.List;
 public class Combat {
 
     private static List<IObserver> observers = new ArrayList<>();
+    private static RandomGenerator random = IRandom.getInstance();
 
     public static void fight (Unit attacker, Unit defender){
-        RandomGenerator random = IRandom.getInstance();
+        combat(attacker,defender,random.nextInt(attacker.getAttackPoints()));
+    }
 
+    public static void fight (Unit attacker, Unit defender,int attackPoints){
+        combat(attacker,defender,attackPoints);
+    }
+
+    public static void combat(Unit attacker, Unit defender, int attackPoints){
         notifyObservers(attacker.getName() + " engaged in battle with " + defender.getName() + "\n");
-        int attackPoints = random.nextInt(attacker.getAttackPoints());
         notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points" + "\n");
         int defencePoints = random.nextInt(defender.getDefencePoints());
         notifyObservers(defender.getName() + " rolled " + defencePoints + " defense points" + "\n");
-
         if(attackPoints - defencePoints > 0){
             notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +attackPoints + " damage");
             defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);
