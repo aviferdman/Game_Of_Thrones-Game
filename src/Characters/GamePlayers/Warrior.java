@@ -16,11 +16,6 @@ public class Warrior extends Player {
     }
 
     @Override
-    public String myChar() {
-        return null;
-    }
-
-    @Override
     public void afterPlay() {
         cast();
         gametick();

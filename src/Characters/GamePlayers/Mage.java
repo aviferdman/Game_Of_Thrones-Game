@@ -28,12 +28,6 @@ public class Mage extends Player {
         this.enemies = getEnemiesInRange(this.Range);
     }
 
-
-    @Override
-    public String myChar() {
-        return null;
-    }
-
     public void levelUp() {
         this.ManaPool = this.ManaPool + (25 * this.getLevel());
         this.CurrentMana = Math.min((this.CurrentMana + (4 / this.ManaPool)), (this.ManaPool));

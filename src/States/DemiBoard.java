@@ -11,12 +11,17 @@ public class DemiBoard {
     private LinkedList<Enemy> enemies = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
+    private Player player;
     private Cell[] [] theBoard;
+
 
     public Cell[][] getTheBoard() {
         return theBoard;
     }
 
+    public Player getPlayer (){
+        return player;
+    }
     public LinkedList<Enemy> getEnemies() {
         return enemies;
     }
@@ -43,5 +48,9 @@ public class DemiBoard {
 
     public void setWalls(LinkedList<Wall> walls) {
         this.walls = walls;
+    }
+
+    public void setPlayer (Player player){
+        this.player=player;
     }
 }

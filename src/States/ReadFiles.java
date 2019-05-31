@@ -131,6 +131,8 @@ public class ReadFiles {
         for (Wall wall : walls){
             theBoard [wall.getPosition().getY()] [wall.getPosition().getX()] = wall;
         }
+        theBoard[player.getPosition().getY()][player.getPosition().getX()]=player;
+        demiBoard.setPlayer(player);
         demiBoard.setEnemies(enemies);
         demiBoard.setFree(frees);
         demiBoard.setWalls(walls);

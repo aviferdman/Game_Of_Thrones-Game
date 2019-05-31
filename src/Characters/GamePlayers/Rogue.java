@@ -25,11 +25,6 @@ public class Rogue extends Player {
     }
 
     @Override
-    public String myChar() {
-        return null;
-    }
-
-    @Override
     public void levelUp() {
         super.levelUp();
         this.CurrentEnergy = 100;

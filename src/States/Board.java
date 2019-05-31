@@ -3,6 +3,7 @@ package States;
 import Characters.*;
 import Characters.GameCells.Free;
 import Characters.GameCells.Wall;
+import Random.IRandom;
 import observer.IObservable;
 import observer.IObserver;
 
@@ -53,14 +54,16 @@ public class Board implements IObservable {
         this.player = player;
     }
 
+    public void setCell (Cell cell, int x, int y){
+        this.theBoard[x][y]=cell;
+    }
+
     public void setUnits(LinkedList<Enemy> enemies) {
         this.enemies = enemies;
     }
 
     public void Tick (){
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        char c = s.charAt(0);
+        char c=IRandom.getInstance().nextChar();
         player.play(c);
         player.afterPlay();
         for (Enemy enemy: enemies) {
@@ -74,26 +77,27 @@ public class Board implements IObservable {
 
     public void moveUp(Unit unit){
         int x = unit.getPosition().getX();
-        int y = unit.getPosition().getX();
-        getTheBoard()[x][y-1].stepOn(unit);
+        int y = unit.getPosition().getY();
+        Cell c =getTheBoard()[y][x-1];
+        c.stepOn(unit);
     }
 
     public void moveDown(Unit unit){
         int x = unit.getPosition().getX();
-        int y = unit.getPosition().getX();
-        getTheBoard()[x][y+1].stepOn(unit);
+        int y = unit.getPosition().getY();
+        getTheBoard()[y][x+1].stepOn(unit);
     }
 
     public void moveLeft(Unit unit){
         int x = unit.getPosition().getX();
-        int y = unit.getPosition().getX();
-        getTheBoard()[x-1][y].stepOn(unit);
+        int y = unit.getPosition().getY();
+        getTheBoard()[y-1][x].stepOn(unit);
     }
 
     public void moveRight(Unit unit){
         int x = unit.getPosition().getX();
-        int y = unit.getPosition().getX();
-        getTheBoard()[x+1][y].stepOn(unit);
+        int y = unit.getPosition().getY();
+        getTheBoard()[y+1][x].stepOn(unit);
     }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {
@@ -127,6 +131,7 @@ public class Board implements IObservable {
     }
 
     public void setTheBoard(DemiBoard demiBoard) {
+        this.player=demiBoard.getPlayer();
         this.enemies =demiBoard.getEnemies();
         this.free=demiBoard.getFree();
         this.walls=demiBoard.getWalls();
@@ -191,6 +196,7 @@ public class Board implements IObservable {
         String output ="";
         for (int i=0;i<theBoard[0].length;i=i+1){
             for (int j=0;j<theBoard.length;j=j+1){
+                Cell c = theBoard[j][i];
                 output = output + theBoard[j][i].myChar();
             }
             output = output +"\n";
