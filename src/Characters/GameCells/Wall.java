@@ -6,7 +6,7 @@ import Characters.Unit;
 
 public class Wall extends Cell {
 
-    Position position;
+    private Position position;
 
     public Wall (int x,int y){
         position = new Position(x,y);
@@ -25,14 +25,12 @@ public class Wall extends Cell {
         this.position = position;
     }
 
-
     public void play() {
-
     }
 
     public String myChar() {
         return "#";
     }
 
-    public String stepOn (Unit unit){return "";}
+    public void stepOn (Unit unit){}
 }

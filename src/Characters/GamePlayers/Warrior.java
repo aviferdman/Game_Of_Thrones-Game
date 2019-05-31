@@ -26,7 +26,6 @@ public class Warrior extends Player {
         gametick();
     }
 
-
     public void levelUp() {
         this.remaining = 0;
         this.getHealth().setHealthPool(this.getHealth().getHealthPool() + (5 * this.getLevel()));
@@ -63,7 +62,7 @@ public class Warrior extends Player {
         String output = "";
 
         output = getName() + "        " + " Health: " +getHealth().getCurrentHealth() + "        " +" Attack damage: " + getAttackPoints() + "        " + " Defense: " +getDefencePoints() + "\n" +
-                " Level: " +getLevel() + "        " + " Experience: " +getExperience() + "/50" + "        " + " Ability cooldown: " +getCooldown() + "\n"
+                " Level: " +getLevel() + "        " + " Experience: " +getExperience() + 50*this.getLevel() + "        " + " Ability cooldown: " +getCooldown() + "\n"
         + "Remaining : " + getRemaining();
 
         return output;

@@ -17,7 +17,7 @@ public abstract class Player extends Unit {
         super(name, health, attackPoints, defencePoints);
         this.experience = 0;
         this.level = 1;
-        this.enemies = new LinkedList<>();
+        this.enemies = new LinkedList<Enemy>();
     }
 
     public void setPosition (int x,int y){
@@ -81,11 +81,8 @@ public abstract class Player extends Unit {
         setIsDead(true);
     }
 
-    public String stepOn (Unit unit){
-        String s="";
+    public void stepOn (Unit unit){
         Combat.fight(unit,this);
-        s=s+""+unit.getName()+""+"engaged in battle with"+this.getName();
-        return s;
     }
 
     public String myChar (){

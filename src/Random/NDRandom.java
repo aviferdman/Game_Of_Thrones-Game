@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NDRandom implements RandomGenerator {
+
     private Random rand;
     private Scanner sc;
 
@@ -20,19 +21,5 @@ public class NDRandom implements RandomGenerator {
     @Override
     public char nextChar() {
         return sc.next().charAt(0);
-        /*int random = rand.nextInt(6);
-        if (random == 1) {
-            return 'w';
-        } else if (random == 2) {
-            return 's';
-        } else if (random == 3) {
-            return 'a';
-        } else if (random == 4) {
-            return 'd';
-        } else if (random == 5) {
-            return 'e';
-        } else {
-            return 'q';
-        }*/
     }
 }

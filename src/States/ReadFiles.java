@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ReadFiles {
+
     public static DemiBoard ReadBoard (String path, Player player){
         int width=0;
         int length=0;

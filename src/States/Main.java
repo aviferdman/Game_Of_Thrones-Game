@@ -19,7 +19,6 @@ public class Main {
         List<Integer> numbers = Arrays.asList(0, 0, 0, 0, 0, 0);
         IRandom.setInstance(new DRandom(numbers, actions));
         System.out.println("select player");
-        //int chosenPlayer = 2;
         int chosenPlayer = Integer.parseInt(String.valueOf(IRandom.getInstance().nextChar()));
         player = ReadFiles.createPlayer(chosenPlayer);
 

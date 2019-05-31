@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Board implements IObservable {
+
     private List<IObserver> observers;
     private Player player;
     private LinkedList<Enemy> enemies = new LinkedList<>();
@@ -81,28 +82,28 @@ public class Board implements IObservable {
         }
     }
 
-    public String moveUp(Unit unit){
+    public void moveUp(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return getTheBoard()[x][y-1].stepOn(unit);
+        getTheBoard()[x][y-1].stepOn(unit);
     }
 
-    public String moveDown(Unit unit){
+    public void moveDown(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return getTheBoard()[x][y+1].stepOn(unit);
+        getTheBoard()[x][y+1].stepOn(unit);
     }
 
-    public String moveLeft(Unit unit){
+    public void moveLeft(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return getTheBoard()[x-1][y].stepOn(unit);
+        getTheBoard()[x-1][y].stepOn(unit);
     }
 
-    public String moveRight(Unit unit){
+    public void moveRight(Unit unit){
         int x = unit.getPosition().getX();
         int y = unit.getPosition().getX();
-        return getTheBoard()[x+1][y].stepOn(unit);
+        getTheBoard()[x+1][y].stepOn(unit);
     }
 
     public LinkedList<Enemy> getEnemiesInRange(int range) {

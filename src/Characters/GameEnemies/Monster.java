@@ -46,7 +46,6 @@ public class Monster extends Enemy {
         }
     }
 
-
     public boolean getIsPlayerInRange(){
         return this.isPlayerInRange;
     }

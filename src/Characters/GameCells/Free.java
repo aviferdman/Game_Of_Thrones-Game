@@ -3,7 +3,6 @@ import Attributes.Position;
 import Characters.Cell;
 import Characters.Unit;
 
-
 public class Free extends Cell {
 
     Position position;
@@ -16,20 +15,17 @@ public class Free extends Cell {
 
     @Override
     public void setPosition(int x, int y) {
-
     }
-
 
     public void play() {
     }
 
-    public String stepOn (Unit unit){
+    public void stepOn (Unit unit){
         Position myPos = getPosition();
         Position unitPos = unit.getPosition();
         Position temp = myPos;
         setPosition(unitPos.getX(),unitPos.getY());
         unit.setPosition(temp.getX(),temp.getY());
-        return "";
     }
 
     @Override

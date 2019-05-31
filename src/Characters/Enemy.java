@@ -11,13 +11,11 @@ public abstract class Enemy extends Unit {
     private Integer experienceValue;
     private char tile;
 
-
     public Enemy (String name, char tile, Health health, int attackPoints, int defencePoints, int experienceValue){
         super(name,health,attackPoints,defencePoints);
         this.experienceValue = experienceValue;
         this.tile=tile;
     }
-
 
     public int getExperience() {
         return experienceValue;
@@ -48,15 +46,11 @@ public abstract class Enemy extends Unit {
         this.tile = tile;
     }
 
-    public String stepOn (Unit unit){
-        String s = "";
+    public void stepOn (Unit unit){
         if (unit.canAttackMonster()){
             Combat.fight(unit,this);
-            s=s+""+unit.getName()+""+"engaged in battle with"+this.getName();
         }
-        return s;
     }
-
 
     public abstract void updateDead ();
 
