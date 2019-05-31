@@ -57,16 +57,6 @@ public class Board implements IObservable {
         this.enemies = enemies;
     }
 
-    public void setTheBoard(DemiBoard demiBoard) {
-        this.enemies =demiBoard.getEnemies();
-        this.free=demiBoard.getFree();
-        this.walls=demiBoard.getWalls();
-        this.theBoard =demiBoard.getTheBoard();
-        for (Enemy enemy:enemies) {
-            enemy.setCurrBoard(this);
-        }
-    }
-
     public void Tick (){
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
@@ -130,6 +120,19 @@ public class Board implements IObservable {
         if (level<4) {
             level = level + 1;
             setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));
+            if(observers != null) {
+                observers.forEach(this::register);
+            }
+        }
+    }
+
+    public void setTheBoard(DemiBoard demiBoard) {
+        this.enemies =demiBoard.getEnemies();
+        this.free=demiBoard.getFree();
+        this.walls=demiBoard.getWalls();
+        this.theBoard =demiBoard.getTheBoard();
+        for (Enemy enemy:enemies) {
+            enemy.setCurrBoard(this);
         }
     }
 

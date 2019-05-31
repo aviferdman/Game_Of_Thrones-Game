@@ -45,3 +45,4 @@ public class Combat {
         observers.forEach(o -> o.onEvent(message));
     }
 }
+
