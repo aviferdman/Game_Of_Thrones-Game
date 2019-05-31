@@ -58,6 +58,7 @@ public class Monster extends Enemy {
         getCurrBoard().getEnemies().remove(this);
         Free free = new Free(getPosition().getX(),getPosition().getY());
         getCurrBoard().getFrees().add(free);
+        getCurrBoard().setCell(free,getPosition().getY(),getPosition().getX());
     }
 
     @Override
