@@ -4,20 +4,24 @@ import Attributes.Health;
 import Attributes.Position;
 import States.Board;
 import States.Combat;
+import observer.IObservable;
+import observer.IObserver;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
-public abstract class Player extends Unit {
+public abstract class Player extends Unit implements IObservable {
 
     private Integer experience;
     private Integer level;
-    private LinkedList<Enemy> enemies;
+    private List<IObserver> observers;
 
     public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints) {
         super(name, health, attackPoints, defencePoints);
         this.experience = 0;
         this.level = 1;
-        this.enemies = new LinkedList<Enemy>();
+        this.observers = new ArrayList<>();
     }
 
     public void setPosition (int x,int y){
@@ -29,6 +33,7 @@ public abstract class Player extends Unit {
         while (experience > 50 * level) {
             this.experience = this.experience - (50 * this.level);
             setLevel(this.level + 1);
+            notifyObservers("Level up: +" + 10 * this.level + " Health, " + 5 * this.level +" Attack, " + 2 * this.level + " Defense");
             getHealth().setHealthPool(getHealth().getHealthPool() + (10 * this.level));
             getHealth().setCurrentHealth(getHealth().getHealthPool());
             setAttackPoints(getAttackPoints() + (5 * this.level));

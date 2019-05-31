@@ -59,7 +59,7 @@ public class Board implements IObservable {
             enemy.play();
         }
         updateEnemiesRangeFromPlayer();
-        if (enemies.isEmpty()){
+        if (monsters.isEmpty()){
             boardLevelUp();
         }
     }
@@ -142,6 +142,9 @@ public class Board implements IObservable {
     }
 
     public void boardLevelUp (){
+        if(level == 4){
+            notifyObservers("Game is finished. You won!");
+        }
         if (level<4) {
             level = level + 1;
             setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));

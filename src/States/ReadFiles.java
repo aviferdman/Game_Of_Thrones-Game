@@ -146,6 +146,7 @@ public class ReadFiles {
         theBoard[player.getPosition().getY()][player.getPosition().getX()]=player;
         demiBoard.setPlayer(player);
         demiBoard.setEnemies(enemies);
+        demiBoard.setMonsters(monsters);
         demiBoard.setFree(frees);
         demiBoard.setWalls(walls);
         demiBoard.setTheBoard(theBoard);

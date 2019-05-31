@@ -16,19 +16,23 @@ public class Combat {
     private static RandomGenerator random = IRandom.getInstance();
 
     public static void fight (Unit attacker, Unit defender){
-        combat(attacker,defender,random.nextInt(attacker.getAttackPoints()));
+        combat(attacker,defender,random.nextInt(attacker.getAttackPoints()),random.nextInt(defender.getDefencePoints()));
+    }
+
+    public static void fightWithNoDefense (Unit attacker, Unit defender,int attackPoints){
+        combat(attacker,defender,attackPoints,0);
     }
 
     public static void fight (Unit attacker, Unit defender,int attackPoints){
-        combat(attacker,defender,attackPoints);
+        int defencePoints = random.nextInt(defender.getDefencePoints());
+        combat(attacker,defender,attackPoints,defencePoints);
     }
 
-    public static void combat(Unit attacker, Unit defender, int attackPoints){
+    public static void combat(Unit attacker, Unit defender, int attackPoints,int defensePoints){
         notifyObservers(attacker.getName() + " engaged in battle with " + defender.getName() + "\n");
         notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points" + "\n");
-        int defencePoints = random.nextInt(defender.getDefencePoints());
-        notifyObservers(defender.getName() + " rolled " + defencePoints + " defense points" + "\n");
-        if(attackPoints - defencePoints > 0){
+        notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points" + "\n");
+        if(attackPoints - defensePoints > 0){
             notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +attackPoints + " damage");
             defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);
             if(defender.getHealth().getCurrentHealth() <= 0){
@@ -37,6 +41,9 @@ public class Combat {
                 int experience = defender.getExperience();
                 if(experience > 0) {
                     attacker.setExperience(experience+attacker.getExperience());
+                    notifyObservers(defender.getName() + " died. " + attacker.getName() + " gained " + defender.getExperience() + " experience!" );
+                } else {
+                    notifyObservers(defender.getName() + " died." + "\n" + "You Lost.");
                 }
             }
         }

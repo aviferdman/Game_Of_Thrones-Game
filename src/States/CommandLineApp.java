@@ -1,5 +1,6 @@
 package States;
 
+import Characters.Player;
 import States.Board;
 import observer.IObserver;
 

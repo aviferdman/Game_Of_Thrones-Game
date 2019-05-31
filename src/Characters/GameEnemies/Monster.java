@@ -31,9 +31,6 @@ public class Monster extends Enemy {
 
     public void play(){
         if(range(this,getCurrBoard().getPlayer())<this.getVisionRange()){
-            if(isAside(getCurrBoard().getPlayer().getPosition())){
-                Combat.fight(this,getCurrBoard().getPlayer());
-            }
             chasePlayer(getCurrBoard().getPlayer().getPosition());
         }
         else {
@@ -51,21 +48,8 @@ public class Monster extends Enemy {
         }
     }
 
-    public boolean isAside(Position playerPosition){
-        int monsterPositionX = this.getPosition().getX();
-        int monsterPositionY = this.getPosition().getY();
-        int playerPositionX = playerPosition.getX();
-        int playerPositionY = playerPosition.getY();
-        if(monsterPositionX + 1 == playerPositionX & monsterPositionY == playerPositionY){
-            return true;
-        } else if(monsterPositionX - 1 == playerPositionX & monsterPositionY == playerPositionY){
-            return true;
-        } else if(monsterPositionY + 1 == playerPositionY & monsterPositionX == playerPositionX){
-            return true;
-        } else return monsterPositionY - 1 == playerPositionY & monsterPositionX == playerPositionX;
-    }
-
     public void chasePlayer(Position playerPosition){
+
         int dx = this.getPosition().getX() - playerPosition.getX();
         int dy = this.getPosition().getY() - playerPosition.getY();
         if(Math.abs(dx)>Math.abs(dy)){

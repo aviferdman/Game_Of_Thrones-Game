@@ -30,6 +30,7 @@ public class Mage extends Player {
 
     public void levelUp() {
         super.levelUp();
+        notifyObservers("+" +25 * this.getLevel()+ " maximum mana, +" + 10 * this.getLevel() + " spell power");
         this.ManaPool = this.ManaPool + (25 * this.getLevel());
         this.CurrentMana = Math.min((this.CurrentMana + (4 / this.ManaPool)), (this.ManaPool));
         this.SpellPower = this.SpellPower + (10 * this.getLevel());
@@ -54,9 +55,11 @@ public class Mage extends Player {
     }
 
     public void speacialAbility() {
-        this.enemies = getEnemiesInRange(this.Range);
-        Enemy randomE = enemies.get(getRandomEnemyIndexInRange());
-        randomE.setHealth(new Health(randomE.getHealth().getHealthPool(),randomE.getHealth().getCurrentHealth()-this.getSpellPower()));
+        notifyObservers(this.getName() + " cast Blizzard.");
+        for (Enemy enemy : getEnemiesInRange(this.Range)) {
+            Combat.fightWithNoDefense(this,enemy,getAttackPoints());
+        }
+
     }
 
     public int getRandomEnemyIndexInRange(){
@@ -79,7 +82,6 @@ public class Mage extends Player {
 
     @Override
     public void afterPlay() {
-        cast();
         gametick();
     }
 

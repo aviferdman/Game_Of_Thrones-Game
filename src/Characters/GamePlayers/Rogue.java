@@ -31,6 +31,7 @@ public class Rogue extends Player {
         super.levelUp();
         this.CurrentEnergy = 100;
         setAttackPoints(getAttackPoints() + 3 * (getLevel() + 1));
+        notifyObservers("+" +3 * (getLevel() + 1)+ " attack points ");
     }
 
     @Override
@@ -47,15 +48,16 @@ public class Rogue extends Player {
         if (CurrentEnergy < cost) {
         } else {
             CurrentEnergy = CurrentEnergy - cost;
-            for (Unit enemy : enemies) {
+            for (Enemy enemy : enemies) {
                 Combat.fight(this,enemy,this.getAttackPoints());
             }
         }
     }
 
     public void speacialAbility(){
-        for (Unit enemy : enemies) {
-            enemy.setHealth(new Health(enemy.getHealth().getHealthPool(), enemy.getHealth().getCurrentHealth() - getAttackPoints()));
+        notifyObservers(this.getName() + " cast Fan of Knives.");
+        for (Enemy enemy : getEnemiesInRange(this.range)) {
+            Combat.fightWithNoDefense(this,enemy,getAttackPoints());
         }
     }
 

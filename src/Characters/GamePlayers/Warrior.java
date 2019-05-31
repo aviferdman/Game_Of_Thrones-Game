@@ -25,6 +25,7 @@ public class Warrior extends Player {
         this.remaining = 0;
         this.getHealth().setHealthPool(this.getHealth().getHealthPool() + (5 * this.getLevel()));
         this.setDefencePoints(this.getDefencePoints() + this.getLevel());
+        notifyObservers("+" +5 * this.getLevel()+ " Health, +" + this.getLevel() + " Defense");
     }
 
     public void gametick() {
@@ -43,6 +44,7 @@ public class Warrior extends Player {
     }
 
     public void speacialAbility() {
+        notifyObservers(this.getName() + " cast Heal.");
         if (this.remaining == 0) {
             if (this.getDefencePoints() * 2 + this.getHealth().getCurrentHealth() > this.getHealth().getHealthPool()) {
                 this.getHealth().setCurrentHealth(this.getHealth().getHealthPool());
