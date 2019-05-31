@@ -56,7 +56,7 @@ public class Mage extends Player {
     public void speacialAbility() {
         notifyObservers(this.getName() + " cast Blizzard.");
         for (Enemy enemy : getEnemiesInRange(this.Range)) {
-            Combat.fightWithNoDefense(this,enemy,getAttackPoints());
+            Combat.fightWithNoDefense(this,enemy,getSpellPower());
         }
 
     }

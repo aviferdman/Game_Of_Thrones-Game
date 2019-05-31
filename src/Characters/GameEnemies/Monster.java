@@ -48,8 +48,8 @@ public class Monster extends Enemy {
 
     private void chasePlayer(Position playerPosition){
 
-        int dx = this.getPosition().getX() - playerPosition.getX();
-        int dy = this.getPosition().getY() - playerPosition.getY();
+        int dx = this.getPosition().getY() - playerPosition.getY();
+        int dy = this.getPosition().getX() - playerPosition.getX();
         if(Math.abs(dx)>Math.abs(dy)){
             if(dx>0) {
                 getCurrBoard().moveLeft(this);
