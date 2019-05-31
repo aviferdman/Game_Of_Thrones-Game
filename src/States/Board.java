@@ -41,8 +41,6 @@ public class Board implements IObservable {
         this.CLA = new CommandLineApp(this);
         while (true) {
             notifyState();
-            //notifyObservers(this.toString());
-            //notifyObservers(player.toString());
             notifyObservers("the position of the player is: "+player.getPosition().getX()+","+player.getPosition().getY());
             Tick();
             if (gameOver()) {
