@@ -6,16 +6,13 @@ import Characters.GameCells.Free;
 import Characters.GameCells.Wall;
 import Characters.GameEnemies.Monster;
 import Characters.GameEnemies.Trap;
-import Characters.GamePlayers.Mage;
-import Characters.GamePlayers.Rogue;
-import Characters.GamePlayers.Warrior;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class ReadFiles {
+class ReadFiles {
 
     public static DemiBoard ReadBoard (String path, Player player){
         int width=0;

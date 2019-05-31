@@ -1,10 +1,8 @@
 package States;
 
-import Attributes.Health;
 import Characters.Unit;
 import Random.IRandom;
 import Random.RandomGenerator;
-import observer.IObservable;
 import observer.IObserver;
 
 import java.util.ArrayList;
@@ -12,8 +10,8 @@ import java.util.List;
 
 public class Combat {
 
-    private static List<IObserver> observers = new ArrayList<>();
-    private static RandomGenerator random = IRandom.getInstance();
+    private static final List<IObserver> observers = new ArrayList<>();
+    private static final RandomGenerator random = IRandom.getInstance();
 
     public static void fight (Unit attacker, Unit defender){
         combat(attacker,defender,random.nextInt(attacker.getAttackPoints()),random.nextInt(defender.getDefencePoints()));
@@ -28,7 +26,7 @@ public class Combat {
         combat(attacker,defender,attackPoints,defencePoints);
     }
 
-    public static void combat(Unit attacker, Unit defender, int attackPoints,int defensePoints){
+    private static void combat(Unit attacker, Unit defender, int attackPoints, int defensePoints){
         notifyObservers(attacker.getName() + " engaged in battle with " + defender.getName() + "\n");
         notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points" + "\n");
         notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points" + "\n");
@@ -53,7 +51,7 @@ public class Combat {
         observers.add(o);
     }
 
-    public static void notifyObservers(String message) {
+    private static void notifyObservers(String message) {
         observers.forEach(o -> o.onEvent(message));
     }
 }

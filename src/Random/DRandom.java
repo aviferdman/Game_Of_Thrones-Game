@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class DRandom implements RandomGenerator{
 
-    Iterator<Integer> generatedNumbers;
-    Iterator<Character> generatedUserInput;
+    private Iterator<Integer> generatedNumbers;
+    private Iterator<Character> generatedUserInput;
 
     public DRandom(List<Integer> generatedNumbers, List<Character> generatedUserInput){
         this.generatedNumbers = generatedNumbers.iterator();

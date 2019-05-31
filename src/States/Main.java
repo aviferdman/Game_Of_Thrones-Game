@@ -5,19 +5,15 @@ import Characters.GamePlayers.Mage;
 import Characters.GamePlayers.Rogue;
 import Characters.GamePlayers.Warrior;
 import Characters.Player;
-import Random.DRandom;
-import Random.IRandom;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static boolean determinitic;
-    public static ArrayList<Player> players;
-    public static Scanner sc;
+    private static ArrayList<Player> players;
+    private static Scanner sc;
 
     public static void main(String[] args) {
         sc = new Scanner(System.in);

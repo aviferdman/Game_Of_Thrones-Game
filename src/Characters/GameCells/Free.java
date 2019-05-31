@@ -5,7 +5,7 @@ import Characters.Unit;
 
 public class Free extends Cell {
 
-    Position position;
+    private final Position position;
     public Free (int x,int y){
         position = new Position(x,y);
     }

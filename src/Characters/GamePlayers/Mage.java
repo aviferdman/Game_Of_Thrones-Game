@@ -1,7 +1,6 @@
 package Characters.GamePlayers;
 
 import Attributes.Health;
-import Attributes.Position;
 import Characters.Enemy;
 import Characters.Player;
 import States.Combat;
@@ -36,7 +35,7 @@ public class Mage extends Player {
         this.SpellPower = this.SpellPower + (10 * this.getLevel());
     }
 
-    public void gametick() {
+    private void gametick() {
         this.CurrentMana = Math.min((this.ManaPool), (this.CurrentMana + 1));
     }
 
@@ -62,11 +61,11 @@ public class Mage extends Player {
 
     }
 
-    public int getRandomEnemyIndexInRange(){
+    private int getRandomEnemyIndexInRange(){
         return (int)(Math.random() * enemies.toArray().length);
     }
 
-    public void hitRandomEnemy(){
+    private void hitRandomEnemy(){
         Combat.fight(this,enemies.get(getRandomEnemyIndexInRange()),this.getSpellPower());
     }
 
@@ -75,7 +74,7 @@ public class Mage extends Player {
         String output = "";
 
         output = getName() + "        " + " Health: " + getHealth().getCurrentHealth() + "        " + " Attack damage: " +getAttackPoints() + "        " + " Defense: " +getDefencePoints() + "\n" +
-                "Level: " +getLevel() + "        " + " Experience: " + getExperience() + "/"+50*this.getLevel() + "        "  + " SpellPower: " + getSpellPower() + "        " + " Mana : " +getCurrentMana() + "/" + getManaPool();  ;
+                "Level: " +getLevel() + "        " + " Experience: " + getExperience() + "/"+50*this.getLevel() + "        "  + " SpellPower: " + getSpellPower() + "        " + " Mana : " +getCurrentMana() + "/" + getManaPool();
 
         return output;
     }
@@ -85,7 +84,7 @@ public class Mage extends Player {
         gametick();
     }
 
-    public int getSpellPower() {
+    private int getSpellPower() {
         return SpellPower;
     }
 
@@ -93,7 +92,7 @@ public class Mage extends Player {
         SpellPower = spellPower;
     }
 
-    public int getManaPool() {
+    private int getManaPool() {
         return ManaPool;
     }
 
@@ -101,7 +100,7 @@ public class Mage extends Player {
         ManaPool = manaPool;
     }
 
-    public int getCurrentMana() {
+    private int getCurrentMana() {
         return CurrentMana;
     }
 

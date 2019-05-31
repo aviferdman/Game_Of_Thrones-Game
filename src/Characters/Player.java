@@ -1,8 +1,6 @@
 package Characters;
 
 import Attributes.Health;
-import Attributes.Position;
-import States.Board;
 import States.Combat;
 import observer.IObservable;
 import observer.IObserver;
@@ -15,13 +13,12 @@ public abstract class Player extends Unit implements IObservable {
 
     private Integer experience;
     private Integer level;
-    private List<IObserver> observers;
 
-    public Player(Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints) {
+    protected Player(Integer experience, Integer level, String name, Health health, Integer attackPoints, Integer defencePoints) {
         super(name, health, attackPoints, defencePoints);
         this.experience = 0;
         this.level = 1;
-        this.observers = new ArrayList<>();
+        List<IObserver> observers = new ArrayList<>();
     }
 
     public void setPosition (int x,int y){
@@ -57,7 +54,7 @@ public abstract class Player extends Unit implements IObservable {
 
     public abstract void afterPlay();
 
-    public LinkedList<Enemy> getEnemiesInRange(int range) {
+    protected LinkedList<Enemy> getEnemiesInRange(int range) {
         return getCurrBoard().getEnemiesInRange(range);
     }
 
@@ -65,7 +62,7 @@ public abstract class Player extends Unit implements IObservable {
         return experience;
     }
 
-    public abstract void speacialAbility();
+    protected abstract void speacialAbility();
 
     public Integer getLevel() {
         return level;
@@ -78,7 +75,7 @@ public abstract class Player extends Unit implements IObservable {
         }
     }
 
-    public void setLevel(Integer level) {
+    private void setLevel(Integer level) {
         this.level = level;
     }
 

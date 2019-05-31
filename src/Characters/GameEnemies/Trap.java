@@ -75,7 +75,7 @@ public class Trap extends Enemy {
         }
     }
 
-    public void trapRelocation(){
+    private void trapRelocation(){
         LinkedList<Cell> freePositions = currBoard.freeLocations(this.realocationRange,this);
         RandomGenerator random = IRandom.getInstance();
         int index = random.nextInt(freePositions.size());
@@ -131,7 +131,7 @@ public class Trap extends Enemy {
         return isVisible;
     }
 
-    public void setVisible(boolean visible) {
+    private void setVisible(boolean visible) {
         isVisible = visible;
     }
 }

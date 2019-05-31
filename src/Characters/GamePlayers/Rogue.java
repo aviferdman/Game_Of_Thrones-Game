@@ -1,14 +1,9 @@
 package Characters.GamePlayers;
 
-import Attributes.Health;
-import Attributes.Position;
-
 import java.util.LinkedList;
 import Attributes.Health;
-import Attributes.Position;
 import Characters.Enemy;
 import Characters.Player;
-import Characters.Unit;
 import States.Combat;
 
 
@@ -16,8 +11,7 @@ public class Rogue extends Player {
 
     private int cost;
     private int CurrentEnergy;
-    private int range;
-    private LinkedList<Enemy> enemies;
+    private final int range;
 
     public Rogue(int cost, Integer experience, Integer level , String name, Health health, Integer attackPoints, Integer defencePoints) {
         super(experience, level, name, health, attackPoints, defencePoints);
@@ -39,12 +33,12 @@ public class Rogue extends Player {
         gametick();
     }
 
-    public void gametick() {
+    private void gametick() {
         this.CurrentEnergy = Math.min(CurrentEnergy + 10, 100);
     }
 
     public void cast() {
-        this.enemies = getEnemiesInRange(this.range);
+        LinkedList<Enemy> enemies = getEnemiesInRange(this.range);
         if (CurrentEnergy < cost) {
         } else {
             CurrentEnergy = CurrentEnergy - cost;
@@ -78,7 +72,7 @@ public class Rogue extends Player {
         this.cost = cost;
     }
 
-    public int getCurrentEnergy() {
+    private int getCurrentEnergy() {
         return CurrentEnergy;
     }
 

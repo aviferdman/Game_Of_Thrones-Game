@@ -11,22 +11,18 @@ import observer.IObserver;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Board implements IObservable {
 
-    private List<IObserver> observers;
+    private final List<IObserver> observers;
     private Player player;
     private LinkedList<Enemy> enemies = new LinkedList<>();
     private LinkedList<Monster> monsters = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
-    private LinkedList<Wall> walls = new LinkedList<>();
     private Cell [] [] theBoard;
 
-    private CommandLineApp CLA;
-
-    int level;
-    String pathToLevels;
+    private int level;
+    private final String pathToLevels;
 
     public Board (Player player, String pathToLevels){
         this.player=player;
@@ -40,7 +36,7 @@ public class Board implements IObservable {
     }
 
     public void mainLoop() {
-        this.CLA = new CommandLineApp(this);
+        CommandLineApp CLA = new CommandLineApp(this);
         while (true) {
             notifyState();
             Tick();
@@ -80,7 +76,7 @@ public class Board implements IObservable {
         return this.free;
     }
 
-    public Cell[][] getTheBoard() {
+    private Cell[][] getTheBoard() {
         return theBoard;
     }
 
@@ -141,7 +137,7 @@ public class Board implements IObservable {
         return output;
     }
 
-    public void boardLevelUp (){
+    private void boardLevelUp(){
         if(level == 4){
             notifyObservers("Game is finished. You won!");
         }
@@ -154,19 +150,19 @@ public class Board implements IObservable {
         }
     }
 
-    public void setTheBoard(DemiBoard demiBoard) {
+    private void setTheBoard(DemiBoard demiBoard) {
         this.player=demiBoard.getPlayer();
         this.enemies =demiBoard.getEnemies();
         this.monsters=demiBoard.getMonsters();
         this.free=demiBoard.getFree();
-        this.walls=demiBoard.getWalls();
+        LinkedList<Wall> walls = demiBoard.getWalls();
         this.theBoard =demiBoard.getTheBoard();
         for (Enemy enemy:enemies) {
             enemy.setCurrBoard(this);
         }
     }
 
-    public void updateEnemiesRangeFromPlayer(){
+    private void updateEnemiesRangeFromPlayer(){
         for (Enemy enemy: enemies) {
             if(player.IsInRange(enemy,enemy.getVisionRange())){
                 enemy.setIsPlayerInRange(true);
@@ -177,7 +173,7 @@ public class Board implements IObservable {
         }
     }
 
-    public boolean gameOver (){
+    private boolean gameOver(){
         return player.getIsDead();
     }
 
@@ -197,7 +193,7 @@ public class Board implements IObservable {
         observers.forEach(o -> o.onEvent(message));
     }
 
-    public void notifyState(){
+    private void notifyState(){
         notifyObservers(this.toString());
         notifyObservers(player.toString());
     }

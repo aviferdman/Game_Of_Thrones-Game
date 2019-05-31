@@ -1,7 +1,6 @@
 package Characters.GamePlayers;
 
 import Attributes.Health;
-import Attributes.Position;
 import Characters.Player;
 
 public class Warrior extends Player {
@@ -28,7 +27,7 @@ public class Warrior extends Player {
         notifyObservers("+" +5 * this.getLevel()+ " Health, +" + this.getLevel() + " Defense");
     }
 
-    public void gametick() {
+    private void gametick() {
         if(this.remaining > 0) {
             this.remaining = this.remaining - 1;
         }
@@ -66,7 +65,7 @@ public class Warrior extends Player {
         return output;
     }
 
-    public int getCooldown() {
+    private int getCooldown() {
         return cooldown;
     }
 
@@ -74,7 +73,7 @@ public class Warrior extends Player {
         this.cooldown = cooldown;
     }
 
-    public int getRemaining() {
+    private int getRemaining() {
         return remaining;
     }
 

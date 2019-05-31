@@ -4,14 +4,12 @@ import Attributes.Health;
 import Attributes.Position;
 import Characters.Enemy;
 import Characters.GameCells.Free;
-import Characters.Player;
 import Random.IRandom;
 import Random.RandomGenerator;
-import States.Combat;
 
 public class Monster extends Enemy {
 
-    private int visionRange;
+    private final int visionRange;
     private boolean isPlayerInRange;
 
     public Monster(String name, char tile, Health health, int attackPoints, int defencePoints, int visionRange, int experienceValue) {
@@ -48,7 +46,7 @@ public class Monster extends Enemy {
         }
     }
 
-    public void chasePlayer(Position playerPosition){
+    private void chasePlayer(Position playerPosition){
 
         int dx = this.getPosition().getX() - playerPosition.getX();
         int dy = this.getPosition().getY() - playerPosition.getY();

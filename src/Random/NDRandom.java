@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class NDRandom implements RandomGenerator {
 
-    private Random rand;
-    private Scanner sc;
+    private final Random rand;
+    private final Scanner sc;
 
     public NDRandom() {
         rand = new Random(123);

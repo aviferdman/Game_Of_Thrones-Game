@@ -2,11 +2,10 @@ package Characters;
 
 import Attributes.Health;
 import Attributes.Position;
-import Characters.GameEnemies.Monster;
 import States.Board;
 
 public abstract class Unit extends Cell{
-    private String name;
+    private final String name;
     private Health health;
     private Integer attackPoints;
     private Integer defencePoints;
@@ -14,7 +13,7 @@ public abstract class Unit extends Cell{
     private boolean isDead;
     private Board currBoard;
 
-    public Unit(String name, Health health, Integer attackPoints, Integer defencePoints){
+    Unit(String name, Health health, Integer attackPoints, Integer defencePoints){
         this.name = name;
         this.health=health;
         this.attackPoints = attackPoints;
@@ -73,7 +72,7 @@ public abstract class Unit extends Cell{
         this.position.setY(y);
     }
 
-    public void setAttackPoints(Integer attackPoints) {
+    protected void setAttackPoints(Integer attackPoints) {
         this.attackPoints = attackPoints;
     }
 
@@ -97,15 +96,10 @@ public abstract class Unit extends Cell{
         int a = cell.getPosition().getX();
         int b = cell.getPosition().getY();
 
-        if ((Math.sqrt(Math.pow((b-y),2) + Math.pow((a-x),2)))<range){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (Math.sqrt(Math.pow((b - y), 2) + Math.pow((a - x), 2))) < range;
     }
 
-    public int range(Enemy enemy,Player player){
+    protected int range(Enemy enemy, Player player){
         int Px = player.getPosition().getX();
         int Py = player.getPosition().getY();
         int Qx = enemy.getPosition().getY();
@@ -113,6 +107,6 @@ public abstract class Unit extends Cell{
         return (int)(Math.sqrt(Math.pow((Px-Qx),2) + Math.pow((Py-Qy),2)));
     }
 
-    public abstract boolean canAttackMonster ();
+    protected abstract boolean canAttackMonster();
 
 }

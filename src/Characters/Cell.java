@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class Cell implements IObservable {
 
-    private List<IObserver> observers;
+    private final List<IObserver> observers;
 
     protected Cell(){
         observers = new ArrayList<>();
