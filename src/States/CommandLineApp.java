@@ -1,9 +1,11 @@
+package States;
+
 import States.Board;
 import observer.IObserver;
 
 public class CommandLineApp implements IObserver {
 
-    Board board;
+    private Board board;
 
     public CommandLineApp(Board board){
         this.board = board;

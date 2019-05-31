@@ -20,6 +20,9 @@ public class Board implements IObservable {
     private LinkedList<Free> free = new LinkedList<>();
     private LinkedList<Wall> walls = new LinkedList<>();
     private Cell [] [] theBoard;
+
+    private CommandLineApp CLA;
+
     int level;
     String pathToLevels;
 
@@ -32,6 +35,21 @@ public class Board implements IObservable {
         observers = new ArrayList<>();
         this.player.setCurrBoard(this);
         updateEnemiesRangeFromPlayer();
+    }
+
+    public void mainLoop() {
+        this.CLA = new CommandLineApp(this);
+        while (true) {
+            notifyState();
+            //notifyObservers(this.toString());
+            //notifyObservers(player.toString());
+            notifyObservers("the position of the player is: "+player.getPosition().getX()+","+player.getPosition().getY());
+            Tick();
+            if (gameOver()) {
+                notifyState();
+                break;
+            }
+        }
     }
 
     public Player getPlayer() {
@@ -148,20 +166,6 @@ public class Board implements IObservable {
             }
             else {
                 enemy.setIsPlayerInRange(false);
-            }
-        }
-    }
-
-    public void mainLoop() {
-        while (true) {
-            notifyState();
-            System.out.println(toString());
-            System.out.println(player.toString());
-            System.out.println("the position of the player is: "+player.getPosition().getX()+","+player.getPosition().getY());
-            Tick();
-            if (gameOver()) {
-                notifyState();
-                break;
             }
         }
     }
