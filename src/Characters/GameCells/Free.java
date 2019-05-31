@@ -29,6 +29,8 @@ public class Free extends Cell {
         Position temp = new Position(myPos.getX(),myPos.getY());
         setPosition(unitPos.getX(),unitPos.getY());
         unit.setPosition(temp.getX(),temp.getY());
+        unit.getCurrBoard().setCell(unit,unitPos.getY(),unitPos.getX());
+        unit.getCurrBoard().setCell(this,myPos.getY(),myPos.getX());
     }
 
     @Override

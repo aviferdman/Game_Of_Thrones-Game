@@ -68,18 +68,18 @@ public class Monster extends Enemy {
     public void chasePlayer(Position position){
         if(getPosition().getX()!=position.getX()){
             if(getPosition().getX()>position.getX()){
-                getCurrBoard().moveLeft(this);
-            }
-            else {
-                getCurrBoard().moveRight(this);
-            }
-        }
-        else {
-            if(getPosition().getY()>position.getY()){
                 getCurrBoard().moveUp(this);
             }
             else {
                 getCurrBoard().moveDown(this);
+            }
+        }
+        else {
+            if(getPosition().getY()>position.getY()){
+                getCurrBoard().moveLeft(this);
+            }
+            else {
+                getCurrBoard().moveRight(this);
             }
         }
     }
