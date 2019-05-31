@@ -31,6 +31,7 @@ public class Main {
         //int chosenPlayer = 1;
         choosePlayer();
         player = players.get(sc.nextInt());
+       // player = players.get(1);
         Board mainBoard = new Board(player, args[0]);
         mainBoard.mainLoop();
     }
@@ -43,12 +44,12 @@ public class Main {
         players.add(new Mage(15, 150, 50, 3, 3, 0, 1, "Thoros of Myr", new Health(250, 250), 25, 3));
         players.add(new Rogue(20, 0, 1, "Arya Stark", new Health(150, 150), 40, 2));
         players.add(new Rogue(60, 0, 1, "Bronn", new Health(250, 250), 35, 3));
-        System.out.printf("Choose player: ");
         int counter = 1;
         for(Player player : players){
-            System.out.println(counter + player.toString());
+            System.out.println(counter +"." + player.toString());
             counter++;
         }
+        System.out.println("Choose player: ");
     }
 
 }

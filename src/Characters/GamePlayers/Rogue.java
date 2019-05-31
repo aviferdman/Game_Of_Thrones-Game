@@ -21,7 +21,6 @@ public class Rogue extends Player {
         super(experience, level, name, health, attackPoints, defencePoints);
         this.cost = cost;
         this.CurrentEnergy = 100;
-        this.enemies = getEnemiesInRange(2);
     }
 
     @Override
@@ -38,6 +37,7 @@ public class Rogue extends Player {
     }
 
     public void gametick() {
+        this.enemies = getEnemiesInRange(2);
         this.CurrentEnergy = Math.min(CurrentEnergy + 10, 100);
     }
 

@@ -25,7 +25,6 @@ public class Mage extends Player {
         this.ManaCost = ManaCast;
         this.HitTimes = HitTimes;
         this.Range = Range;
-        this.enemies = getEnemiesInRange(this.Range);
     }
 
     public void levelUp() {
@@ -35,6 +34,7 @@ public class Mage extends Player {
     }
 
     public void gametick() {
+        this.enemies = getEnemiesInRange(this.Range);
         this.CurrentMana = Math.min((this.ManaPool), (this.CurrentMana + 1));
     }
 
