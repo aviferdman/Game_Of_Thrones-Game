@@ -27,7 +27,7 @@ public class Combat {
         notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points");
         notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points");
         if(attackPoints - defensePoints > 0){
-            notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +attackPoints + " damage");
+            notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +(attackPoints - defensePoints) + " damage");
             defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);
             if(defender.getHealth().getCurrentHealth() <= 0){
                 defender.setIsDead(true);
@@ -43,7 +43,7 @@ public class Combat {
         }
     }
 
-    public static void register(IObserver o) {
+    static void register(IObserver o) {
         observers.add(o);
     }
 

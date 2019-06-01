@@ -34,7 +34,7 @@ public class Rogue extends Player {
     }
 
     private void gametick() {
-        this.CurrentEnergy = Math.min(CurrentEnergy + 10, 100);
+        setCurrentEnergy(Math.min(getCurrentEnergy() + 10, 100));
     }
 
     public void speacialAbility(){
