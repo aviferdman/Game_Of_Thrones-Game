@@ -94,7 +94,7 @@ public class Trap extends Enemy {
         currBoard.getEnemies().remove(this);
         Free free = new Free(this.getPosition().getX(),this.getPosition().getY());
         currBoard.getFrees().add(free);
-        currBoard.setCell(free,free.getPosition().getX(),free.getPosition().getY());
+        currBoard.setCell(free,free.getPosition().getY(),free.getPosition().getX());
     }
 
     public void setCurrBoard(Board currBoard){
