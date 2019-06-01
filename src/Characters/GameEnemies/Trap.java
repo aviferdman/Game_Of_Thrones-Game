@@ -1,6 +1,7 @@
 package Characters.GameEnemies;
 
 import Attributes.Health;
+import Attributes.Position;
 import Characters.Cell;
 import Characters.Enemy;
 import Characters.GameCells.Free;
@@ -79,9 +80,16 @@ public class Trap extends Enemy {
         LinkedList<Cell> freePositions = currBoard.freeLocations(this.realocationRange,this);
         RandomGenerator random = IRandom.getInstance();
         int index = random.nextInt(freePositions.size());
-        int positionX = freePositions.get(index).getPosition().getX();
-        int positionY = freePositions.get(index).getPosition().getY();
+        Cell free = freePositions.get(index);
+        int positionX = free.getPosition().getX();
+        int positionY = free.getPosition().getY();
+        Position temp = new Position(getPosition().getX(),getPosition().getY());
+
         this.setPosition(positionX,positionY);
+        free.setPosition(temp.getX(),temp.getY());
+
+        getCurrBoard().setCell(free,free.getPosition().getY(),free.getPosition().getX());
+        getCurrBoard().setCell(this,getPosition().getY(),getPosition().getX());
     }
 
     public void updateDead (){
