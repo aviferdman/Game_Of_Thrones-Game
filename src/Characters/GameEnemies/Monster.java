@@ -52,15 +52,15 @@ public class Monster extends Enemy {
         int dy = this.getPosition().getX() - playerPosition.getX();
         if(Math.abs(dx)>Math.abs(dy)){
             if(dx>0) {
-                getCurrBoard().moveLeft(this);
-            } else {
-                getCurrBoard().moveRight(this);
-            }
-        } else {
-            if(dy>0){
                 getCurrBoard().moveUp(this);
             } else {
                 getCurrBoard().moveDown(this);
+            }
+        } else {
+            if(dy>0){
+                getCurrBoard().moveLeft(this);
+            } else {
+                getCurrBoard().moveRight(this);
             }
         }
     }

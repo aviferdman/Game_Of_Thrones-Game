@@ -81,11 +81,9 @@ public class Trap extends Enemy {
         RandomGenerator random = IRandom.getInstance();
         int index = random.nextInt(freePositions.size());
         Cell free = freePositions.get(index);
-        int positionX = free.getPosition().getX();
-        int positionY = free.getPosition().getY();
         Position temp = new Position(getPosition().getX(),getPosition().getY());
 
-        this.setPosition(positionX,positionY);
+        this.setPosition(free.getPosition().getX(),free.getPosition().getY());
         free.setPosition(temp.getX(),temp.getY());
 
         getCurrBoard().setCell(free,free.getPosition().getY(),free.getPosition().getX());
