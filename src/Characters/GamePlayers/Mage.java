@@ -39,26 +39,20 @@ public class Mage extends Player {
         this.CurrentMana = Math.min((this.ManaPool), (this.CurrentMana + 1));
     }
 
-    public void cast() {
+    public void speacialAbility() {
+        notifyObservers(this.getName() + " cast Blizzard.");
         this.enemies = getEnemiesInRange(this.Range);
-        if (this.CurrentMana < this.ManaCost) {
-
-        } else {
-            this.CurrentMana = this.CurrentMana - this.ManaCost;
+        if (this.CurrentMana > this.ManaCost) {
+            this.setCurrentMana(this.getCurrentMana()-this.getManaCost());
             int hits = 0;
             while (hits < this.HitTimes & !enemies.isEmpty() ) {
                 hitRandomEnemy();
                 hits++;
+                this.enemies = getEnemiesInRange(this.Range);
             }
+        }else {
+            notifyObservers("Cant cast spacial ability, " + (this.getManaCost() - this.getCurrentMana())+ " mana short.");
         }
-    }
-
-    public void speacialAbility() {
-        notifyObservers(this.getName() + " cast Blizzard.");
-        for (Enemy enemy : getEnemiesInRange(this.Range)) {
-            Combat.fightWithNoDefense(this,enemy,getSpellPower());
-        }
-
     }
 
     private int getRandomEnemyIndexInRange(){

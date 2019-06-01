@@ -37,21 +37,16 @@ public class Rogue extends Player {
         this.CurrentEnergy = Math.min(CurrentEnergy + 10, 100);
     }
 
-    public void cast() {
+    public void speacialAbility(){
+        notifyObservers(this.getName() + " cast Fan of Knives.");
         LinkedList<Enemy> enemies = getEnemiesInRange(this.range);
-        if (CurrentEnergy < cost) {
-        } else {
-            CurrentEnergy = CurrentEnergy - cost;
+        if (CurrentEnergy > cost) {
+            this.setCurrentEnergy(this.getCurrentEnergy() - this.getCost());
             for (Enemy enemy : enemies) {
                 Combat.fight(this,enemy,this.getAttackPoints());
             }
-        }
-    }
-
-    public void speacialAbility(){
-        notifyObservers(this.getName() + " cast Fan of Knives.");
-        for (Enemy enemy : getEnemiesInRange(this.range)) {
-            Combat.fightWithNoDefense(this,enemy,getAttackPoints());
+        } else {
+            notifyObservers("Cant cast spacial ability, " + (getCost() - getCurrentEnergy()) + " energy short.");
         }
     }
 

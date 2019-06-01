@@ -27,7 +27,7 @@ public abstract class Player extends Unit implements IObservable {
     }
 
     public void levelUp() {
-        while (experience > 50 * level) {
+        while (experience >= 50 * level) {
             this.experience = this.experience - (50 * this.level);
             setLevel(this.level + 1);
             notifyObservers("Level up: +" + 10 * this.level + " Health, " + 5 * this.level +" Attack, " + 2 * this.level + " Defense");

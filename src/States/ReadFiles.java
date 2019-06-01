@@ -103,17 +103,17 @@ class ReadFiles {
                     monsters.add(enemy);
                 }
                 if(c=='B'){
-                    Trap enemy = new Trap ("Bonus Characters.Trap", 'B', new Health(1,1), 1, 1, 250, 5, 6,2);
+                    Trap enemy = new Trap ("Bonus Trap", 'B', new Health(1,1), 1, 1, 250, 5, 6,2);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='Q'){
-                    Trap enemy = new Trap ("Queen’s Characters.Trap", 'Q', new Health(250,250), 50, 10, 100, 4, 10,4);
+                    Trap enemy = new Trap ("Queen’s Trap", 'Q', new Health(250,250), 50, 10, 100, 4, 10,4);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }
                 if(c=='D'){
-                    Trap enemy = new Trap("Death Characters.Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3);
+                    Trap enemy = new Trap("Death Trap", 'D', new Health(500,500), 100, 20, 250, 6, 10,3);
                     enemy.setPosition(lineNumber,i);
                     enemies.add(enemy);
                 }

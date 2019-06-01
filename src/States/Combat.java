@@ -5,6 +5,7 @@ import Random.IRandom;
 import Random.RandomGenerator;
 import observer.IObserver;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,19 +18,14 @@ public class Combat {
         combat(attacker,defender,random.nextInt(attacker.getAttackPoints()),random.nextInt(defender.getDefencePoints()));
     }
 
-    public static void fightWithNoDefense (Unit attacker, Unit defender,int attackPoints){
-        combat(attacker,defender,attackPoints,0);
-    }
-
     public static void fight (Unit attacker, Unit defender,int attackPoints){
-        int defencePoints = random.nextInt(defender.getDefencePoints());
-        combat(attacker,defender,attackPoints,defencePoints);
+        combat(attacker,defender,attackPoints,random.nextInt(defender.getDefencePoints()));
     }
 
     private static void combat(Unit attacker, Unit defender, int attackPoints, int defensePoints){
-        notifyObservers(attacker.getName() + " engaged in battle with " + defender.getName() + "\n");
-        notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points" + "\n");
-        notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points" + "\n");
+        notifyObservers(attacker.getName() + " engaged in battle with " + defender.getName());
+        notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points");
+        notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points");
         if(attackPoints - defensePoints > 0){
             notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +attackPoints + " damage");
             defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);

@@ -33,15 +33,6 @@ public class Warrior extends Player {
         }
     }
 
-    public void cast() {
-        if (this.remaining > 0) {
-
-        } else {
-            this.remaining = this.cooldown;
-            getHealth().setCurrentHealth(Math.min(getHealth().getCurrentHealth() + 2 * getDefencePoints(), getHealth().getHealthPool()));
-        }
-    }
-
     public void speacialAbility() {
         notifyObservers(this.getName() + " cast Heal.");
         if (this.remaining == 0) {
@@ -51,6 +42,8 @@ public class Warrior extends Player {
                 this.getHealth().setCurrentHealth(this.getHealth().getCurrentHealth() + this.getDefencePoints() * 2);
             }
             this.remaining = this.cooldown;
+        } else {
+            notifyObservers("Cant cast spacial ability, " + this.remaining + " turns remaining.");
         }
     }
 

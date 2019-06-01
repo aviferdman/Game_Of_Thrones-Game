@@ -63,7 +63,7 @@ public class Trap extends Enemy {
             trapRelocation();
         } else {
             this.ticksCount++;
-            if(this.IsInRange(player,this.realocationRange)){
+            if(range(this,player)<2){
                 Combat.fight(this,player);
             }
         }
@@ -86,7 +86,7 @@ public class Trap extends Enemy {
 
     public void updateDead (){
         currBoard.getEnemies().remove(this);
-        Free free = new Free(getPosition().getX(),getPosition().getY());
+        Free free = new Free(this.getPosition().getX(),this.getPosition().getY());
         currBoard.getFrees().add(free);
         currBoard.setCell(free,free.getPosition().getX(),free.getPosition().getY());
     }

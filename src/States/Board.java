@@ -144,9 +144,6 @@ public class Board implements IObservable {
         if (level<4) {
             level = level + 1;
             setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));
-            /*if(observers != null) {
-                observers.forEach(this::register);
-            }*/
         }
     }
 
