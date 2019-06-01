@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b88db07f-53ba-4f77-a8da-bcbf5e9a142a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/GameEnemies/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/GameEnemies/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Characters/GameEnemies/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/GameEnemies/Trap.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/States/ReadFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-482">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="-3141">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/States/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2592">
-              <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+            <state relative-caret-position="-2955">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#toString#0;class#Board#0" />
@@ -71,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Characters/GameEnemies/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="664">
@@ -102,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Characters/GameEnemies/Trap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+            <state relative-caret-position="451">
+              <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
               <folding>
                 <element signature="method#Trap#0;class#Trap#0" />
                 <element signature="method#setExperience#0;class#Trap#0" />
@@ -114,6 +113,7 @@
                 <element signature="e#1076#1127#1" />
                 <element signature="e#1133#1168#1" />
                 <element signature="method#setIsPlayerInRange#0;class#Trap#0" />
+                <element signature="method#play#0;class#Trap#0" />
               </folding>
             </state>
           </provider>
@@ -226,8 +226,8 @@
         <option value="$PROJECT_DIR$/src/States/ReadFiles.java" />
         <option value="$PROJECT_DIR$/src/States/Combat.java" />
         <option value="$PROJECT_DIR$/src/Characters/GamePlayers/Rogue.java" />
-        <option value="$PROJECT_DIR$/src/Characters/GameEnemies/Trap.java" />
         <option value="$PROJECT_DIR$/src/Characters/GameEnemies/Monster.java" />
+        <option value="$PROJECT_DIR$/src/Characters/GameEnemies/Trap.java" />
       </list>
     </option>
   </component>
@@ -321,7 +321,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="States.Main" />
       <module name="HW3" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\Andrey\IdeaProjects\HW3&quot; -D" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\ASUS\HW3&quot; -D" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -618,7 +618,21 @@
       <option name="project" value="LOCAL" />
       <updated>1559380050113</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="trap position fix and chase">
+      <created>1559380922267</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1559380922267</updated>
+    </task>
+    <task id="LOCAL-00041" summary="trap position fix and chase">
+      <created>1559381062364</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1559381062364</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -628,7 +642,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22278482" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.15860215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -637,7 +651,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32979977" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30306345" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11995516" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3654267" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -706,7 +720,8 @@
     <MESSAGE value="position fix" />
     <MESSAGE value="board fix" />
     <MESSAGE value="trap position fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="trap position fix" />
+    <MESSAGE value="trap position fix and chase" />
+    <option name="LAST_COMMIT_MESSAGE" value="trap position fix and chase" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../Desktop/copy/src/Enemy.java" />
@@ -877,16 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/States/ReadFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-482">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Random/DRandom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -911,17 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1674">
           <caret line="88" column="19" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/States/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2592">
-          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toString#0;class#Board#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,10 +979,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/GameEnemies/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/States/ReadFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3141">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/States/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2955">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toString#0;class#Board#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Characters/GameEnemies/Trap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+        <state relative-caret-position="451">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
           <folding>
             <element signature="method#Trap#0;class#Trap#0" />
             <element signature="method#setExperience#0;class#Trap#0" />
@@ -996,14 +1018,8 @@
             <element signature="e#1076#1127#1" />
             <element signature="e#1133#1168#1" />
             <element signature="method#setIsPlayerInRange#0;class#Trap#0" />
+            <element signature="method#play#0;class#Trap#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/GameEnemies/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
         </state>
       </provider>
     </entry>

@@ -86,8 +86,8 @@ public class Trap extends Enemy {
         this.setPosition(free.getPosition().getX(),free.getPosition().getY());
         free.setPosition(temp.getX(),temp.getY());
 
-        getCurrBoard().setCell(free,free.getPosition().getY(),free.getPosition().getX());
-        getCurrBoard().setCell(this,getPosition().getY(),getPosition().getX());
+        currBoard.setCell(free,free.getPosition().getY(),free.getPosition().getX());
+        currBoard.setCell(this,getPosition().getY(),getPosition().getX());
     }
 
     public void updateDead (){
