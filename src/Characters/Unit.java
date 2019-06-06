@@ -102,7 +102,7 @@ public abstract class Unit extends Cell{
     protected int range(Enemy enemy, Player player){
         int Px = player.getPosition().getX();
         int Py = player.getPosition().getY();
-        int Qx = enemy.getPosition().getY();
+        int Qx = enemy.getPosition().getX();
         int Qy = enemy.getPosition().getY();
         return (int)(Math.sqrt(Math.pow((Px-Qx),2) + Math.pow((Py-Qy),2)));
     }

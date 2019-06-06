@@ -29,18 +29,19 @@ public class Monster extends Enemy {
 
     public void play(){
         if(range(this,getCurrBoard().getPlayer())<this.getVisionRange()){
+
             chasePlayer(getCurrBoard().getPlayer().getPosition());
         }
         else {
             RandomGenerator rg = IRandom.getInstance();
-            int move = rg.nextInt(4);
+            int move = rg.nextInt(5);
             if (move == 1) {
                 getCurrBoard().moveUp(this);
             } else if (move == 2) {
                 getCurrBoard().moveLeft(this);
             } else if (move == 3) {
                 getCurrBoard().moveRight(this);
-            } else {
+            } else if (move == 4){
                 getCurrBoard().moveDown(this);
             }
         }
@@ -53,13 +54,16 @@ public class Monster extends Enemy {
         if(Math.abs(dx)>Math.abs(dy)){
             if(dx>0) {
                 getCurrBoard().moveLeft(this);
-            } else {
+            }
+            else if (dx<0){
                 getCurrBoard().moveRight(this);
             }
-        } else {
+        }
+        else {
             if(dy>0){
                 getCurrBoard().moveUp(this);
-            } else {
+            }
+            else if (dy<0) {
                 getCurrBoard().moveDown(this);
             }
         }

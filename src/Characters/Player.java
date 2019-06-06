@@ -1,6 +1,7 @@
 package Characters;
 
 import Attributes.Health;
+import Random.IRandom;
 import States.Combat;
 import observer.IObservable;
 import observer.IObserver;
@@ -38,7 +39,8 @@ public abstract class Player extends Unit implements IObservable {
         }
     }
 
-    public void play(char movevement){
+    public void play(){
+        char movevement= IRandom.getInstance().nextChar();
         if(movevement == 'w'){
             getCurrBoard().moveUp(this);
         } else if(movevement == 's'){
@@ -50,6 +52,7 @@ public abstract class Player extends Unit implements IObservable {
         } else if(movevement == 'e'){
             this.speacialAbility();
         }
+        afterPlay();
     }
 
     public abstract void afterPlay();
@@ -80,6 +83,7 @@ public abstract class Player extends Unit implements IObservable {
     }
 
     public void updateDead (){
+        setHealth(new Health(getHealth().getHealthPool(),0));
         setIsDead(true);
     }
 
