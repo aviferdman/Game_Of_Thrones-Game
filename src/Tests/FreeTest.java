@@ -12,6 +12,7 @@ public class FreeTest {
 
     @Test
     public void getPosition() {
-        assertEquals(P_Test,F_Test.getPosition());
+        assertEquals(P_Test.getX(),F_Test.getPosition().getX());
+        assertEquals(P_Test.getY(),F_Test.getPosition().getY());
     }
 }

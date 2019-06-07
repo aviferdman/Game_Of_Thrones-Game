@@ -11,6 +11,7 @@ public class WallTest {
 
     @Test
     public void getPosition() {
-        assertEquals(new Position(10,1),T_Wall.getPosition());
+        assertEquals(new Position(10,1).getX(),T_Wall.getPosition().getX());
+        assertEquals(new Position(10,1).getY(),T_Wall.getPosition().getY());
     }
 }

@@ -29,7 +29,7 @@ public class MonsterTest {
         assertEquals('C',M_Test.getTile());
     }
 
-    @Test
+    /*@Test
     public void chasePlayer() {
         T_Player.setPosition(2,4);
         M_Test.setPosition(2,2);
@@ -38,5 +38,5 @@ public class MonsterTest {
         T_Player.setPosition(2,5);
         M_Test.chasePlayer(T_Player.getPosition());
         assertEquals(new Position(2,4),M_Test.getPosition());
-    }
+    }*/
 }

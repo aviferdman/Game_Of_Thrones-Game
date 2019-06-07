@@ -11,7 +11,7 @@ public class TrapTest {
 
     @Test
     public void getRelocationTime() {
-        assertEquals(10,T_Trap.getRealocationRange());
+        assertEquals(10,T_Trap.getRelocationTime());
     }
 
     @Test
