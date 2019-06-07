@@ -22,7 +22,7 @@ public class Combat {
         combat(attacker,defender,attackPoints,random.nextInt(defender.getDefencePoints()));
     }
 
-    private static void combat(Unit attacker, Unit defender, int attackPoints, int defensePoints){
+    public static void combat(Unit attacker, Unit defender, int attackPoints, int defensePoints){
         notifyObservers(attacker.getName() + " engaged in battle with " + defender.getName());
         notifyObservers(attacker.getName() + " rolled " + attackPoints + " attack points");
         notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points");

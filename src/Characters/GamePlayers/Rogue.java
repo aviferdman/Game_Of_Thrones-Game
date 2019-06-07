@@ -60,19 +60,23 @@ public class Rogue extends Player {
     }
 
     public int getCost() {
-        return cost;
+        return this.cost;
     }
 
     public void setCost(int cost) {
         this.cost = cost;
     }
 
-    private int getCurrentEnergy() {
-        return CurrentEnergy;
+    public int getCurrentEnergy() {
+        return this.CurrentEnergy;
     }
 
     public void setCurrentEnergy(int currentEnergy) {
         CurrentEnergy = currentEnergy;
+    }
+
+    public int getRange() {
+        return this.range;
     }
 
 }

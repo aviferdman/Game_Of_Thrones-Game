@@ -58,7 +58,7 @@ public class Warrior extends Player {
         return output;
     }
 
-    private int getCooldown() {
+    public int getCooldown() {
         return cooldown;
     }
 
@@ -66,7 +66,7 @@ public class Warrior extends Player {
         this.cooldown = cooldown;
     }
 
-    private int getRemaining() {
+    public int getRemaining() {
         return remaining;
     }
 
