@@ -47,8 +47,7 @@ public class Monster extends Enemy {
         }
     }
 
-    private void chasePlayer(Position playerPosition){
-
+    public void chasePlayer(Position playerPosition){
         int dx = this.getPosition().getY() - playerPosition.getY();
         int dy = this.getPosition().getX() - playerPosition.getX();
         if(Math.abs(dx)>Math.abs(dy)){

@@ -28,7 +28,7 @@ public class Combat {
         notifyObservers(defender.getName() + " rolled " + defensePoints + " defense points");
         if(attackPoints - defensePoints > 0){
             notifyObservers(attacker.getName() + " hit " + defender.getName() + " for " +(attackPoints - defensePoints) + " damage");
-            defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints);
+            defender.getHealth().setCurrentHealth(defender.getHealth().getCurrentHealth()-attackPoints + defensePoints);
             if(defender.getHealth().getCurrentHealth() <= 0){
                 defender.setIsDead(true);
                 defender.updateDead();
