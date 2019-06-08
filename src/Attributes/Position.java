@@ -26,5 +26,10 @@ public class Position {
         this.y = y;
     }
 
+
+    public boolean beLike(Position p){
+        return (getX()==p.getX()&&getY()==p.getY());
+    }
+
 }
 

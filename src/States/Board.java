@@ -22,12 +22,12 @@ public class Board implements IObservable {
     private Cell [] [] theBoard;
 
     private int level;
-    private final String pathToLevels;
+    private String pathToLevels;
 
-    public Board (Player player, String pathToLevels){
+    public Board (Player player){
         this.player=player;
-        DemiBoard demiBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
-        setTheBoard(demiBoard);
+        /*DemiBoard demiBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
+        setTheBoard(demiBoard);*/
         this.level = 1;
         this.pathToLevels = pathToLevels;
         observers = new ArrayList<>();
@@ -76,6 +76,10 @@ public class Board implements IObservable {
 
     private Cell[][] getTheBoard() {
         return theBoard;
+    }
+
+    public void setCellsArray (Cell [][] array){
+        this.theBoard = array;
     }
 
     public void setPlayer(Player player) {
@@ -141,11 +145,13 @@ public class Board implements IObservable {
         }
         if (level<4) {
             level = level + 1;
-            setTheBoard(ReadFiles.ReadBoard(pathToLevels + "\\level" + level + ".txt", player));
+            setTheBoard(pathToLevels, "\\level" + level + ".txt", player);
         }
     }
 
-    private void setTheBoard(DemiBoard demiBoard) {
+    public void setTheBoard(String path,String levelPath,Player player) {
+        this.pathToLevels = path;
+        DemiBoard demiBoard = ReadFiles.ReadBoard((path + levelPath), player);
         this.player=demiBoard.getPlayer();
         this.enemies =demiBoard.getEnemies();
         this.monsters=demiBoard.getMonsters();
@@ -205,4 +211,5 @@ public class Board implements IObservable {
         }
         return output.toString();
     }
+
 }

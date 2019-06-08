@@ -23,7 +23,8 @@ public class Main {
         // int chosenPlayer = Integer.parseInt(String.valueOf(IRandom.getInstance().nextChar()));
         //int chosenPlayer = 1;
         Player player = CommandLineApp.choosePlayer();
-        Board mainBoard = new Board(player, args[0]);
+        Board mainBoard = new Board(player);
+        mainBoard.setTheBoard(args[0],"\\level1.txt",player);
         mainBoard.mainLoop();
     }
 }
