@@ -28,7 +28,7 @@ public class Position {
 
 
     public boolean beLike(Position p){
-        return (getX()==p.getX()&&getY()==p.getY());
+        return (getX().equals(p.getX()) && getY().equals(p.getY()));
     }
 
 }

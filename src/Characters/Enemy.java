@@ -23,6 +23,7 @@ public abstract class Enemy extends Unit {
 
     public abstract void setIsPlayerInRange (boolean isPlayerInRange);
 
+
     public char getTile() {
         return tile;
     }
