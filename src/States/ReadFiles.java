@@ -14,6 +14,18 @@ import java.util.Scanner;
 
 class ReadFiles {
 
+    public static boolean IsFileExists (String path){
+        File file = new File(path);
+        Scanner sc = null;
+        try
+        {
+            sc = new Scanner(file);
+        }
+        catch (FileNotFoundException e) {
+            return false;
+        }
+        return true;
+    }
     public static DemiBoard ReadBoard (String path, Player player){
         int width=0;
         int length=0;

@@ -20,6 +20,7 @@ public class Board implements IObservable {
     private LinkedList<Monster> monsters = new LinkedList<>();
     private LinkedList<Free> free = new LinkedList<>();
     private Cell [] [] theBoard;
+    private boolean playerWonTheGame;
 
     private int level;
     private String pathToLevels;
@@ -33,6 +34,7 @@ public class Board implements IObservable {
         observers = new ArrayList<>();
         this.player.setCurrBoard(this);
         updateEnemiesRangeFromPlayer();
+        playerWonTheGame = false;
     }
 
     public void mainLoop() {
@@ -41,6 +43,11 @@ public class Board implements IObservable {
             notifyState();
             Tick();
             if (gameOver()) {
+                notifyState();
+                break;
+            }
+            if (playerWonTheGame){
+                PlayerWon();
                 notifyState();
                 break;
             }
@@ -140,12 +147,19 @@ public class Board implements IObservable {
     }
 
     private void boardLevelUp(){
-        if(level == 4){
+        /*if(level == 4){
             notifyObservers("Game is finished. You won!");
         }
         if (level<4) {
             level = level + 1;
             setTheBoard(pathToLevels, "\\level" + level + ".txt", player);
+        }*/
+        level = level + 1;
+        if(ReadFiles.IsFileExists(pathToLevels+ "\\level" + level + ".txt")){
+            setTheBoard(pathToLevels, "\\level" + level + ".txt", player);
+        }
+        else {
+            playerWonTheGame = true;
         }
     }
 
@@ -197,6 +211,17 @@ public class Board implements IObservable {
     private void notifyState(){
         notifyObservers(this.toString());
         notifyObservers(player.toString());
+    }
+
+    private void PlayerWon(){
+        notifyObservers("~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "!+~YOU WON THE GAME~+!\n" +
+                "\"THE WINTER IS COMING\"\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     @Override
