@@ -27,8 +27,6 @@ public class Board implements IObservable {
 
     public Board (Player player){
         this.player=player;
-        /*DemiBoard demiBoard = ReadFiles.ReadBoard(pathToLevels+"\\level1.txt",player);
-        setTheBoard(demiBoard);*/
         this.level = 1;
         this.pathToLevels = pathToLevels;
         observers = new ArrayList<>();
@@ -147,13 +145,6 @@ public class Board implements IObservable {
     }
 
     private void boardLevelUp(){
-        /*if(level == 4){
-            notifyObservers("Game is finished. You won!");
-        }
-        if (level<4) {
-            level = level + 1;
-            setTheBoard(pathToLevels, "\\level" + level + ".txt", player);
-        }*/
         level = level + 1;
         if(ReadFiles.IsFileExists(pathToLevels+ "\\level" + level + ".txt")){
             setTheBoard(pathToLevels, "\\level" + level + ".txt", player);
