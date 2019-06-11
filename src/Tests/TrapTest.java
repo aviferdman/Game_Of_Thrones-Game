@@ -19,8 +19,4 @@ public class TrapTest {
         assertEquals(0,T_Trap.getTicksCount());
     }
 
-    @Test
-    public void isVisible() {
-        assertFalse(T_Trap.isVisible());
-    }
 }

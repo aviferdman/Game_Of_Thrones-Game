@@ -4,7 +4,8 @@ import Characters.*;
 import Characters.GameCells.Free;
 import Characters.GameCells.Wall;
 import Characters.GameEnemies.Monster;
-import Random.IRandom;
+import DataLayer.ReadFiles;
+import PresentationLayer.CommandLineApp;
 import observer.IObservable;
 import observer.IObserver;
 
@@ -58,7 +59,7 @@ public class Board implements IObservable {
             enemy.play();
         }
         updateEnemiesRangeFromPlayer();
-        if (monsters.isEmpty()){
+        if (enemies.isEmpty()){
             boardLevelUp();
         }
     }

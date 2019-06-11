@@ -5,7 +5,7 @@ import States.Main;
 public class IRandom implements RandomGenerator {
 
     private static final String RANDOM_NUMBERS_PATH = "random_numbers.txt";
-    private static final String USER_INPUT_PATH = "user_input.txt";
+    private static final String USER_INPUT_PATH = "user_actions.txt";
     private static RandomGenerator instance = null;
 
     private IRandom() { }

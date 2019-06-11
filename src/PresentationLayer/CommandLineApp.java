@@ -1,10 +1,11 @@
-package States;
+package PresentationLayer;
 
 import Attributes.Health;
 import Characters.GamePlayers.Mage;
 import Characters.GamePlayers.Rogue;
 import Characters.GamePlayers.Warrior;
 import Characters.Player;
+import Random.IRandom;
 import States.Board;
 import observer.IObserver;
 
@@ -24,10 +25,9 @@ public class CommandLineApp implements IObserver {
     }
 
     public static Player choosePlayer() {
-        Scanner sc =new Scanner(System.in);
-        List<Player> players = new ArrayList<Player>();
+        List<Player> players;
         System.out.println("Choose player: ");
-        players = new ArrayList<Player>();
+        players = new ArrayList<>();
         players.add(new Warrior(6, 0, 1, "Jon Snow", new Health(300, 300), 30, 4));
         players.add(new Warrior(4, 0, 1, "The Hound", new Health(400, 400), 20, 6));
         players.add(new Mage(40, 300, 30, 5, 6, 0, 1, "Melisandre", new Health(160, 160), 10, 1));
@@ -39,7 +39,7 @@ public class CommandLineApp implements IObserver {
             System.out.println(counter +"." + player.toString());
             counter++;
         }
-        Player player = players.get(sc.nextInt()-1);
+        Player player = players.get(Character.getNumericValue(IRandom.getInstance().nextChar()) - 1);
         System.out.println("You have selected:" + "\n" + player);
         System.out.println("use w/s/a/d to move." +"\n" + "Use 'e' for special ability or 'q' to pass");
         return player;

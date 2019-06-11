@@ -1,4 +1,4 @@
-package States;
+package DataLayer;
 
 import Characters.*;
 import Attributes.Health;
@@ -6,13 +6,14 @@ import Characters.GameCells.Free;
 import Characters.GameCells.Wall;
 import Characters.GameEnemies.Monster;
 import Characters.GameEnemies.Trap;
+import States.DemiBoard;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-class ReadFiles {
+public class ReadFiles {
 
     public static boolean IsFileExists (String path){
         File file = new File(path);
